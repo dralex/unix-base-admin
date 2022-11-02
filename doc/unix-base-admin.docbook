@@ -43,11 +43,18 @@
     <author>
       <firstname>Андрей</firstname>
       <surname>Егерев</surname>
-    </author> <email>premudrij-peskar@yandex.ru</email>.
+      </author> <email>premudrij-peskar@yandex.ru</email>.
+      При публикации лекций в ALT Linux Heap небольшие правки внес
+    <author>
+      <firstname>Кирилл</firstname>
+      <surname>Маслинский</surname>
+      </author> <email>kirill@altlinux.org</email>.
   </para>
   <para>
-    Эти лекции находятся в ещё достаточно сыром состоянии. Автор будет очень признателен
-    за все высказанные поправки и замечания. Пишите: <email>aleksey@fedoseev.net</email>.
+    Эти лекции находятся в ещё достаточно сыром состоянии. Текущая версия курса была
+    загружена на GitHub: <ulink
+    url="https://github.com/dralex/unix-base-admin">https://github.com/dralex/unix-base-admin</ulink>.
+    Автор будет очень признателен за все высказанные поправки и замечания. Пишите: <email>aleksey@fedoseev.net</email>.
   </para>
   
 <preface id="chapter-about">
