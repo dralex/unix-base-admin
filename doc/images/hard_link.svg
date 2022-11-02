@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.42.2"
+   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/images"
+   sodipodi:docname="hard_link.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path4388"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(-5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4409973"
+     inkscape:cx="187.97337"
+     inkscape:cy="771.38253"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="975"
+     inkscape:window-height="713"
+     inkscape:window-x="41"
+     inkscape:window-y="25" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.25462348pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 62.068552,264.63133 L 204.80011,264.63133 L 204.80011,179.52511 L 119.72832,179.52511 L 106.84546,164.72771 L 74.356694,164.72771 L 62.912600,178.28542 L 62.068552,264.63133 z "
+       id="path1306"
+       sodipodi:nodetypes="cccccccc" />
+    <rect
+       style="fill:#dcdcdc;fill-opacity:1.0000000;fill-rule:nonzero;stroke:none;stroke-width:0.35433072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="rect1334"
+       width="129.05582"
+       height="13.739782"
+       x="69.680328"
+       y="230.42877" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="74.587395"
+       y="197.06071"
+       id="text1308"><tspan
+         sodipodi:role="line"
+         id="tspan1310"
+         x="74.587395"
+         y="197.06071">10245    .</tspan><tspan
+         sodipodi:role="line"
+         x="74.587395"
+         y="212.06071"
+         id="tspan1312">12432    ..</tspan><tspan
+         sodipodi:role="line"
+         x="74.587395"
+         y="227.06071"
+         id="tspan1314">8672      file1.txt</tspan><tspan
+         sodipodi:role="line"
+         x="74.587395"
+         y="242.06071"
+         id="tspan1316">12567    first</tspan><tspan
+         sodipodi:role="line"
+         x="74.587395"
+         y="257.06071"
+         id="tspan1318">19678    report</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.25462348pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 236.30721,265.65937 L 379.03877,265.65937 L 379.03877,180.55315 L 293.96698,180.55315 L 281.08412,165.75575 L 248.59535,165.75575 L 237.15126,179.31346 L 236.30721,265.65937 z "
+       id="path1320"
+       sodipodi:nodetypes="cccccccc" />
+    <rect
+       style="fill:#dcdcdc;fill-opacity:1.0000000;fill-rule:nonzero;stroke:none;stroke-width:0.35433072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="rect2062"
+       width="129.05582"
+       height="13.739782"
+       x="243.14508"
+       y="247.11279" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="248.82605"
+       y="198.08876"
+       id="text1322"><tspan
+         sodipodi:role="line"
+         id="tspan1324"
+         x="248.82605"
+         y="198.08876">12563    .</tspan><tspan
+         sodipodi:role="line"
+         x="248.82605"
+         y="213.08876"
+         id="tspan1326">12432    ..</tspan><tspan
+         sodipodi:role="line"
+         x="248.82605"
+         y="228.08876"
+         id="tspan1328">12672      a.out</tspan><tspan
+         sodipodi:role="line"
+         x="248.82605"
+         y="243.08876"
+         id="tspan1330">9675      dir1/</tspan><tspan
+         sodipodi:role="line"
+         x="248.82605"
+         y="258.08876"
+         id="tspan1332">12567    second</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.35400000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="rect2064"
+       width="54.959129"
+       height="24.535326"
+       x="156.04468"
+       y="302.07193" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="222.02502"
+       y="317.69409"
+       id="text3518"><tspan
+         sodipodi:role="line"
+         id="tspan3520"
+         x="222.02502"
+         y="317.69409">i-node (метаданные файла)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="164.27911"
+       y="318.70776"
+       id="text3522"><tspan
+         sodipodi:role="line"
+         id="tspan3524"
+         x="164.27911"
+         y="318.70776">12567</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.35400000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="rect3526"
+       width="54.959129"
+       height="24.535326"
+       x="156.04468"
+       y="338.38422" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="223.09729"
+       y="354.00638"
+       id="text3528"><tspan
+         sodipodi:role="line"
+         id="tspan3530"
+         x="223.09729"
+         y="354.00638">Данные файла</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0204724;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none;marker-end:url(#Arrow2Mend)"
+       d="M 66.245380,235.82654 L 52.014891,235.82654 L 52.014891,285.87860 L 182.54282,285.87860 L 182.54282,301.09050"
+       id="path3550" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0204724;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none"
+       d="M 240.80544,253.26285 L 227.62013,253.26285 L 227.62013,285.87915 C 227.62013,285.87915 193.78939,285.87915 182.51248,285.87915"
+       id="path4415"
+       sodipodi:nodetypes="cccz" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.94890165;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
+       d="M 182.85946,326.40697 L 182.85946,336.60757"
+       id="path5149" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="61.909412"
+       y="157.4162"
+       id="text5885"><tspan
+         sodipodi:role="line"
+         id="tspan5887"
+         x="61.909412"
+         y="157.41620">/home/alice</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="236.14807"
+       y="157.4162"
+       id="text5897"><tspan
+         sodipodi:role="line"
+         id="tspan5899"
+         x="236.14807"
+         y="157.41620">/home/bob</tspan></text>
+  </g>
+</svg>

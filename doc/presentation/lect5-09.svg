@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="841.88975pt"
+   height="595.27559pt"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.42.2"
+   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/presentation"
+   sodipodi:docname="lect5-09.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mstart"
+       style="overflow:visible">
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2179"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) translate(-5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path2316"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(-5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.59196452"
+     inkscape:cx="526.18109"
+     inkscape:cy="315.91904"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="975"
+     inkscape:window-height="713"
+     inkscape:window-x="41"
+     inkscape:window-y="768">
+    <sodipodi:guide
+       orientation="horizontal"
+       position="579.68739"
+       id="guide1319" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="99.418682"
+       id="guide1321" />
+    <sodipodi:guide
+       orientation="vertical"
+       position="61.180727"
+       id="guide1325" />
+    <sodipodi:guide
+       orientation="vertical"
+       position="989.59827"
+       id="guide1327" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Содержимое" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Подпись">
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       x="907.34863"
+       y="693.62036"
+       id="text1334"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1336"
+         x="907.34863"
+         y="693.62036">09 / 12</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="51.970154"
+       y="199.44466"
+       id="text1342"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="199.44466"
+         id="tspan2251">В ранних системах: файл /etc/hosts задаёт соответствие символьным </tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="230.33987"
+         id="tspan2952">именам IP-адресов.</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="261.23509"
+         id="tspan2950" /><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="292.13030"
+         id="tspan2948">Сейчас: одна из важнейших служб Internet - служба доменных имен</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="323.02552"
+         id="tspan2956">(DNS). Осуществляет связь между именами и IP-адресами. Имя имеет</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="353.92074"
+         id="tspan2958">особый вид (например, ru.wikipedia.org)<tspan
+   style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
+   id="tspan2960"> с доменом первого и второго</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="384.81595"
+         id="tspan2966"><tspan
+   style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
+   id="tspan2990">уровней </tspan>и разделителем в виде точки.</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="415.71117"
+         id="tspan2968" /><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="446.60638"
+         id="tspan2970">DNS - распределённое хранилище данных. Корневые сервера хранят</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="477.50160"
+         id="tspan2974">информацию о доменах первого уровня. Прочая информация делегируется</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="508.39681"
+         id="tspan2976">владельцам доменов.</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="539.29203"
+         id="tspan2978" /><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="570.18725"
+         id="tspan2982">В UNIX - файл /etc/resolv.conf - настройка текущего сервера DNS. </tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="601.08246"
+         id="tspan2995" /><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="631.97768"
+         id="tspan2997">Самый распространённый DNS-сервер <tspan
+   style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
+   id="tspan2999">bind</tspan> - под UNIX.</tspan><tspan
+         sodipodi:role="line"
+         x="51.970154"
+         y="662.87289"
+         id="tspan2993" /></text>
+  </g>
+  <g
+     inkscape:label="Заголовок"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="526.09906"
+       y="81.956612"
+       id="text1326"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1328"
+         x="526.09906"
+         y="81.956612">Лекция 5: Сетевые средства UNIX</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:48.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="528.27875"
+       y="145.50708"
+       id="text1330"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1332"
+         x="528.27875"
+         y="145.50708">Служба доменных имён</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       x="525.52191"
+       y="50.379196"
+       id="text10267"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan10269"
+         x="525.52191"
+         y="50.379196">Введение в администрирование UNIX</tspan></text>
+  </g>
+</svg>

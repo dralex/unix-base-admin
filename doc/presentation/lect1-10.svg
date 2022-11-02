@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="841.88975pt"
+   height="595.27559pt"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.42.2"
+   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/presentation"
+   sodipodi:docname="lect1-10.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path3019"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(-5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mstart"
+       style="overflow:visible">
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path3010"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) translate(-5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.58982518"
+     inkscape:cx="568.42671"
+     inkscape:cy="374.34168"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="975"
+     inkscape:window-height="713"
+     inkscape:window-x="41"
+     inkscape:window-y="25">
+    <sodipodi:guide
+       orientation="horizontal"
+       position="579.68739"
+       id="guide1319" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="99.418682"
+       id="guide1321" />
+    <sodipodi:guide
+       orientation="vertical"
+       position="61.180727"
+       id="guide1325" />
+    <sodipodi:guide
+       orientation="vertical"
+       position="989.59827"
+       id="guide1327" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Содержимое" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Подпись">
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       x="907.34863"
+       y="693.62036"
+       id="text1334"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1336"
+         x="907.34863"
+         y="693.62036">10 / 13</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:130.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="64.09906"
+       y="206.20178"
+       id="text1342"
+       sodipodi:linespacing="130.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1352"
+         x="64.099060"
+         y="206.20178"><tspan
+           style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:130.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
+           id="tspan1358">Операционная система состоит из минимизированного ядра и процессов,</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="64.099060"
+         y="238.33281"
+         id="tspan1972">исполняющихся в режиме пользователя.</tspan></text>
+  </g>
+  <g
+     inkscape:label="Заголовок"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="526.09906"
+       y="81.956612"
+       id="text1326"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1328"
+         x="526.09906"
+         y="81.956612">Лекция 1: Введение в операционные системы</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:48.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="528.27875"
+       y="145.50708"
+       id="text1330"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan1332"
+         x="528.27875"
+         y="145.50708">Микроядро</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       x="525.52191"
+       y="50.379196"
+       id="text10267"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         id="tspan10269"
+         x="525.52191"
+         y="50.379196">Введение в администрирование UNIX</tspan></text>
+    <g
+       id="g1932"
+       transform="translate(8.616876,-6.781670)">
+      <path
+         id="path3647"
+         d="M 51.447172,506.62758 L 940.00161,506.62758"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:7.0922499;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" />
+      <text
+         id="text4379"
+         y="490.08102"
+         x="45.557312"
+         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="490.08102"
+           x="45.557312"
+           id="tspan4381"
+           sodipodi:role="line">Режим пользователя</tspan></text>
+      <text
+         id="text1371"
+         y="538.99615"
+         x="45.557312"
+         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="538.99615"
+           x="45.557312"
+           id="tspan1373"
+           sodipodi:role="line">Режим ядра</tspan></text>
+      <rect
+         y="555.15192"
+         x="439.66733"
+         height="88.915421"
+         width="262.17905"
+         id="rect1375"
+         style="fill:#dcdcdc;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.2168841;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000" />
+      <text
+         id="text2103"
+         y="605.92023"
+         x="501.11813"
+         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="605.92023"
+           x="501.11813"
+           id="tspan2105"
+           sodipodi:role="line">Микроядро</tspan></text>
+      <g
+         transform="matrix(2.000000,0.000000,0.000000,2.000000,-210.8998,144.7605)"
+         id="g2119">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="path2107"
+           sodipodi:cx="186.88705"
+           sodipodi:cy="103.93099"
+           sodipodi:rx="14.819238"
+           sodipodi:ry="14.819238"
+           d="M 201.70629 103.93099 A 14.819238 14.819238 0 1 1  172.06782,103.93099 A 14.819238 14.819238 0 1 1  201.70629 103.93099 z"
+           transform="translate(0.000000,0.823293)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="path2109"
+           sodipodi:cx="186.88705"
+           sodipodi:cy="103.93099"
+           sodipodi:rx="14.819238"
+           sodipodi:ry="14.819238"
+           d="M 201.70629 103.93099 A 14.819238 14.819238 0 1 1  172.06782,103.93099 A 14.819238 14.819238 0 1 1  201.70629 103.93099 z"
+           transform="translate(37.04810,0.823293)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="path2111"
+           sodipodi:cx="186.88705"
+           sodipodi:cy="103.93099"
+           sodipodi:rx="14.819238"
+           sodipodi:ry="14.819238"
+           d="M 201.70629 103.93099 A 14.819238 14.819238 0 1 1  172.06782,103.93099 A 14.819238 14.819238 0 1 1  201.70629 103.93099 z"
+           transform="translate(74.09620,0.823293)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="path2113"
+           sodipodi:cx="186.88705"
+           sodipodi:cy="103.93099"
+           sodipodi:rx="14.819238"
+           sodipodi:ry="14.819238"
+           d="M 201.70629 103.93099 A 14.819238 14.819238 0 1 1  172.06782,103.93099 A 14.819238 14.819238 0 1 1  201.70629 103.93099 z"
+           transform="translate(111.1443,0.823293)" />
+      </g>
+      <text
+         id="text2115"
+         y="304.87149"
+         x="95.717834"
+         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="304.87149"
+           x="95.717834"
+           id="tspan2117"
+           sodipodi:role="line">Пользовательские процессы</tspan></text>
+      <g
+         transform="matrix(2.000000,0.000000,0.000000,2.000000,-240.1848,147.2303)"
+         id="g2163">
+        <path
+           sodipodi:type="arc"
+           style="font-size:9.7697468px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:122.12183%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+           id="path2125"
+           sodipodi:cx="406.70575"
+           sodipodi:cy="127.80643"
+           sodipodi:rx="34.578220"
+           sodipodi:ry="34.578220"
+           d="M 441.28397 127.80643 A 34.578220 34.578220 0 1 1  372.12753,127.80643 A 34.578220 34.578220 0 1 1  441.28397 127.80643 z"
+           transform="matrix(1.106056,0.000000,0.000000,1.106056,-42.72197,-10.67313)" />
+        <text
+           xml:space="preserve"
+           style="font-size:10.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+           x="407.31512"
+           y="127.23335"
+           id="text2127"
+           sodipodi:linespacing="125.00000%"><tspan
+             sodipodi:role="line"
+             id="tspan2129"
+             x="407.31512"
+             y="127.23335">Файловый</tspan><tspan
+             sodipodi:role="line"
+             x="407.31512"
+             y="139.73335"
+             id="tspan2131">сервер</tspan></text>
+      </g>
+      <g
+         transform="matrix(2.000000,0.000000,0.000000,2.000000,-233.5984,150.5235)"
+         id="g2169">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="path2133"
+           sodipodi:cx="406.70575"
+           sodipodi:cy="127.80643"
+           sodipodi:rx="34.578220"
+           sodipodi:ry="34.578220"
+           d="M 441.28397 127.80643 A 34.578220 34.578220 0 1 1  372.12753,127.80643 A 34.578220 34.578220 0 1 1  441.28397 127.80643 z"
+           transform="matrix(1.106056,0.000000,0.000000,1.106056,37.96054,-12.31970)" />
+        <text
+           xml:space="preserve"
+           style="font-size:10.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+           x="487.62408"
+           y="125.48668"
+           id="text2135"
+           sodipodi:linespacing="125.00000%"><tspan
+             sodipodi:role="line"
+             x="487.62408"
+             y="125.48668"
+             id="tspan2139">Сервер</tspan><tspan
+             sodipodi:role="line"
+             x="487.62408"
+             y="137.98668"
+             id="tspan2147">процессов</tspan></text>
+      </g>
+      <g
+         transform="matrix(2.000000,0.000000,0.000000,2.000000,-222.0724,147.2303)"
+         id="g2175">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.70866144;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="path2149"
+           sodipodi:cx="406.70575"
+           sodipodi:cy="127.80643"
+           sodipodi:rx="34.578220"
+           sodipodi:ry="34.578220"
+           d="M 441.28397 127.80643 A 34.578220 34.578220 0 1 1  372.12753,127.80643 A 34.578220 34.578220 0 1 1  441.28397 127.80643 z"
+           transform="matrix(1.106056,0.000000,0.000000,1.106056,116.1732,-10.67312)" />
+        <text
+           xml:space="preserve"
+           style="font-size:10.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+           x="566.18341"
+           y="128.06343"
+           id="text2151"
+           sodipodi:linespacing="125.00000%"><tspan
+             sodipodi:role="line"
+             x="566.18341"
+             y="128.06343"
+             id="tspan2155">Сервер</tspan><tspan
+             sodipodi:role="line"
+             x="566.18341"
+             y="140.56343"
+             id="tspan2157">безопасности</tspan></text>
+      </g>
+      <path
+         sodipodi:nodetypes="czc"
+         id="path3785"
+         d="M 258.72943,374.85120 C 258.72943,374.85120 437.43809,561.01964 539.47165,567.50128 C 639.91315,573.88178 689.31061,462.12004 689.31061,462.12004"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.0409448;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" />
+      <path
+         sodipodi:nodetypes="czc"
+         id="path4519"
+         d="M 252.55473,382.12924 C 252.55473,382.12924 436.21565,568.40460 539.05999,577.24920 C 641.97137,586.09958 695.48529,468.57480 695.48529,468.57480"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.0409448;stroke-linecap:round;stroke-linejoin:miter;marker-start:url(#Arrow2Mstart);marker-end:none;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" />
+      <path
+         sodipodi:nodetypes="czc"
+         id="path5261"
+         d="M 731.29843,484.34890 C 731.29843,484.34890 647.73441,579.64484 681.90099,579.02736 C 716.06757,578.40990 878.66753,481.05572 878.66753,481.05572"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.0409448;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" />
+      <path
+         sodipodi:nodetypes="czc"
+         id="path6001"
+         d="M 716.87771,480.64262 C 716.87771,480.64262 643.86851,576.79142 671.59673,590.96360 C 698.98363,604.96132 891.41541,482.28918 891.41541,482.28918"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.0409448;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Mstart);marker-end:none;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" />
+      <text
+         transform="matrix(0.732899,0.680337,-0.680337,0.732899,0.000000,0.000000)"
+         sodipodi:linespacing="125.00000%"
+         id="text7479"
+         y="92.484772"
+         x="448.65198"
+         style="font-size:15.999976px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="92.484772"
+           x="448.65198"
+           id="tspan7481"
+           sodipodi:role="line">Сообщение-запрос</tspan></text>
+      <text
+         transform="matrix(0.732899,0.680337,-0.680337,0.732899,0.000000,0.000000)"
+         sodipodi:linespacing="125.00000%"
+         id="text7483"
+         y="125.1526"
+         x="454.17615"
+         style="font-size:15.999967px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="125.15260"
+           x="454.17615"
+           id="tspan7485"
+           sodipodi:role="line">Сообщение-ответ</tspan></text>
+    </g>
+  </g>
+</svg>

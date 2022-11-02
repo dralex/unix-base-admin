@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2289"
+   sodipodi:version="0.32"
+   inkscape:version="0.42.2"
+   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/images"
+   sodipodi:docname="comuter_structure.svg">
+  <defs
+     id="defs2291" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="385.72595"
+     inkscape:cy="619.84024"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="862"
+     inkscape:window-height="512"
+     inkscape:window-x="41"
+     inkscape:window-y="226" />
+  <metadata
+     id="metadata2294">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2414">
+      <g
+         transform="translate(0.000000,0.932938)"
+         id="g2397">
+        <rect
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.62666202;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="rect1387"
+           width="123.66219"
+           height="60.033077"
+           x="67.603203"
+           y="276.42520" />
+        <text
+           xml:space="preserve"
+           style="font-size:12.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+           x="129.39328"
+           y="302.29623"
+           id="text1389"
+           sodipodi:linespacing="125.00000%"><tspan
+             sodipodi:role="line"
+             id="tspan1391"
+             x="129.39328"
+             y="302.29623">Центральный</tspan><tspan
+             sodipodi:role="line"
+             x="129.39328"
+             y="317.29623"
+             id="tspan1393">процессор</tspan></text>
+      </g>
+      <g
+         transform="translate(-4.983391,-2.525375)"
+         id="g2391">
+        <rect
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.62666202;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="rect2387"
+           width="123.66219"
+           height="60.033077"
+           x="231.11314"
+           y="279.88351" />
+        <text
+           xml:space="preserve"
+           style="font-size:12.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+           x="293.14929"
+           y="306.76236"
+           id="text1397"
+           sodipodi:linespacing="125.00000%"><tspan
+             sodipodi:role="line"
+             x="293.14929"
+             y="306.76236"
+             id="tspan1401">Основная</tspan><tspan
+             sodipodi:role="line"
+             x="293.14929"
+             y="321.76236"
+             id="tspan1409">память</tspan></text>
+      </g>
+      <g
+         transform="translate(-164.6549,2.525375)"
+         id="g2403">
+        <rect
+           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.62666202;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+           id="rect2389"
+           width="123.66219"
+           height="60.033077"
+           x="549.31122"
+           y="274.83276" />
+        <text
+           xml:space="preserve"
+           style="font-size:12.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+           x="611.12476"
+           y="301.12567"
+           id="text1419"
+           sodipodi:linespacing="125.00000%"><tspan
+             sodipodi:role="line"
+             x="611.12476"
+             y="301.12567"
+             id="tspan1423">Устройства</tspan><tspan
+             sodipodi:role="line"
+             x="611.12476"
+             y="316.12567"
+             id="tspan1425">ввода-вывода</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g2409"
+       transform="translate(-1.454328,2.020305)">
+      <path
+         sodipodi:nodetypes="ccccccccccccccccc"
+         d="M 175.67059,391.04986 L 175.67059,401.70220 L 146.09932,377.10500 L 146.09932,377.08886 L 146.02171,377.04044 L 146.15753,377.04044 L 175.76762,352.41097 L 175.76762,363.07944 L 403.02396,363.06329 L 403.02396,352.37869 L 432.67284,377.04044 L 432.80866,377.04044 L 432.73104,377.08886 L 432.73104,377.10500 L 403.12097,401.75062 L 403.12097,391.08215 L 175.67059,391.04986 z "
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.56783926;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
+         id="path1481" />
+      <text
+         sodipodi:linespacing="125.00000%"
+         id="text2245"
+         y="381.41525"
+         x="289.60269"
+         style="font-size:12.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="381.41525"
+           x="289.60269"
+           id="tspan2247"
+           sodipodi:role="line">Системная шина</tspan></text>
+    </g>
+  </g>
+</svg>

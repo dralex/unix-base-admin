@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.42.2"
+   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/images"
+   sodipodi:docname="symbolic_link.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         sodipodi:nodetypes="cccc"
+         id="path4388"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(-5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4409973"
+     inkscape:cx="303.15336"
+     inkscape:cy="790.87482"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="975"
+     inkscape:window-height="713"
+     inkscape:window-x="41"
+     inkscape:window-y="25" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.24673934pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
+       d="M 211.96474,277.82635 L 354.69630,277.82635 L 354.69630,174.44944 L 269.62451,174.44944 L 256.74165,160.55423 L 224.25288,160.55423 L 212.80879,173.28534 L 211.96474,277.82635 z "
+       id="path1306"
+       sodipodi:nodetypes="cccccccc" />
+    <rect
+       style="fill:#dcdcdc;fill-opacity:1.0000000;fill-rule:nonzero;stroke:none;stroke-width:0.35433072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="rect1334"
+       width="129.05582"
+       height="13.739782"
+       x="219.57651"
+       y="226.26498" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="224.48358"
+       y="192.89693"
+       id="text1308"><tspan
+         sodipodi:role="line"
+         id="tspan1310"
+         x="224.48358"
+         y="192.89693">10245    .</tspan><tspan
+         sodipodi:role="line"
+         x="224.48358"
+         y="207.89693"
+         id="tspan1312">12432    ..</tspan><tspan
+         sodipodi:role="line"
+         x="224.48358"
+         y="222.89693"
+         id="tspan1314">8672      file1.txt</tspan><tspan
+         sodipodi:role="line"
+         x="224.48358"
+         y="237.89693"
+         id="tspan1316">12567    first-link</tspan><tspan
+         sodipodi:role="line"
+         x="224.48358"
+         y="252.89693"
+         id="tspan1318">19678    report</tspan><tspan
+         sodipodi:role="line"
+         x="224.48358"
+         y="267.89693"
+         id="tspan1400">19775    first.txt</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.35400000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="rect2064"
+       width="54.959129"
+       height="24.535326"
+       x="174.78171"
+       y="297.90814" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="240.76205"
+       y="313.5303"
+       id="text3518"><tspan
+         sodipodi:role="line"
+         id="tspan3520"
+         x="240.76205"
+         y="313.53030">i-node (метаданные файла)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="183.01614"
+       y="314.54398"
+       id="text3522"><tspan
+         sodipodi:role="line"
+         id="tspan3524"
+         x="183.01614"
+         y="314.54398">12567</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.53896469;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       id="rect3526"
+       width="127.39547"
+       height="24.535326"
+       x="174.99664"
+       y="334.22043" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="313.31259"
+       y="349.84259"
+       id="text3528"><tspan
+         sodipodi:role="line"
+         id="tspan3530"
+         x="313.31259"
+         y="349.84259">Данные файла</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0204724;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
+       d="M 218.22346,232.35672 L 201.21711,232.35672 L 201.27984,296.92672"
+       id="path3550"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.94890165;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
+       d="M 201.59648,322.24319 L 201.59648,332.44379"
+       id="path5149" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="211.8056"
+       y="153.25241"
+       id="text5885"><tspan
+         sodipodi:role="line"
+         id="tspan5887"
+         x="211.80560"
+         y="153.25241">/home/alice</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       x="179.83696"
+       y="350.49005"
+       id="text1402"><tspan
+         sodipodi:role="line"
+         id="tspan1404"
+         x="179.83696"
+         y="350.49005">/home/alice/first.txt</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0204724;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:2.0409449,2.0409449;stroke-dashoffset:0.0000000"
+       d="M 174.87888,346.60097 L 159.61168,346.60097 L 159.61168,263.32531 L 218.59861,263.32531"
+       id="path1410"
+       sodipodi:nodetypes="cccc" />
+  </g>
+</svg>

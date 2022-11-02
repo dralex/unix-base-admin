@@ -1,0 +1,26 @@
+.presentation {  color: gray; }
+pre.screen {
+             background: rgb(224,224,255);
+             padding: 0.3em;
+             border: 1px solid black;
+             margin-right: 10%;
+             }
+pre.programlisting {
+             background: rgb(224,255,224);
+             padding: 0.3em;
+             border: 1px solid black;
+             margin-right: 10%;
+             }
+div.example {
+              padding-left: 15px;
+              border-style: solid;
+              border-width: 0px;
+              border-left-width: 2px;
+              border-color: black;
+              }
+
+span.scenariostart { 
+                     font-style: bold
+                     }
+
+br.figure-break {  clear: both; }
