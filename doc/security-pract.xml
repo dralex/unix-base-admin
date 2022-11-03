@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+	  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+	  <!ENTITY % CommonEntities PUBLIC
+		   "-//IU7 LUG//ENTITIES Common Documentation//RU"
+		   "common.ent">
+	  %CommonEntities;
+	  
+	  <!ENTITY BASEIMAGES "images/">
+
+]>
+
+<chapter id="chapter-security-pract">
+  <title>Практическое занятие по безопасности UNIX</title>
+  <sect1 id="security-cmd">
+    <title>Методические указания по командам управления безопасностью в UNIX</title>
+    <sect2 id="security-cmd-rights">
+      <title>Команды по управлению правами</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-chmod">chmod</definition></term>
+	  <listitem>
+	   <para>
+	    Команда используется для изменения прав доступа к файлам.
+	   </para>
+	   <para>
+	    Команда <command>chmod</command> имеет следующий синтаксис:
+	    <command>chmod [-fhv] [-R [-H | -L | -P]] права_доступа файл ...</command>
+	   </para>
+	   <para>
+	    Права доступа к файлу могут изменять только владелец файла и суперпользователь.
+	    Параметр <parameter
+	    class='command'>права_доступа</parameter> задается в
+	    числовой или в символьной форме.
+	   </para>
+	   <para>
+	    Права доступа в числовой форме задаются в виде восьмеричного числа &nbsp;&ndash; битовой маски, являющегося суммой
+	    одного или нескольких следующих значений:
+	    <simplelist type='horiz' columns='2'>
+	     <member><emphasis>4000</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;установка бита <emphasis>SUID</emphasis></member>
+	     <member><emphasis>2000</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;установка бита <emphasis>SUID</emphasis></member>
+	     <member><emphasis>1000</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;установка <emphasis>sticky</emphasis>-бита</member>
+	     <member><emphasis>0400</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на чтение для владельца</member>
+	     <member><emphasis>0200</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на запись для владельца</member>
+	     <member><emphasis>0100</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на выполнение для владельца</member>
+	     <member><emphasis>0040</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на чтение для группы владельца</member>
+	     <member><emphasis>0020</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на запись для группы владельца</member>
+	     <member><emphasis>0010</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на выполнение для группы владельца</member>
+	     <member><emphasis>0004</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на чтение для остальных пользователей</member>
+	     <member><emphasis>0002</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на запись для остальных пользователей</member>
+	     <member><emphasis>0001</emphasis></member>
+	     <member>&nbsp;&ndash;&nbsp;право на выполнение для остальных пользователей</member>
+	    </simplelist>
+	   </para>
+	   <para>
+	    Права доступа в символьном виде задаются с помощью следующей грамматики:
+	    <simplelist type='horiz' columns='2'>
+	     <member><command>права_доступа</command></member>
+	     <member>::=<command>выражение</command> [, <command>выражение</command> ...]</member>
+	     <member><command>выражение</command></member>
+	     <member>::=[<command>субъект</command> ...] [<command>действие</command> ...] <command>действие</command></member>
+	     <member><command>действие</command></member>
+	     <member>::=<command>операция</command> [<command>права</command> ...]</member>
+	     <member><command>субъект</command></member>
+	     <member>::=a | u | g | o</member>
+	     <member><command>операция</command></member>
+	     <member>::=+ | - | =</member>
+	     <member><command>права</command></member>
+	     <member>::=r | s | t | w | x | X | u | g | o</member>
+	    </simplelist>
+	   </para>
+	   <para>
+	    Пример использования. Для того, чтобы для файла <filename>test.txt</filename>
+	    сбросить все права для группы владельца и остальных пользователей, а для
+	    владельца установить права на чтение и запись, можно использовать следующие
+	    команды (они эквивалентны):
+	    <command>chmod u=rw,go= test.txt</command>,&nbsp;
+	    <command>chmod a=,u=rw test.txt</command>,&nbsp;
+	    <command>chmod 600 test.txt</command>.
+	    Результат:
+	    <informalexample>
+	     <screen>[user@localhost ~]$ ls -l test.txt
+-rw-r--r--  1 pp  ppgroup  0  7 дек 00:34 test.txt
+[user@localhost ~]$ chmod a=,u=rw test.txt
+[user@localhost ~]$ ls -l test.txt
+-rw-------  1 pp  ppgroup  0  7 дек 00:34 test.txt</screen>
+	    </informalexample>
+	    Для добавления группе владельца права на запись и отмены для остальных
+	    пользователей права на чтение можно использовать следующую
+	    команду: <command>chmod g+w,o-r test.txt</command>.  Результат:
+	    <informalexample>
+		    <screen>[user@localhost ~]$ ls -l test.txt
+-rw-r--r--  1 pp  ppgroup  0  7 дек 00:34 test.txt
+[user@localhost ~]$ chmod g+w,o-r test.txt
+[user@localhost ~]$ ls -l test.txt
+-rw-rw----  1 pp  ppgroup  0  7 дек 00:34 test.txt</screen>
+	    </informalexample>
+	   </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-chown">chown</definition></term>
+	  <listitem>
+	   <para>
+	    Команда используется для смены владельца/группы файлов.
+	   </para>
+	   <para>
+	    Команда имеет следующий синтаксис:
+	    <command>chown [-fhv] [-R [-H | -L | -P]] владелец[:группа] файл ...</command>
+	    <command>chown [-fhv] [-R [-H | -L | -P]] :группа файл ...</command>
+	   </para>
+	   <para>
+	    Владельца файла может изменить только суперпользователь. Группу может изменить
+	    владелец и суперпользователь. В качестве имени владельца/группы берется
+	    первый параметр, не являющийся ключом. Если задано только имя пользователя
+	    (или числовой идентификатор пользователя), то данный пользователь становится
+	    владельцем каждого из указанных файлов, а группа этих файлов не
+	    изменяется. Если за именем пользователя через двоеточие следует имя группы
+	    (или числовой идентификатор группы) без пробелов между ними, то изменяется
+	    также и группа файла.
+	   </para>
+	   <para>
+	    Для изменения группы-владельца
+	    файла <filename>test.txt</filename> на <command>guest</command> необходимо
+	    ввести следующую команду: <command>chown :guest test.txt</command>. Результат:
+	    <informalexample>
+	     <screen>[root@localhost ~]# ls -l test.txt
+-rw-------  1 pp  ppgroup  0  7 дек 00:34 test.txt
+[root@localhost ~]# chown :guest test.txt
+[root@localhost ~]# ls -l test.txt
+-rw-------  1 pp  guest  0  7 дек 00:34 test.txt</screen>
+	    </informalexample>
+	   </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="security-cmd-users">
+      <title>Команды по управлению пользователями</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-su">su</definition></term>
+	    <listitem>
+	     <para>
+	      Команда используется для временной подмены идентификатора пользователя.
+	     </para>
+	     <para>
+	      Команда имеет следующий синтаксис:
+	      <command>su [-] [-flms] [-c класс] [пользователь [параметры]]</command>
+	     </para>
+	     <para>
+	      Команда <command>su</command> позволяет пользователю временно стать другим
+	      пользователем. Если не указан
+	      параметр <parameter class='command'>пользователь</parameter>, то
+	      используется значение по умолчанию - суперпользователь. Если указанному
+	      пользователю назначен пароль, то потребуется его ввести, прежде чем стать
+	      другим пользователем.
+	     </para>
+	     <para>
+	      Для того, чтобы стать суперпользователем, нужно ввести
+	      команду <command>su</command> без параметров:
+	      <informalexample>
+	       <screen>[user@localhost ~]$ su
+Password:
+[root@localhost ~]#</screen>
+	      </informalexample>
+
+	      Для того, чтобы получить окружение суперпользователя, необходимо запустить
+	      <command>su -</command>.
+	     </para> 
+	    </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-sudo">sudo</definition></term>
+	  <listitem>
+	    <para>
+	      Программа <application>sudo</application> является логическим развитием
+	      программы <application>su</application> и позволяет как переходить в сеанс
+	      суперпользователя, так и запускать отдельные программы от имени
+	      суперпользователя.
+	    </para>
+	    <para>
+	      Команда <command>sudo</command> имеет синтаксис:
+	      <command>sudo [-HSb] [-u пользователь] {-s | команда}</command>.
+	      Можно использовать следующие ключи:
+	      <variablelist>
+		<varlistentry>
+		  <term><parameter class='command'>-H</parameter></term>
+		  <listitem>
+		    переменная окружения <envar>HOME</envar> изменяется в соответствии с
+		    выбранным пользователем;
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>-b</parameter></term>
+		  <listitem>
+		    команда исполняется на заднем плане;
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>-s</parameter></term>
+		  <listitem>
+		    вместо команды запускается командная оболочка данного пользователя.
+		  </listitem>
+		</varlistentry>
+	      </variablelist>
+	    </para>
+	    <para>
+	      Главным достоинством команды <application>sudo</application> является
+	      возможность гибкого конфигурирования&nbsp;&ndash; на какие программы
+	      каким пользователям разрешено повышение привилегий. Конфигурация хранится в
+	      файле <filename>/etc/sudoers</filename>. Рассмотрение
+	      его формата выходит за рамки этих лекций, для получения
+	      подробной информации о нём можно обратиться к страницам руководства (<command>sudoers(5)</command>).
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-passwd">passwd</definition></term>
+	    <listitem>
+	     <para>
+	      Команда используется для изменения пароля.
+	     </para>
+	     <para>
+	      Команда имеет следующий синтаксис:
+	      <command>passwd [-l] [пользователь]</command>
+	     </para>
+	     <para>
+	      Обычные пользователи могут изменять только собственные
+	      пароли. Суперпользователь может менять пароли любых пользователей. При
+	      вызове команды сначала необходимо ввести старый пароль, если он был
+	      установлен. Затем предлагается дважды ввести новый пароль. Если указанные
+	      операции были выполнены без ошибок, то пароль пользователя будет изменен.
+	     </para>
+	    </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-useradd">useradd</definition></term>
+	    <listitem>
+	     <para>
+	      Команда предназначена для добавления нового регистрационного имени
+	      пользователя в системе.
+	     </para>
+	     <para>
+	      Команда имеет следующий синтаксис:
+	      <command>useradd [-u идентификатор [-o] [-i]] [-g группа] [-G
+	      группа[[,группа] . . .]] [-d каталог] [-s shell] [-c комментарий] [-m [-k
+	      skel_dir]] [-f inactive] [-e expire] [-p passgen] [-a событие[, . . .]]
+	      регистрационное_имя</command>
+	     </para>
+	    </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-userdel">userdel</definition></term>
+	    <listitem>
+	     <para>
+	      Команда предназначена для удаления регистрационных имен пользователей из системы.
+	     </para>
+	     <para>
+	      Команда имеет следующий синтаксис:
+	      <command>userdel [-r] [-n месяцев] регистрационное_имя</command>
+	     </para>
+	     <para>
+	      Команда <command>userdel</command> удаляет определение регистрационного
+	      имени пользователя из системы. Она удаляет определение указанного
+	      регистрационного имени и выполняет соответствующие изменения в
+	      регистрационных файлах и файловой системе. Команда также запоминает
+	      идентификационный номер удаляемого пользователя (UID) в
+	      файле <filename>/etc/security/ia/ageduid</filename>, так что этот
+	      идентификатор не будет повторно использован на протяжении определенного
+	      периода времени. Эта практика неиспользования идентификатора пользователя
+	      называется устареванием идентификатора (UID aging). Для удаления домашнего
+	      каталога пользователя необходимо выполнить команду с ключом
+	      <parameter class='command'>-r</parameter>.
+	      Параметр <parameter class='command'>месяцев</parameter> задает, сколько
+	      месяцев будет запрещено использовать удаляемый идентификатор.
+	     </para>
+	    </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-usermod">usermod</definition></term>
+	    <listitem>
+	     <para>
+	      Команда предназначена для изменения регистрационной информации о пользователе в системе.
+	     </para>
+	     <para>
+	      Команда имеет следующий синтаксис:
+	      <command>usermod [-u идентификатор [-U] [-o]] [-g группа] [-G
+	      группа[[,группа] . . .]] [-d каталог [-m]] [-s shell] [-c комментарий] [-l
+	      новое_рег_имя] [-f inactive] [-e expire] [-p passgen] [-a
+	      [оператор]событие[, . . .]] регистрационное_имя</command>
+	     </para>
+	    </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-groupadd">groupadd</definition></term>
+	  <listitem>
+	   <para>
+	    Команда используется для создания новой группы в системе.
+	   </para>	   
+	   <para>
+	    Команда имеет следующий синтаксис:
+	    <synopsis>groupadd [-g идентификатор [-o]] группа</synopsis>
+	   </para>
+	   <para>
+	    Новую группу может добавлять только суперпользователь.
+	    Команда <command>groupadd</command> создает новое определение группы в системе
+	    путем добавления соответствующей записи в файл <filename>/etc/group</filename>.
+	   </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-groupdel">groupdel</definition></term>
+	    <listitem>
+	     <para>
+	      Команда используется для удаления определения группы из системы.
+	     </para>
+	     <para>
+	      Команда имеет следующий синтаксис:
+	      <command>groupdel группа</command>
+	     </para>
+	     <para>
+	      Команда <command>groupdel</command> удаляет определение группы из системы
+	      путем удаления записи о соответствующей группе из
+	      файла <filename>/etc/group</filename>. Она, однако, не удаляет
+	      идентификатор группы (GID) из файла паролей; удаленный GID действует для
+	      всех файлов и каталогов, которые его имели.
+	     </para>
+	    </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-groupmod">groupmod</definition></term>
+	    <listitem>
+	     <para>
+	      Команда предназначена для изменения определения группы в системе.
+	     </para>
+	     <para>
+	      Команда имеет следующий синтаксис:
+	      <command>groupmod [-g идентификатор [-o]] [-n имя] группа</command>
+	     </para>
+	     <para>
+	      Команда <command>groupmod</command> изменяет определение указанной группы
+	      путем изменения соответствующей записи в
+	      файле <filename>/etc/group</filename>. Новое имя группы задается
+	      параметром <parameter class='command'>группа</parameter>, новый идентификатор
+	      группы задается
+	      параметром <parameter
+	      class='command'>идентификатор</parameter>. Ключ <parameter
+	      class='command'>-o</parameter> позволяет задать дублирующийся идентификатор
+	      группы. Если перед группой стоит символ <literal>+</literal>,
+	      (например, <command>+student</command>), определение группы
+	      администрируется сетевой информационной службой (<emphasis>Network
+	      Information Service</emphasis> - NIS). В этом случае,
+	      значение идентификатора группы берется из базы
+	      данных NIS. Для таких групп использование
+	      ключей <parameter class='command'>-g</parameter>
+	      или <parameter class='command'>-o</parameter> вызовет выдачу сообщения о
+	      синтаксической ошибке.
+	     </para>
+	    </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="security-cmd-summary">
+      <title>Резюме</title>
+      <para>
+	В данном разделе рассматриваются команды изменения прав доступа, аутентификации и
+	управления базой данных пользователей системы.
+      </para>
+      <list-of-definitions/>
+    </sect2>    
+    <sect2 id="security-cmd-additional">
+      <title>Дополнительные материалы</title>
+      <para>
+	<orderedlist>
+	  <listitem>
+	    Скотт Манн, Эленн Митчелл, Митчелл Крелл <emphasis>Безопасность
+	    Linux</emphasis>.&nbsp;&ndash; М.: Вильямс, 2003.&nbsp;&ndash; 624 с.: ил.
+	  </listitem>
+	  <listitem>
+	    Курячий Г.В. <emphasis>Операционная система UNIX</emphasis>.&nbsp;&ndash;
+	    М.:Интуит.Ру, 2004.&nbsp;&ndash; 292 с.: ил.
+	  </listitem>
+	</orderedlist>
+      </para>
+    </sect2>    
+  </sect1>
+  <!-- занятие №7 (практическое занятие) -->
+  <sect1-scenario id="security-cmdexamples">
+    <title>Управление доступом. Управление пользователями</title>
+    <scenario id="security-scenario-login">
+      <title>Вход в систему и завершение сеанса</title>
+      <scenario-intro>
+	<para>
+	  Сценарий посвящен изучению процесса аутентификации в UNIX.
+	</para>
+      </scenario-intro>
+      <scenario-start>
+	Приглашение входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Для входа в систему необходимо ввести логин и пароль пользователя. При этом
+	    символы вводимого пароля не отображаются.
+	    <informalexample>
+	      <screen>Welcome to ALT Linux Sisyphus (20070101) / tty1
+localhost login: user
+Password:
+Last login: Wed Dec 07 00:20:09 2006 from tty1
+[user@localhost ~]$</screen>
+	    </informalexample>	    
+	    При входе в систему в графическом режиме (через X11), пользователю вместо
+	    командной строки предоставляется графический итерфейс аутентификации.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для завершения сеанса работы в командной строке необходимо ввести
+	    команду <command>exit</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ exit</screen>
+	    </informalexample>
+
+	    Благодаря свойствам командной оболочки UNIX, этого же эффекта можно добиться
+	    нажатием <keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo>
+	    (см. раздел <xref linkend="terminal-escape-chars"/>).
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-5-1">
+	Выясните, чем отличается реакция операционной системы (выводимое сообщение) на
+	различные ошибки аутентификации (например, неправильный пользователь, неверный
+	пароль и т.&nbsp;д.).
+      </practice>
+    </scenario>
+    <scenario  id="security-scenario-rights">
+      <title>Изучение базовых прав доступа</title>
+      <scenario-intro>
+	<para>
+	  Сценарий рассматривает базовые права доступа в UNIX, их просмотр и изменения.
+	</para>
+      </scenario-intro>	  
+      <scenario-start>
+	Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Для просмотра прав доступа можно использовать
+	    команду <command dontlog="1">ls</command> с ключом вывода расширенной информации:
+	    <command>ls -l</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ls -l
+drwxr-xr-x   1 user user   22 Дек 19 11:18 test/
+-rw-r--r--   1 user user   90 Сен 19 00:20 test.txt</screen>
+	    </informalexample>
+	    Особый интерес представляют: первая колонка (права доступа), третья и
+	    четвётрая&nbsp;&ndash; владелец и группа владельцев соответственно.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Рассмотрим исполняемый файл <command>ls -l /bin/bash</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ls -l /bin/bash
+-rwxr-xr-x  1 root root 746544 Дек 21 13:40 /bin/bash*</screen>
+	    </informalexample>
+	    Исполняемые файлы в UNIX определяются наличием специального бита прав доступа.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для каталога права на исполнение трактуются по-другому. Рассмотрим права
+	    каталога <filename>/tmp</filename> (<command>ls -ld /tmp</command>):
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ls -ld /tmp
+drwxrwxrwt  26 root root 5168 Дек 22 20:04 /tmp</screen>
+	    </informalexample>
+	    Каталог имеет дополнительный sticky-бит, определяющий права на создание и
+	    удаление файлов в нем.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Попытка изменения файла при недостатке прав приводит к ошибке доступа. Например,
+	    команда <command>rm /bin/bash</command>: 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ rm /bin/bash
+rm: удалить защищенный от записи обычный файл `/bin/bash'? y
+rm: невозможно удалить `/bin/bash': Permission denied</screen>
+	    </informalexample>
+	    Для всех файлов, на которые данный пользователь не имеет права записи,
+	    команда <command dontlog="1">rm</command> может выводить предупреждение об
+	    удалении.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Изменение прав доступа производится с помощью
+	    команды <command dontlog="1">chmod</command>. Для задания файлу прав только
+	    чтения, воспользуемся командой: <command>chmod a=r test.txt</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ chmod a=r test.txt</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для лишения всех прав группы владельцев и остальных пользователей
+	    воспользуемся командой: <command>chmod go-rwx test.txt</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ chmod go-rwx test.txt</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-5-2">
+	Сравните права доступа к каталогам <filename>/bin</filename>
+	и <filename>/tmp</filename>. Какие операции сможет совершать в них простой
+	пользователь?
+      </practice>
+      <practice id="pract-5-3">
+	Создайте текстовый файл и задайте права на него таким образом, чтобы он мог
+	просматриваться только владельцем и никем не мог редактироваться. 
+      </practice>
+      <practice id="pract-5-4">
+	Что смогут делать другие пользователями с файлами в домашнем каталоге
+	пользователя, если он задаст всем остальным пользователям право на запись в
+	каталог, но удалит право исполнения на неё?
+      </practice>
+    </scenario>
+    <scenario id="security-scenario-su">
+      <title>Переход в режим суперпользователя</title>
+      <scenario-intro>
+	<para>
+	  Сценарий рассмартривает процесс повышения превилегий пользователя и переход в
+	  режим суперпользователя.
+	</para>
+      </scenario-intro>	  
+      <scenario-start>
+	Командная строка после входа в систему простого пользователя.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Некоторые исполняемые программы обладают специальным suid-битом, например,
+	    программа <command dontlog="1">passwd</command>, рассмотрим права доступа к этому
+	    исполняемому файлу: <command>ls -l /bin/passwd</command>.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ls -l /bin/passwd
+-rws--x--x  1 root root 28660 Янв  8 13:05 /bin/passwd*</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Запускаются suid-программы от имени владельца файла. В этом можно убедиться,
+	    если запустить команду <command>passwd</command>, а затем на другом терминале
+	    сделать <command>ps aux | grep passwd</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ passwd
+Changing password for user
+(current) UNIX password:		
+...
+[user@localhost ~]$ ps aux | grep passwd
+root     12937  0.0  0.1   3228  1012 pts/2    S+   23:28   0:00 passwd
+user     12989  0.0  0.1   2740   748 pts/3    R+   23:28   0:00 grep passwd</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для длительной работы в режиме суперпользователя обычно используют
+	    команду <application>su</application>. Используем
+	    параметр <parameter class='command'>-</parameter>, чтобы проинициализировать
+	    окружение суперпользователя: <command>su -</command>. Для того, чтобы перейти
+	    в режим суперпользователя, необходимо знать его пароль.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ su -
+Password:
+[root@localhost ~]#</screen>
+	    </informalexample>	    
+	    При этом запускается новая командная оболочка, уже с новыми привелегиями.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для завершения сеанса суперпользователя необходимо воспользоваться
+	    командой <command>exit</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# exit
+logout
+[user@localhost ~]$</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-5-5">
+	Найдите все исполняемые файлы с установленным suid-битом.
+      </practice>      
+    </scenario>
+    <scenario id="security-scenario-usersdb">
+      <title>Изучение базы данных пользователей</title>
+      <scenario-intro>
+	<para>
+	  В сценарии показано, где и каким образом хранится информация о пользователях
+	  системы.
+	</para>
+      </scenario-intro>	  
+      <scenario-start>
+	Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Данные о зарегистрированных в системе пользователях хранятся в
+	    файле <filename>/etc/passwd</filename>. Рассмотрим его содержимое (<command>cat
+	    /etc/passwd</command>):
+	    <informalexample>
+	      <screen>[user@localhost ~]$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/bin/false
+daemon:x:2:2:daemon:/sbin:/bin/false
+adm:x:3:4:adm:/var/adm:/bin/false
+...</screen>
+	    </informalexample>
+	    Подробную информацию о формате этого файла можно получить на соответствующей
+	    странице руководств: <command dontlog="1">man 5 passwd</command>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Аналогичным образом данные о группах хранятся в
+	    файле <filename>/etc/group</filename>. Рассмотрим его
+	    содержимое при помощи команды <command>cat
+	    /etc/group</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ cat /etc/group
+root:x:0:root
+bin:x:1:root,bin,daemon
+daemon:x:2:root,bin,daemon
+sys:x:3:root,bin,adm
+...</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-5-6">
+	Получите имена всех пользователей системы, у которых в качестве командной оболочки
+	используется программа <application>/bin/false</application>.
+      </practice>      
+    </scenario>  
+    <scenario id="security-scenario-users">
+      <title>Добавление и удаление пользователей</title>
+      <scenario-intro>
+	<para>
+	  Сценарий описывает администрирование пользователей системы: добавление новых
+	  пользователей, удаление существущих, изменение параметров пользователей. Такие
+	  изменения учётных записей пользователей доступны только суперпользователю.
+	</para>
+      </scenario-intro>	  
+      <scenario-start>
+	Командная строка после входа в систему суперпользователя.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Для добавления новых пользователей используется
+	    команда <command dontlog="1">useradd</command>. При этом в качестве параметров
+	    можно указать домашний каталог и командную оболочку пользователя: 
+	    <command>useradd testuser -d /home/users/testuser -s /bin/sh</command>.
+	    Результат можно увидеть следующим образом: <command>cat /etc/passwd | grep
+	    testuser</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# useradd testuser -d /home/testuser -s /bin/sh
+[root@localhost ~]# cat /etc/passwd | grep testuser
+testuser:x:1003:1003::/home/testuser:/bin/sh</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    С помощью команды <command dontlog="1">passwd</command> можно задать пароль для
+	    нового пользователя: <command>passwd testuser</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# passwd testuser
+New UNIX password:
+Retype new UNIX password:
+passwd: пароль успешно обновлён</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Изменять параметры учётной записи можно редактированием
+	    файла <filename>/etc/passwd</filename>, однако более корректным способом
+	    является использование команды <command dontlog="1">usermod</command>. Например,
+	    изменение командной оболочки пользователя
+	    на <filename>/bin/false</filename> приведёт к невозможности его входа в
+	    систему: <command>usermod -s /bin/false testuser</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# usermod -s /bin/false testuser</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Удаление пользователя производится с помощью
+	    команды <command dontlog="1">userdel</command>: <command>userdel
+	    testuser</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# userdel testuser</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+    </scenario>  
+    <list-of-practices/>
+  </sect1-scenario>
+</chapter>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

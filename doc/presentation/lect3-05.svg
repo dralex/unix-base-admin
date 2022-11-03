@@ -6,13 +6,13 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="841.88975pt"
    height="595.27559pt"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.42.2"
+   inkscape:version="0.44"
    sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/presentation"
    sodipodi:docname="lect3-05.svg">
   <defs
@@ -53,20 +53,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.58982518"
-     inkscape:cx="663.38862"
-     inkscape:cy="337.63064"
+     inkscape:zoom="0.55808112"
+     inkscape:cx="531.04838"
+     inkscape:cy="392.08765"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="975"
+     inkscape:window-width="997"
      inkscape:window-height="713"
      inkscape:window-x="41"
      inkscape:window-y="25">
     <sodipodi:guide
        orientation="horizontal"
-       position="579.68739"
+       position="580.30078"
        id="guide1319" />
     <sodipodi:guide
        orientation="horizontal"
@@ -102,15 +102,203 @@
      inkscape:label="Подпись">
     <text
        xml:space="preserve"
-       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Bitstream Vera Sans"
        x="907.34863"
        y="693.62036"
        id="text1334"
-       sodipodi:linespacing="125.00000%"><tspan
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan1336"
          x="907.34863"
          y="693.62036">05 / 12</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:129.99999523%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="66.659607"
+       y="594.61517"
+       id="text1342"
+       sodipodi:linespacing="130%"><tspan
+         sodipodi:role="line"
+         x="66.659607"
+         y="594.61517"
+         id="tspan7461">Новые процессы создаются как копии родительского процесса (fork),</tspan><tspan
+         sodipodi:role="line"
+         x="66.659607"
+         y="625.81517"
+         id="tspan8705">после чего управление может быть передано другой программе (exec).</tspan></text>
+    <g
+       id="g8707"
+       transform="translate(18.19039,7.16742)">
+      <path
+         sodipodi:nodetypes="ccc"
+         id="path2026"
+         d="M 271.68224,209.03241 L 271.68224,509.68385 L 860.39235,509.68385"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.09475183;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Mstart);marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text2028"
+         y="541.16565"
+         x="825.76245"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="541.16565"
+           x="825.76245"
+           id="tspan2030"
+           sodipodi:role="line">время</tspan></text>
+      <text
+         id="text3982"
+         y="196.43968"
+         x="208.71858"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="196.43968"
+           x="208.71858"
+           id="tspan3984"
+           sodipodi:role="line">процессы</tspan></text>
+      <path
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.09475183;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:6.28425547, 2.09475182;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 271.68224,446.84129 L 860.39235,446.84129"
+         id="path3986"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path4878"
+         d="M 271.68224,383.99874 L 860.39235,383.99874"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.09475183;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:6.28425547, 2.09475182;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.09475183;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:6.28425547, 2.09475182;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 271.68224,321.15618 L 860.39235,321.15618"
+         id="path4880"
+         sodipodi:nodetypes="cc" />
+      <path
+         id="path4882"
+         d="M 272.46928,446.72021 L 423.58206,446.72021"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4.18950367;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text5769"
+         y="454.59064"
+         x="111.24842"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="454.59064"
+           x="111.24842"
+           id="tspan5771"
+           sodipodi:role="line">P (pid = 33)</tspan></text>
+      <text
+         id="text5773"
+         y="362.50629"
+         x="110.57337"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="362.50629"
+           x="110.57337"
+           id="tspan5775"
+           sodipodi:role="line">C (pid = 44)</tspan></text>
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4.18950367;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 440.04942,446.72021 L 728.10815,446.72021"
+         id="path5777" />
+      <path
+         id="path5779"
+         d="M 440.04942,383.87766 L 533.70787,383.87766"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4.18950367;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4.18950367;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 548.97652,321.0351 L 727.63589,321.0351"
+         id="path5781" />
+      <path
+         id="path5783"
+         d="M 746.99722,446.72021 L 839.08155,446.72021"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4.18950367;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="cc" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path5787"
+         d="M 439.32296,446.72019 L 439.32296,393.98815"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.09475174pt;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+      <path
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.09475174pt;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1"
+         d="M 547.93526,383.75654 L 547.93526,331.02449"
+         id="path6674"
+         sodipodi:nodetypes="cc" />
+      <text
+         id="text6676"
+         y="424.71838"
+         x="444.83231"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="424.71838"
+           x="444.83231"
+           id="tspan6678"
+           sodipodi:role="line">fork</tspan></text>
+      <text
+         id="text6680"
+         y="359.24469"
+         x="554.23163"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="359.24469"
+           x="554.23163"
+           id="tspan6682"
+           sodipodi:role="line">exec(&quot;/bin/ls&quot;)</tspan></text>
+      <path
+         sodipodi:nodetypes="cc"
+         id="path6684"
+         d="M 743.85932,321.0106 L 743.85932,435.91925"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.09475174pt;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-opacity:1" />
+      <text
+         id="text6686"
+         y="314.49655"
+         x="736.03918"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="314.49655"
+           x="736.03918"
+           id="tspan6688"
+           sodipodi:role="line">exit</tspan></text>
+      <text
+         id="text6690"
+         y="379.82132"
+         x="748.63202"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="379.82132"
+           x="748.63202"
+           id="tspan6692"
+           sodipodi:role="line">wait</tspan></text>
+      <text
+         id="text6694"
+         y="438.84979"
+         x="276.40448"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="438.84979"
+           x="276.40448"
+           id="tspan6696"
+           sodipodi:role="line">/bin/sh</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="276.40448"
+         y="375.88611"
+         id="text6698"><tspan
+           sodipodi:role="line"
+           id="tspan6700"
+           x="276.40448"
+           y="375.88611">/bin/sh</tspan></text>
+      <text
+         id="text6702"
+         y="314.49655"
+         x="276.40448"
+         style="font-size:25.13702202px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="314.49655"
+           x="276.40448"
+           id="tspan6704"
+           sodipodi:role="line">/bin/ls</tspan></text>
+    </g>
   </g>
   <g
      inkscape:label="Заголовок"
@@ -119,26 +307,26 @@
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="526.09906"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="527.13617"
        y="81.956612"
        id="text1326"
-       sodipodi:linespacing="125.00000%"><tspan
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan1328"
-         x="526.09906"
-         y="81.956612">Лекция 3: Командная строка UNIX</tspan></text>
+         x="527.13617"
+         y="81.956612">Лекция 3: Архитектура операционной системы UNIX. Процессы</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:48.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
        x="528.27875"
        y="145.50708"
        id="text1330"
-       sodipodi:linespacing="125.00000%"><tspan
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan1332"
          x="528.27875"
-         y="145.50708">Возвращаемое значение</tspan></text>
+         y="145.50708">Создание новых процессов</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
@@ -149,123 +337,6 @@
          sodipodi:role="line"
          id="tspan10269"
          x="525.52191"
-         y="50.379196">Введение в администрирование UNIX</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
-       x="131.00726"
-       y="206.37877"
-       id="text1342"
-       sodipodi:linespacing="125.00000%"><tspan
-         sodipodi:role="line"
-         x="131.00726"
-         y="206.37877"
-         id="tspan2599"><tspan
-           style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:130.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-           id="tspan1358">Каждая программа при завершении возвращает числовой <tspan
-   style="font-size:24.000000px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-   id="tspan2587">код</tspan>.</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
-       x="117.04437"
-       y="508.35876"
-       id="text2635"
-       sodipodi:linespacing="125.00000%"><tspan
-         sodipodi:role="line"
-         x="117.04437"
-         y="508.35876"
-         id="tspan2637"><tspan
-   style="font-size:24.000000px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-   id="tspan2694">Код завершения</tspan> может быть получен с помощью переменной $?:</tspan><tspan
-         sodipodi:role="line"
-         x="117.04437"
-         y="539.25398"
-         id="tspan2643" /><tspan
-         sodipodi:role="line"
-         x="117.04437"
-         y="569.25398"
-         id="tspan2645"><tspan
-   style="fill:#4c4c4c;fill-opacity:1.0000000"
-   id="tspan2391">user@desktop ~ $</tspan> test -f /tmp/file.txt</tspan><tspan
-         sodipodi:role="line"
-         x="117.04437"
-         y="599.25398"
-         id="tspan2647"><tspan
-   style="fill:#4c4c4c;fill-opacity:1.0000000"
-   id="tspan3147">user@desktop ~ $</tspan> echo $?</tspan><tspan
-         sodipodi:role="line"
-         x="117.04437"
-         y="629.25398"
-         id="tspan2651">0</tspan></text>
-    <g
-       id="g2675"
-       transform="translate(-4.200363,5.789262)">
-      <g
-         transform="translate(86.46630,-6.781670)"
-         id="g2655">
-        <rect
-           style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.2401575;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
-           id="rect2653"
-           width="369.60104"
-           height="218.70888"
-           x="410.29108"
-           y="242.25087" />
-        <text
-           xml:space="preserve"
-           style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-           x="432.42072"
-           y="270.07211"
-           id="text2617"
-           sodipodi:linespacing="125.00000%"><tspan
-             sodipodi:role="line"
-             id="tspan2619"
-             x="432.42072"
-             y="270.07211">int main(int argc, char* argv[]) {</tspan><tspan
-             sodipodi:role="line"
-             x="432.42072"
-             y="295.07211"
-             id="tspan2621">         ...</tspan><tspan
-             sodipodi:role="line"
-             x="432.42072"
-             y="320.07211"
-             id="tspan2625">         if(error) {</tspan><tspan
-             sodipodi:role="line"
-             x="432.42072"
-             y="345.07211"
-             id="tspan2623">                 <tspan
-   style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-   id="tspan2690">return 1</tspan>;</tspan><tspan
-             sodipodi:role="line"
-             x="432.42072"
-             y="370.07211"
-             id="tspan2627">         }</tspan><tspan
-             sodipodi:role="line"
-             x="432.42072"
-             y="395.07211"
-             id="tspan2629">         ...</tspan><tspan
-             sodipodi:role="line"
-             x="432.42072"
-             y="420.07211"
-             id="tspan2631">         <tspan
-   style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-   id="tspan2692">return 0</tspan>;</tspan><tspan
-             sodipodi:role="line"
-             x="432.42072"
-             y="445.07211"
-             id="tspan2633">}</tspan></text>
-      </g>
-      <text
-         sodipodi:linespacing="125.00000%"
-         id="text2667"
-         y="351.13419"
-         x="191.44066"
-         style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           id="tspan2669"
-           y="351.13419"
-           x="191.44066"
-           sodipodi:role="line">Пример программы:</tspan></text>
-    </g>
+         y="50.379196">UNIX: учебный курс</tspan></text>
   </g>
 </svg>

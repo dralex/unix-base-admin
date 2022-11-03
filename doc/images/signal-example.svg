@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg1477"
+   sodipodi:version="0.32"
+   inkscape:version="0.44"
+   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/images"
+   sodipodi:docname="signal-example.svg">
+  <defs
+     id="defs1479">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path2554"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(-5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.3879687"
+     inkscape:cx="277.82886"
+     inkscape:cy="874.08806"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="997"
+     inkscape:window-height="740"
+     inkscape:window-x="37"
+     inkscape:window-y="0"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata1482">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:white;fill-opacity:1;stroke:black;stroke-width:1.46678066;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1503"
+       width="163.35304"
+       height="52.940186"
+       x="40.874874"
+       y="78.817291"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="45.164337"
+       y="93.225914"
+       id="text1505"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan1507"
+         x="45.164337"
+         y="93.225914">Процесс A</tspan></text>
+    <rect
+       inkscape:export-ydpi="120"
+       inkscape:export-xdpi="120"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       y="79.550247"
+       x="288.56979"
+       height="114.13717"
+       width="189.70816"
+       id="rect1518"
+       style="fill:white;fill-opacity:1;stroke:black;stroke-width:2.32094789;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cc"
+       id="path2209"
+       d="M 204.72623,113.83913 L 288.20273,120.70723"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text2199"
+       y="93.225914"
+       x="292.91492"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         y="93.225914"
+         x="292.91492"
+         id="tspan2201"
+         sodipodi:role="line">Процесс B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.00000191px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="228.60077"
+       y="93.094971"
+       id="text1538"
+       transform="matrix(0.996728,8.082952e-2,-8.082952e-2,0.996728,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan1540"
+         x="228.60077"
+         y="93.094971">SIGTERM</tspan></text>
+    <rect
+       style="opacity:1;fill:white;fill-opacity:1;stroke:black;stroke-width:1.67530847;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1542"
+       width="172.38673"
+       height="85.798164"
+       x="299.59781"
+       y="102.88901" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="386.04898"
+       y="115.47555"
+       id="text2417"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2419"
+         x="386.04898"
+         y="115.47555">обработчик</tspan><tspan
+         sodipodi:role="line"
+         x="386.04898"
+         y="130.47555"
+         id="tspan2421">сигнала SIGTERM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="305.87192"
+       y="151.6468"
+       id="text2423"><tspan
+         sodipodi:role="line"
+         id="tspan2425"
+         x="305.87192"
+         y="151.6468">- запись результатов</tspan><tspan
+         sodipodi:role="line"
+         x="305.87192"
+         y="166.6468"
+         id="tspan2433">- освобождение ресурсов</tspan><tspan
+         sodipodi:role="line"
+         x="305.87192"
+         y="181.6468"
+         id="tspan2427">- завершение работы</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="46.776176"
+       y="116.49447"
+       id="text2435"><tspan
+         sodipodi:role="line"
+         id="tspan2437"
+         x="46.776176"
+         y="116.49447">завершение процесса B</tspan></text>
+  </g>
+</svg>

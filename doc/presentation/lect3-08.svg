@@ -6,17 +6,30 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="841.88975pt"
    height="595.27559pt"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.42.2"
+   inkscape:version="0.44"
    sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/presentation"
    sodipodi:docname="lect3-08.svg">
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutM"
+       style="overflow:visible">
+      <path
+         id="path4672"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4)" />
+    </marker>
     <marker
        inkscape:stockid="Arrow2Mstart"
        orient="auto"
@@ -54,16 +67,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.58982518"
-     inkscape:cx="547.38340"
-     inkscape:cy="337.63064"
+     inkscape:cx="705.74771"
+     inkscape:cy="336.91996"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="975"
-     inkscape:window-height="713"
-     inkscape:window-x="41"
-     inkscape:window-y="25">
+     inkscape:window-width="997"
+     inkscape:window-height="740"
+     inkscape:window-x="49"
+     inkscape:window-y="0">
     <sodipodi:guide
        orientation="horizontal"
        position="579.68739"
@@ -102,11 +115,11 @@
      inkscape:label="Подпись">
     <text
        xml:space="preserve"
-       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Bitstream Vera Sans"
        x="907.34863"
        y="693.62036"
        id="text1334"
-       sodipodi:linespacing="125.00000%"><tspan
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan1336"
          x="907.34863"
@@ -119,26 +132,26 @@
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
        x="526.09906"
        y="81.956612"
        id="text1326"
-       sodipodi:linespacing="125.00000%"><tspan
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan1328"
          x="526.09906"
-         y="81.956612">Лекция 3: Командная строка UNIX</tspan></text>
+         y="81.956612">Лекция 3: Архитектура операционной системы UNIX. Процессы</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:48.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
        x="528.27875"
        y="145.50708"
        id="text1330"
-       sodipodi:linespacing="125.00000%"><tspan
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan1332"
          x="528.27875"
-         y="145.50708">Программное окружение</tspan></text>
+         y="145.50708">Переменные окружения</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
@@ -149,94 +162,171 @@
          sodipodi:role="line"
          id="tspan10269"
          x="525.52191"
-         y="50.379196">Введение в администрирование UNIX</tspan></text>
+         y="50.379196">UNIX: учебный курс</tspan></text>
+    <g
+       id="g10083"
+       transform="translate(-23.98192,0)">
+      <path
+         sodipodi:nodetypes="ccccccccz"
+         id="path1872"
+         d="M 315.45396,281.38409 C 286.21261,295.69228 235.86122,313.1722 211.17295,354.98363 C 202.58689,400.44404 263.48915,438.80831 218.64815,480.53748 C 205.35803,523.88282 226.22557,585.54117 277.18024,571.53374 C 320.95146,577.1729 360.17891,621.71828 402.64349,576.52755 C 445.22212,562.63185 491.7459,541.45283 508.31402,491.35667 C 512.0672,445.19143 435.70727,428.57441 459.3432,374.54538 C 458.52363,322.86066 432.38982,280.22807 380.43563,296.32569 C 358.87522,291.09956 344.69531,267.07585 315.45396,281.38409 z "
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.53091764;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         ry="0.57712042"
+         rx="0.57712042"
+         y="324.08127"
+         x="273.19595"
+         height="57.045681"
+         width="140.92035"
+         id="rect1882"
+         style="opacity:1;fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:2.12691212;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text1884"
+         y="359.18253"
+         x="295.14032"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="359.18253"
+           x="295.14032"
+           id="tspan1886"
+           sodipodi:role="line">Процесс P</tspan></text>
+      <text
+         id="text1888"
+         y="420.03281"
+         x="293.49576"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="420.03281"
+           x="293.49576"
+           id="tspan1890"
+           sodipodi:role="line">Окружение:</tspan></text>
+      <text
+         id="text2778"
+         y="490.75061"
+         x="286.91739"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="490.75061"
+           x="286.91739"
+           id="tspan2780"
+           sodipodi:role="line">HOME = /home/user</tspan></text>
+      <text
+         id="text2782"
+         y="462.79242"
+         x="262.24829"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="462.79242"
+           x="262.24829"
+           id="tspan2784"
+           sodipodi:role="line">LANG = ru_RU</tspan></text>
+      <text
+         id="text2786"
+         y="528.57642"
+         x="290.20651"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="528.57642"
+           x="290.20651"
+           id="tspan2788"
+           sodipodi:role="line">EDITOR = emacs</tspan></text>
+      <text
+         id="text3675"
+         y="554.89008"
+         x="255.66992"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="554.89008"
+           x="255.66992"
+           id="tspan3677"
+           sodipodi:role="line">SHELL = /bin/sh</tspan></text>
+      <path
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.53091764;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 697.00148,340.58973 C 667.76013,354.89793 617.40874,372.37784 592.72047,414.18928 C 584.13441,459.64968 645.03667,498.01395 600.19567,539.74313 C 586.90555,583.08847 607.77309,644.74682 658.72777,630.73939 C 702.49898,636.37855 741.72644,680.92392 784.19101,635.73319 C 826.76964,621.8375 873.29345,600.65848 889.86153,550.56232 C 893.61473,504.39707 817.2548,487.78006 840.89073,433.75103 C 840.07115,382.06631 813.93734,339.43372 761.98316,355.53133 C 740.42274,350.30521 726.24283,326.2815 697.00148,340.58973 z "
+         id="path3679"
+         sodipodi:nodetypes="ccccccccz" />
+      <rect
+         style="opacity:1;fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:2.12691212;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3681"
+         width="140.92035"
+         height="57.045681"
+         x="654.74353"
+         y="383.2869"
+         rx="0.57712042"
+         ry="0.57712042" />
+      <text
+         xml:space="preserve"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="676.68793"
+         y="418.38818"
+         id="text3683"><tspan
+           sodipodi:role="line"
+           id="tspan3685"
+           x="676.68793"
+           y="418.38818">Процесс C</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="675.04333"
+         y="479.23843"
+         id="text3687"><tspan
+           sodipodi:role="line"
+           id="tspan3689"
+           x="675.04333"
+           y="479.23843">Окружение:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="656.95282"
+         y="558.17926"
+         id="text3691"><tspan
+           sodipodi:role="line"
+           id="tspan3693"
+           x="656.95282"
+           y="558.17926">HOME = /home/user</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="643.79584"
+         y="521.99805"
+         id="text3695"><tspan
+           sodipodi:role="line"
+           id="tspan3697"
+           x="643.79584"
+           y="521.99805">LANG = en_EN</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:19.53686714px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="632.28369"
+         y="596.00507"
+         id="text3699"><tspan
+           sodipodi:role="line"
+           id="tspan3701"
+           x="632.28369"
+           y="596.00507">EDITOR = emacs</tspan></text>
+      <path
+         id="path3713"
+         d="M 530.31837,487.46139 L 579.65641,495.68441"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4.88421679;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#TriangleOutM);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
     <text
        xml:space="preserve"
-       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
-       x="70.56781"
-       y="215.51474"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:129.99999523%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="104.18304"
+       y="194.06641"
        id="text1342"
-       sodipodi:linespacing="125.00000%"><tspan
+       sodipodi:linespacing="130%"><tspan
          sodipodi:role="line"
-         x="70.567810"
-         y="215.51474"
-         id="tspan2245"><tspan
-   style="font-size:24.000000px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-   id="tspan2249">Программное окружение</tspan> - набор данных, приписанных системой</tspan><tspan
+         id="tspan1352"
+         x="104.18304"
+         y="194.06641">При создании дочернего процесса (C) ему копируется окружение</tspan><tspan
          sodipodi:role="line"
-         x="70.567810"
-         y="246.40996"
-         id="tspan2247">процессу. Состоит из набора переменных.</tspan><tspan
+         x="104.18304"
+         y="225.26641"
+         id="tspan10081">родительского процесса (P). Родительский процесс может через</tspan><tspan
          sodipodi:role="line"
-         x="70.567810"
-         y="277.30517"
-         id="tspan2251" /><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="308.20039"
-         id="tspan2253">• Программное окужение копируется при создании дочернего процесса.</tspan><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="339.09560"
-         id="tspan2466" /><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="369.99082"
-         id="tspan2468">• Доступ к переменным осуществляется с помощью символа $:</tspan><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="400.88603"
-         id="tspan2470" /><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="431.78125"
-         id="tspan2472" /><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="462.67647"
-         id="tspan2474" /><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="493.57168"
-         id="tspan2255" /><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="524.46690"
-         id="tspan3374">• Процесс может изменять свои переменные окружения</tspan><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="555.36211"
-         id="tspan3368" /><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="586.25733"
-         id="tspan3370">• Существует ряд стандартных переменных окружения:</tspan><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="616.25733"
-         id="tspan3372">   DISPLAY, EDITOR, HOME, LC_*, PATH, SHELL, TERM, USER, _</tspan><tspan
-         sodipodi:role="line"
-         x="70.567810"
-         y="646.25733"
-         id="tspan2257" /></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12.000000px;font-style:normal;font-weight:normal;line-height:125.00000%;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="342.89984"
-       y="425.35596"
-       id="text2608"
-       sodipodi:linespacing="125.00000%"><tspan
-         sodipodi:role="line"
-         x="342.89984"
-         y="425.35596"
-         style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-         id="tspan2612"><tspan
-   style="fill:#4c4c4c;fill-opacity:1.0000000"
-   id="tspan3354">user@desktop ~ $</tspan> echo $PWD</tspan><tspan
-         sodipodi:role="line"
-         x="342.89984"
-         y="455.35596"
-         style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-         id="tspan2614">/home/user</tspan></text>
+         x="104.18304"
+         y="256.4664"
+         id="tspan10114">переменные окружения передавать информацию дочернему.</tspan></text>
   </g>
 </svg>

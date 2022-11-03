@@ -12,8 +12,8 @@
    height="595.27559pt"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.42.2"
-   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/presentation"
+   inkscape:version="0.43"
+   sodipodi:docbase="/home/dralex/Droggie/doc-admin/presentation"
    sodipodi:docname="lect4-10.svg">
   <defs
      id="defs4">
@@ -54,16 +54,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.58982518"
-     inkscape:cx="586.36505"
-     inkscape:cy="377.18554"
+     inkscape:cx="547.3834"
+     inkscape:cy="337.63064"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer1"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="975"
      inkscape:window-height="713"
      inkscape:window-x="41"
-     inkscape:window-y="768">
+     inkscape:window-y="25">
     <sodipodi:guide
        orientation="horizontal"
        position="579.68739"
@@ -110,177 +110,7 @@
          sodipodi:role="line"
          id="tspan1336"
          x="907.34863"
-         y="693.62036">10 / 13</tspan></text>
-    <g
-       id="g1688"
-       transform="translate(-26.30168,11.98841)">
-      <rect
-         y="246.80852"
-         x="417.30902"
-         height="65.658249"
-         width="197.97527"
-         id="rect1306"
-         style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.3061297;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000" />
-      <text
-         sodipodi:linespacing="125.00000%"
-         id="text2043"
-         y="285.47354"
-         x="479.93335"
-         style="font-size:24.000000px;font-style:normal;font-weight:normal;line-height:125.00000%;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-           y="285.47354"
-           x="479.93335"
-           id="tspan2045"
-           sodipodi:role="line">getty</tspan></text>
-      <rect
-         y="357.41394"
-         x="417.30902"
-         height="65.658249"
-         width="197.97527"
-         id="rect2047"
-         style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.3061297;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000" />
-      <text
-         sodipodi:linespacing="125.00000%"
-         id="text2049"
-         y="396.77039"
-         x="482.58179"
-         style="font-size:24.000000px;font-style:normal;font-weight:normal;line-height:125.00000%;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-           y="396.77039"
-           x="482.58179"
-           id="tspan2051"
-           sodipodi:role="line">login</tspan></text>
-      <rect
-         y="549.33081"
-         x="417.30902"
-         height="65.658249"
-         width="197.97527"
-         id="rect2053"
-         style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:1.3061297;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000" />
-      <text
-         sodipodi:linespacing="125.00000%"
-         id="text2055"
-         y="591.10718"
-         x="483.82397"
-         style="font-size:24.000000px;font-style:normal;font-weight:normal;line-height:125.00000%;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
-           y="591.10718"
-           x="483.82397"
-           id="tspan2057"
-           sodipodi:role="line">bash</tspan></text>
-      <path
-         id="path2059"
-         d="M 516.29662,174.72950 L 516.29662,239.01522"
-         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.7496061;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" />
-      <path
-         sodipodi:nodetypes="cc"
-         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.7496061;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
-         d="M 516.29662,313.30092 L 516.29662,350.01329"
-         id="path2926" />
-      <path
-         sodipodi:nodetypes="cc"
-         id="path2928"
-         d="M 516.29662,424.06927 L 516.29662,543.12912"
-         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.7496061;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" />
-      <text
-         id="text2930"
-         y="200.44463"
-         x="537.86884"
-         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           y="200.44463"
-           x="537.86884"
-           id="tspan2932"
-           sodipodi:role="line">Инициализация</tspan><tspan
-           id="tspan2934"
-           y="230.44463"
-           x="537.86884"
-           sodipodi:role="line">системы</tspan></text>
-      <text
-         id="text2936"
-         y="343.00732"
-         x="536.76727"
-         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           y="343.00732"
-           x="536.76727"
-           id="tspan2938"
-           sodipodi:role="line">Ввод логина</tspan></text>
-      <text
-         id="text2940"
-         y="453.96893"
-         x="536.76727"
-         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           y="453.96893"
-           x="536.76727"
-           id="tspan2942"
-           sodipodi:role="line">Правильный пароль</tspan></text>
-      <path
-         sodipodi:nodetypes="cc"
-         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.7496061;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
-         d="M 417.01092,389.04425 C 345.42378,389.04425 333.62502,279.01528 411.29662,279.01528"
-         id="path2946" />
-      <text
-         sodipodi:linespacing="125.00000%"
-         id="text2948"
-         y="366.4173"
-         x="354.68732"
-         style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125.00000%;writing-mode:lr-tb;text-anchor:end;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           y="366.41730"
-           x="354.68732"
-           id="tspan2950"
-           sodipodi:role="line">Неверный</tspan><tspan
-           id="tspan2952"
-           y="396.41730"
-           x="354.68732"
-           sodipodi:role="line">пароль</tspan></text>
-      <path
-         id="path6755"
-         d="M 235.09136,502.07235 L 797.50188,502.07235"
-         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#6d6d6d;stroke-width:2.2532310;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:13.519387 2.2532310 ;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000" />
-      <text
-         sodipodi:linespacing="125.00000%"
-         id="text7495"
-         y="530.87115"
-         x="779.68683"
-         style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#6d6d6d;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           id="tspan7499"
-           y="530.87115"
-           x="779.68683"
-           sodipodi:role="line">Права вошедшего пользователя</tspan></text>
-      <text
-         sodipodi:linespacing="125.00000%"
-         id="text3134"
-         y="489.83426"
-         x="741.08527"
-         style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#6d6d6d;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           id="tspan3136"
-           y="489.83426"
-           x="741.08527"
-           sodipodi:role="line">Права суперпользователя</tspan></text>
-      <path
-         id="path3138"
-         d="M 417.01092,582.16009 C 31.009797,582.16009 32.064577,279.01528 411.29662,279.01528"
-         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:2.7496061;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
-         sodipodi:nodetypes="cc" />
-      <text
-         id="text3140"
-         y="478.76425"
-         x="155.29155"
-         style="font-size:24.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           y="478.76425"
-           x="155.29155"
-           id="tspan3142"
-           sodipodi:role="line">Выход из системы</tspan></text>
-    </g>
+         y="693.62036">10 / 12</tspan></text>
   </g>
   <g
      inkscape:label="Заголовок"
@@ -297,7 +127,7 @@
          sodipodi:role="line"
          id="tspan1328"
          x="526.09906"
-         y="81.956612">Лекция 4: Безопасность операционной системы UNIX</tspan></text>
+         y="81.956612">Лекция 4: Командная строка UNIX</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:48.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
@@ -308,7 +138,7 @@
          sodipodi:role="line"
          id="tspan1332"
          x="528.27875"
-         y="145.50708">Вход пользователя в систему</tspan></text>
+         y="145.50708">Справочная подсистема</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125.00000%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
@@ -319,6 +149,82 @@
          sodipodi:role="line"
          id="tspan10269"
          x="525.52191"
-         y="50.379196">Введение в администрирование UNIX</tspan></text>
+         y="50.379196">UNIX: учебный курс</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       x="87.530701"
+       y="209.25249"
+       id="text1361"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         x="87.530701"
+         y="209.25249"
+         id="tspan1487">В операционной системе UNIX документированы команды, функции и</tspan><tspan
+         sodipodi:role="line"
+         x="87.530701"
+         y="240.10599"
+         id="tspan1507">конфигурационные файлы. Основные источники документации:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:150%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="128.36469"
+       y="297.79318"
+       id="text1590"
+       sodipodi:linespacing="150%"><tspan
+         sodipodi:role="line"
+         id="tspan1592"
+         x="128.36469"
+         y="297.79318">• страницы руководства (man) - разделяются по типам;</tspan><tspan
+         sodipodi:role="line"
+         x="128.36469"
+         y="334.81739"
+         id="tspan1594">• поиск по руководствам (apropos, whatis);</tspan><tspan
+         sodipodi:role="line"
+         x="128.36469"
+         y="371.84159"
+         id="tspan1596">• расширенные руководства (info);</tspan><tspan
+         sodipodi:role="line"
+         x="128.36469"
+         y="408.86579"
+         id="tspan1598">• дополнительная документация программы (/usr/share/doc/...);</tspan><tspan
+         sodipodi:role="line"
+         x="128.36469"
+         y="445.89"
+         id="tspan1602">• интегрированные системы (scrollkeeper).</tspan><tspan
+         sodipodi:role="line"
+         x="128.36469"
+         y="482.9142"
+         id="tspan1604" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       x="126.89398"
+       y="504.02866"
+       id="text1606"
+       sodipodi:linespacing="125.00000%"><tspan
+         sodipodi:role="line"
+         x="126.89398"
+         y="504.02866"
+         id="tspan1610">Особенности справочной подсистемы: английский язык, чёткая</tspan><tspan
+         sodipodi:role="line"
+         x="126.89398"
+         y="534.88216"
+         id="tspan1616">структура, ссылки на другие материалы.</tspan></text>
+    <text
+       sodipodi:linespacing="125.00000%"
+       id="text1618"
+       y="592.69824"
+       x="92.241638"
+       style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;display:inline;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         id="tspan1622"
+         y="592.69824"
+         x="92.241638"
+         sodipodi:role="line">Современные свободные версии UNIX: сообщество подбзователей и </tspan><tspan
+         y="623.55175"
+         x="92.241638"
+         sodipodi:role="line"
+         id="tspan1624">разработчиков - добровольная поддержка. Основной принцип: RTFM.</tspan></text>
   </g>
 </svg>

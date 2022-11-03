@@ -1,0 +1,76 @@
+<!-- IU7 LUG -->
+<!ENTITY LUGSHORT "<ulink url='http://lug.mstu.ru'>LUG МГТУ</ulink>">
+<!ENTITY LUG "<ulink url='http://lug.mstu.ru'>Linux User Group МГТУ им. Н.Э. Баумана</ulink>">
+<!ENTITY LUGORG "<orgname>&LUG;</orgname>">
+
+<!-- Freesoft speciefic -->
+
+<!ENTITY GNU "<acronym>GNU</acronym>">
+<!ENTITY GNURUS "<acronym>ГНУ</acronym>">
+<!ENTITY GPL "<acronym>GPL</acronym>">
+<!ENTITY GPLFULL "<acronym>GNU</acronym> General Public License">
+<!ENTITY FDL "<acronym>FDL</acronym>">
+<!ENTITY FDLFULL "<acronym>GNU</acronym> Free Documentation License">
+
+<!-- System items -->
+
+<!ENTITY ROOT "<systemitem class='username'>root</systemitem>">
+
+<!-- Filesystems -->
+
+<!ENTITY REISER "<systemitem class='filesystem'>ReiserFS</systemitem>">
+<!ENTITY EXT2 "<systemitem class='filesystem'>Ext2</systemitem>">
+<!ENTITY EXT3 "<systemitem class='filesystem'>Ext3</systemitem>">
+<!ENTITY VFAT "<systemitem class='filesystem'>VFAT</systemitem>">
+<!ENTITY NTFS "<systemitem class='filesystem'>NTFS</systemitem>">
+<!ENTITY UDF "<systemitem class='filesystem'>UDF</systemitem>">
+<!ENTITY ISOFS "<systemitem class='filesystem'>ISOFS</systemitem>">
+
+<!-- OSes -->
+
+<!-- Links -->
+<!ENTITY LINUXLNK "<ulink url='http://www.kernel.org'>Linux</ulink>">
+<!ENTITY OPENBSDLNK "<ulink url='http://www.openbsd.org'>OpenBSD</ulink>">
+<!ENTITY HURDLNK "<ulink url='http://www.gnu.org/software/hurd/hurd.html'>GNU Hurd</ulink>">
+
+<!-- Linux/Unix -->
+<!ENTITY LINUX "<systemitem class='osname'>Linux</systemitem>">
+<!ENTITY LINUXRUS "<systemitem class='osname'>Линукс</systemitem>">
+<!ENTITY GNULINUX "<systemitem class='osname'>GNU/Linux</systemitem>">
+<!ENTITY GNULINUXRUS "<systemitem class='osname'>ГНУ/Линукс</systemitem>">
+<!ENTITY UNIX "<systemitem class='osname'>UNIX</systemitem>">
+<!ENTITY UNIXRUS "<systemitem class='osname'>Юникс</systemitem>">
+<!ENTITY BSD "<systemitem class='osname'>BSD</systemitem>">
+<!ENTITY FREEBSD "<systemitem class='osname'>FreeBSD</systemitem>">
+<!ENTITY OPENBSD "<systemitem class='osname'>OpenBSD</systemitem>">
+<!ENTITY SOLARIS "<systemitem class='osname'>Solaris</systemitem>">
+<!ENTITY MINIX "<systemitem class='osname'>Minix</systemitem>">
+
+<!-- Linux Distributions -->
+<!ENTITY DEBIANLONG "<systemitem class='osname'>Debian GNU/Linux</systemitem>">
+<!ENTITY DEBIANSHORT "<systemitem class='osname'>Debian</systemitem>">
+<!ENTITY DEBIANLONGRUS "<systemitem class='osname'>Дебиан ГНУ/Линукс</systemitem>">
+<!ENTITY DEBIANRUS "<systemitem class='osname'>Дебиан</systemitem>">
+<!ENTITY MANDRAKESOFT "<systemitem class='osname'>MandrakeSoft</systemitem>">
+<!ENTITY MANDRAKE "<systemitem class='osname'>Mandrake</systemitem>">
+<!ENTITY REDHATLONG "<systemitem class='osname'>Red Hat Linux</systemitem>">
+<!ENTITY REDHATSHORT "<systemitem class='osname'>Red Hat</systemitem>">
+<!ENTITY SUSELONG "<systemitem class='osname'>SuSE Linux</systemitem>">
+<!ENTITY SUSESHORT "<systemitem class='osname'>SuSE</systemitem>">
+<!ENTITY GENTOO "<systemitem class='osname'>Gentoo</systemitem>">
+<!ENTITY SLACKWARE "<systemitem class='osname'>Slackware</systemitem>">
+<!ENTITY ASPLINUX "<systemitem class='osname'>ASPLinux</systemitem>">
+
+<!-- Microsoft -->
+<!ENTITY WINDOWS "<systemitem class='osname'>Microsoft Windows</systemitem>">
+<!ENTITY WIN "<systemitem class='osname'>Windows</systemitem>">
+<!ENTITY MSDOS "<systemitem class='osname'>MS-DOS</systemitem>">
+<!ENTITY WINNT "<systemitem class='osname'>Microsoft Windows&nbsp;NT</systemitem>">
+<!ENTITY NTSHORT "<systemitem class='osname'>Windows&nbsp;NT</systemitem>">
+<!ENTITY WIN2000 "<systemitem class='osname'>Microsoft Windows 2000</systemitem>">
+<!ENTITY WINXP "<systemitem class='osname'>Microsoft Windows XP</systemitem>">
+
+<!-- Apple -->
+<!ENTITY MACOS "<systemitem class='osname'>Mac&nbsp;OS</systemitem>">
+<!ENTITY MACOSX "<systemitem class='osname'>Mac&nbsp;OS&nbsp;X</systemitem>">
+<!ENTITY DARWIN "<systemitem class='osname'>Darwin</systemitem>">

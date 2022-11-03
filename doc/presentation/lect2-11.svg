@@ -149,7 +149,7 @@
          sodipodi:role="line"
          id="tspan10269"
          x="525.52191"
-         y="50.379196">Введение в администрирование UNIX</tspan></text>
+         y="50.379196">UNIX: учебный курс</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:24.000000px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
@@ -220,6 +220,6 @@
          sodipodi:role="line"
          x="80.222404"
          y="630.70500"
-         id="tspan4652">   механизмы, основными являются неименованые каналы и сигналы.</tspan></text>
+         id="tspan4652">   механизмы, основными являются неименованные каналы и сигналы.</tspan></text>
   </g>
 </svg>

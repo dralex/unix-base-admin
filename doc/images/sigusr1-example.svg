@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg1477"
+   sodipodi:version="0.32"
+   inkscape:version="0.44"
+   sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/images"
+   sodipodi:docname="sigusr1-example.svg">
+  <defs
+     id="defs1479">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path2554"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(-5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.3879687"
+     inkscape:cx="364.46325"
+     inkscape:cy="869.5057"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="997"
+     inkscape:window-height="740"
+     inkscape:window-x="37"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata1482">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:white;fill-opacity:1;stroke:black;stroke-width:1.40516067;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1503"
+       width="149.88774"
+       height="52.950272"
+       x="54.397751"
+       y="78.812248"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="60.695202"
+       y="93.225914"
+       id="text1505"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan1507"
+         x="60.695202"
+         y="93.225914">Процесс A</tspan></text>
+    <g
+       transform="matrix(1.207077,0,0,1.207077,25.29934,46.03374)"
+       id="g3896"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1"
+         d="M 197.85714,129.50504 L 197.85714,186.6479 C 197.85714,186.6479 197.85714,186.6479 197.85714,186.6479 C 197.85714,193.74504 215.13714,199.50504 236.42857,199.50504 C 257.72,199.50504 275,193.74504 275,186.6479 L 275,129.50504"
+         id="path3898" />
+      <path
+         sodipodi:type="arc"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path3900"
+         sodipodi:cx="236.42857"
+         sodipodi:cy="130.93361"
+         sodipodi:rx="38.57143"
+         sodipodi:ry="12.857142"
+         d="M 275 130.93361 A 38.57143 12.857142 0 1 1  197.85714,130.93361 A 38.57143 12.857142 0 1 1  275 130.93361 z"
+         transform="translate(-1.70105e-6,0)" />
+    </g>
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 205.23568,120.46204 C 268.93552,120.45115 278.97313,144.31412 284.60708,187.43141"
+       id="path1508"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="59.617432"
+       y="123.0968"
+       id="text2205"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan2207"
+         x="59.617432"
+         y="123.0968">отправить сообщение</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       id="path2209"
+       d="M 205.23568,120.46204 C 268.93552,120.45115 290.51546,90.476733 390.0936,92.177773"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="356.25555"
+       y="172.98274"
+       id="text2211"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan2213"
+         x="356.25555"
+         y="172.98274">сообщение</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.00000381px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="238.17793"
+       y="155.63156"
+       id="text2215"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"
+       transform="matrix(0.979616,-0.200881,0.200881,0.979616,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan2217"
+         x="238.17793"
+         y="155.63156">сигнал SIGUSR1</tspan></text>
+    <path
+       sodipodi:nodetypes="czc"
+       id="path2219"
+       d="M 468.8855,133.59402 C 469.86205,223.9013 349.45125,299.68982 348.75862,242.35127 C 348.06595,185.00942 458.50104,186.86411 459.79412,138.64478"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <rect
+       inkscape:export-ydpi="120"
+       inkscape:export-xdpi="120"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       y="78.822128"
+       x="394.78061"
+       height="52.930508"
+       width="154.19084"
+       id="rect1518"
+       style="fill:white;fill-opacity:1;stroke:black;stroke-width:1.42492223;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text2199"
+       y="93.225914"
+       x="399.3909"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         y="93.225914"
+         x="399.3909"
+         id="tspan2201"
+         sodipodi:role="line">Процесс B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="402.31897"
+       y="126.13601"
+       id="text2221"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         sodipodi:role="line"
+         id="tspan2223"
+         x="402.31897"
+         y="126.13601">проверить сообщение</tspan></text>
+    <text
+       id="text2225"
+       y="160.80681"
+       x="226.25206"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-tdb.png"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><tspan
+         y="160.80681"
+         x="226.25206"
+         id="tspan2227"
+         sodipodi:role="line">данные</tspan></text>
+  </g>
+</svg>

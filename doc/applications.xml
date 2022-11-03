@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+	  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+	  <!ENTITY % CommonEntities PUBLIC
+		   "-//IU7 LUG//ENTITIES Common Documentation//RU"
+		   "common.ent">
+	  %CommonEntities;
+	  
+	  <!ENTITY BASEIMAGES "images/">
+
+]>
+
+<chapter id="chapter-applications">
+  <title>Обзор прикладных программ</title>
+  <para>
+    UNIX-подобные операционные системы содержат огромное количество программ для
+    пользователей и администрторов системы. Часть из них запускается с графическом
+    пользовательским интерфейсом (см. <xref linkend="chapter-x-windows"/>), однако
+    администратору чаще приходится работать со средствами командной строки через
+    сетевой терминал <application>ssh</application>.
+  </para>
+  <para>
+    Другие полезные программы администратора&nbsp;&ndash; программы для отправления почты,
+    загрузки файлов по протоколам HTTP и FTP, среди которых здесь
+    рассматриваются <application>sendmail</application>
+    и <application>wget</application>.
+  </para>
+</chapter>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+	  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+	  <!ENTITY % CommonEntities PUBLIC
+		   "-//IU7 LUG//ENTITIES Common Documentation//RU"
+		   "common.ent">
+	  %CommonEntities;
+	  
+	  <!ENTITY BASEIMAGES "images/">
+
+]>
+
+<chapter id="chapter-final">
+  <title>Заключение</title>
+  <para>
+    Этот курс является базовым и во многом ознакомительным. Искусство администрирования
+    требует не только знаний, но и опыта. Если Вам интересно продолжить изучение UNIX,
+    советую обратиться к любой из рекомендуемых по ходу лекций книг. Но прежде установите
+    себе Linux или любую другую открытую версию UNIX. 
+  </para>
+  <para>
+    Удачи в освоении! Ждите более полной версии лекций.
+  </para>
+</chapter>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

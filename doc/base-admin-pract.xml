@@ -1,0 +1,1779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+	  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+	  <!ENTITY % CommonEntities PUBLIC
+		   "-//IU7 LUG//ENTITIES Common Documentation//RU"
+		   "common.ent">
+	  %CommonEntities;
+	  
+	  <!ENTITY BASEIMAGES "images/">
+
+]>
+
+<chapter id="chapter-base-admin-pract">
+  <title>Практические занятия по базовому администрированию UNIX</title>
+
+  <sect1 id="base-admin-cmd">
+    <title>Методические указания по командам управления службами и журналами</title>
+    <sect2 id="base-admin-cmd-textedit">
+      <title>Текстовые редакторы</title>
+
+    <para>
+	Чаще всего администратору приходится править текстовые конфигурационные файлы, для чего
+	подойдёт множество редакторов или средств командной строки. Здесь
+	рассматриваются два текстовых редактора: маленький и простой <application>joe</application> и более
+	распространённый универсальный редактор <application>vi</application>. 
+    </para>
+
+     <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-joe">joe</definition></term>
+	  <listitem>
+      <para>
+	Редактор <application>joe</application> обладает полноценным интерфейсом к
+	консольном режиме. Для открытия файла на редактирование можно запустить команду
+	<command>joe имя_файла</command>. Текущая версия редактора имеет уже
+	достаточно широкие возможности&nbsp;&mdash; это: подсветка
+	синтаксиса, одновременное редактирование нескольких файлов, запуск внутренних команд, использование
+	комбинаций клавиш и т.&nbsp;д.
+        </para>
+      <para>
+	Интересной особенностью редактора является возможность запуска его в одном из
+	<quote>стилей</quote> интерфейсов других распространённых редакторов, таких
+	как <application>emacs</application> или <application>pico</application>. Для
+	запуска редактора в этом случае нужно использовать команду <command>jmacs</command>
+	или <command>jpico</command> соответственно. Далее будет рассматриваться работа
+	редактора в его <quote>оригинальном</quote> стиле интерфейса.
+      </para>
+      <sect3 id="base-admin-textedit-joe-screen">
+	<title>Рабочий экран</title>
+	<para>
+	  Верхнюю строку занимает <emphasis>строка состояния</emphasis>, в которой
+	  содержится следующая информация (слева-направо):
+	  <itemizedlist>
+	    <listitem>состояние нажатых управляющих клавиш;</listitem>
+	    <listitem>имя редактируемого файла;</listitem>
+	    <listitem>информация об изменениях (например, <quote>Read Only</quote>
+	    или <quote>Modified</quote>);</listitem>
+	    <listitem>положение курсора (строка и колонка);</listitem>
+	    <listitem>текущее время;</listitem>
+	    <listitem>справочное руководство.</listitem>
+	  </itemizedlist>
+	  Если открыто несколько файлов, каждый из них будет сопровождаться таким
+	  заголовком. 
+	</para>
+	<para>
+	  Основной объём экрана занимает рабочая область редактирования текста. Курсор
+	  может перемещаться с помощью стандартных клавиш: стрелок, <keycap>PgUp</keycap>
+	  /<keycap>PgDn</keycap> и т.&nbsp;п. 
+	</para>
+	<para>
+	  Внизу экрана находится командная строка, в которой выводятся вопросы или
+	  сообщения редактора.
+	</para>
+      </sect3>
+      <sect3 id="base-admin-textedit-joe-keys">
+	<title>Управляющие клавиши</title>
+	<para>
+	  Большинство комбинаций построено на основе сочетания клавиш
+	  <keycombo><keycap>Ctrl</keycap><keycap>K</keycap></keycombo>. Например, для
+	  закрытия файла с
+	  сохранением&nbsp;&mdash; <keycombo><keycap>Ctrl</keycap> <keycap>K</keycap> <keycap>X</keycap></keycombo>.
+	  Для отмены операций и для выхода без сохранения
+	  используется <keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>.
+	</para>
+	<para>
+	  При
+	  нажатии <keycombo><keycap>Ctrl</keycap> <keycap>K</keycap> <keycap>H</keycap></keycombo>
+	  можно получить справку по существующим сочетаниям клавиш и командам.
+	</para>
+	<para>
+	  Для выделения областей используются
+	  комбинации <keycombo><keycap>Ctrl</keycap> <keycap>K</keycap> <keycap>B</keycap></keycombo>
+	  и <keycombo><keycap>Ctrl</keycap> <keycap>K</keycap> <keycap>K</keycap></keycombo>. Выделенный
+	  текст можно копировать с помощью <keycombo><keycap>Ctrl</keycap> <keycap>K</keycap> <keycap>С</keycap></keycombo>.
+	</para>
+      </sect3>
+      <sect3 id="base-admin-textedit-joe-commands">
+	<title>Встроенные команды</title>
+	<para>
+	  Редактор <application>joe</application> имеет ряд встроенных команд. При
+	  этом <application>joe</application> может быть запущен в качестве потокового
+	  редактора, когда на стандартный вход подаётся последовательность команд по
+	  изменению или созданию текста.
+	</para>
+	<para>
+	  Для вычисления простых математических функций и выражений используется
+	  встроенный калькулятор, вызываемый по
+	  нажатию <keycombo><keycap>ESC</keycap> <keycap>M</keycap></keycombo>.
+	</para>
+      </sect3>
+      <sect3 id="base-admin-textedit-joe-config">
+	<title>Настройка</title>
+	<para>
+	  Конфигурация редактора хранится в каталоге <filename>/etc/joe/</filename> и
+	  включает в себя настройки редактора, клавиш управления, подсветки синтаксиса и
+	  т.&nbsp;д.
+	</para>
+      </sect3>
+    </listitem>
+    </varlistentry>
+      <varlistentry>
+	<term><definition id="def-cmd-vi">vi</definition></term>
+	  <listitem>
+	  <para>
+	    Редактор <application>vi</application> является одним из самых распространённых
+	    текстовых редакторов для различных версий UNIX. Администратору необходимо овладеть
+	    хотя бы основами этого редактора, так как найти его можно практически в любой
+	    UNIX-системе.
+	  </para>
+	  <para>
+	    Как и с другими экранными редакторами, чтобы открыть файл, достаточно
+	    набрать <command>vi имя_файла</command>.
+	  </para>
+	  <sect4 id="base-admin-textedit-vi-modes">
+	    <title>Режимы работы</title>
+	    <para>
+	      Основной особенностью редактора <application>vi</application> является
+	      наличие <emphasis>режимов работы</emphasis>. Основным режимом является
+	      <emphasis>режим команд</emphasis>, в котором нажатия на клавиши задают
+	      команду редактору. Для реактирования текста удобно применять <emphasis>режим
+	      вставки</emphasis>, в котором можно перемещать курсор по редактируемому
+	      тексту, вставлять или удалять символы.
+	    </para>
+	    <para>
+	      В начале работы редактор находится в командном режиме, а для перехода в
+	      режим редактирования необходимо ввести команду <literal>i</literal> (insert)
+	      или <literal>a</literal> (append)&nbsp;&mdash; для вставки текста перед и
+	      после курсора соответственно. Для возвращения в командный режим используется
+	      клавиша <keycap>ESC</keycap>.
+	    </para>
+	    <para>
+	      В командном режиме все нажатия клавиш воспринимаются как команды. Длинные
+	      команды удобно набирать в <emphasis>командной строке</emphasis>&nbsp;&mdash; в
+	      последней строке экрана, куда можно перейти при нажатии
+	      <literal>:</literal>.
+	    </para>	
+	  </sect4>
+	  <sect4 id="base-admin-textedit-vi-commands">
+	    <title>Полезные команды</title>
+	    <para>
+	      Для простейшей работы с редактором <application>vi</application> достаточно
+	      знать несколько команд.
+	    </para>	
+	    <para>
+	      Команда <command>:w</command> сохраняет текущие изменения в файле, при
+	      необходимости запрашивая имя файла. С помощью команды <command>:q</command>
+	      можно выйти из редактора, но только если файл не был изменён&nbsp;&mdash;
+	      иначе придётся добавлять к команде специальный модификатор
+	      <literal>!</literal>: <command>:q!</command> для выхода без
+	      сохранения.  </para>
+	  </sect4>
+	  <sect4 id="base-admin-textedit-vi-versions">
+	    <title>Версии редактора</title>
+	    <para>
+	      Существует несколько версий редактора <application>vi</application>. Одним
+	      из самых распространённых является редактор
+	      <application>vim</application>&nbsp;&mdash; 
+	      <quote>усовершенствованный</quote>
+	      <application>vi</application>. Возможности его очень широки и включают
+	      разнообразные режимы редактирования для разных языков, подсветку синтаксиса
+	      и т.&nbsp;п.  
+            </para>
+	  </sect4>
+	  <sect4 id="base-admin-textedit-vi-additional">
+	    <title>Дополнительная информация</title>
+	    <para>
+	      Текстовым редакторам <application>vi</application> и
+	      <application>vim</application> посвящено множество книг и материалов в сети
+	      Internet, рекомендуется обратить внимание на книги указанные в разделе <xref
+	      linkend="base-admin-cmd-additional"/>.
+	    </para>
+	  </sect4>
+	  <sect4>
+	    <title>Пример использования</title>
+	    <para>
+	      Запустим редактор <application>vi</application> и создадим новый файл по
+	      имени <filename>test</filename> командой <command>vi test</command>.
+	      
+	      <informalexample>
+		<screen>_
+~
+~
+~
+~
+~
+"test" [New file]</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Редактор vi сейчас находится в командном режиме. Нажмем клавишу <keycap>i</keycap> (или
+	      <keycap>Insert</keycap>), и редактор перейдет в режим ввода текста. Теперь вводим, например,
+	      следующий текст:
+	      
+	      <informalexample>
+		<screen>Linux is a Unix-like computer operating system family that uses the Linux kernel. 
+A Linux system which includes system utilities and libraries from the GNU Project is 
+sometimes referred to as GNU/Linux. Linux underlying source code is available for anyone
+to use, modify, and redistribute freely. Linux is really free and open-source software.
+~</screen>
+	      </informalexample>
+
+	      Введите любое количество строк, используя <keycap>Enter</keycap> для
+	      переноса строки. Можно использовать клавишу <keycap>Backspace</keycap> для
+	      удаления текста.  Для выхода из режима ввода и возвращения в командный
+	      режим следует нажать клавишу <keycap>Esc</keycap>.
+	    </para>
+	    <para>
+	      Основные клавиши для перемещения курсора в командном режиме&nbsp;&mdash;
+	      это: <keycap>j</keycap>, <keycap>k</keycap>, <keycap>l</keycap> и
+	      <keycap>h</keycap>. Они передвигают курсор соответственно вниз на одну
+	      строчку, вверх на одну строчку, вправо на один символ и влево па один
+	      символ.   
+	    </para>
+	    <para>
+	      Если перед командой введено число, команда будет выполнена соответственное
+	      количество раз. Иными словами, команда <command>25j</command> переведет курсор
+	      на 25 строк вниз. Однако, если от текущей позиции курсора до конца файла
+	      меньше, чем 25 строк, <application>vi</application> выдаст сигнал
+	      (гудок). То же самое произойдет, если вы даете команду на перемещение вверх,
+	      а до начала файла строк меньше, чем указано в команде. Вы не сдвинетесь с
+	      места, пока не будет подана команда, которую можно выполнить.
+	    </para>
+	    <para>
+	      Для перемещения на экран следует соответственно использовать комбинации
+	      <keycombo><keycap>Ctrl</keycap><keycap>f</keycap></keycombo>, чтобы
+	      переместиться на экран вперед (вниз), и
+	      <keycombo><keycap>Ctrl</keycap><keycap>b</keycap></keycombo>, чтобы
+	      переместиться на экран назад (вверх).
+	    </para>
+	    <para>
+	      В командном режиме нажатие клавиши <keycap>x</keycap> удаляет символ, на
+	      который указывает курсор. Для того, чтобы удалить слово, на которое
+	      показывает курсор, можно использовать команду <command>dw</command>. Подведите
+	      курсор к началу слова <quote>source</quote> и введите
+	      <command>dw</command>.
+	      Можно удалять целые строки командой <command>dd</command> (т.&nbsp;е. нажав клавишу
+	      <keycap>d</keycap> два раза подряд). Традиционно для
+	      <application>vi</application>, если перед командой введено число, команда
+	      будет выполнена соответственное количество раз. Таким образом, если
+	      установить курсор в начало текста и нажать <quote>2dd</quote>, будет удалены
+	      2 строки текста.
+	    </para>
+	    <para>
+	      Чтобы отменить сделанные изменения в командном режиме следует использовать
+	      команду <command>u</command>.
+	    </para>
+	    <para>
+	      Чтобы сохранить файл, но не выходить из редактора
+	      <application>vi</application>, используется команда
+	      <command>:w</command>.
+	      Когда вводится команда <literal>:</literal>, курсор переходит на последнюю
+	      строку экрана, и таким образом редактор оказывается в режиме последней
+	      строки: внизу экрана появится символ двоеточия.
+	    </para>
+	    <para>
+	      Команда <command>:wq</command> сначала сохраняет
+	      измененный файл,
+	      а затем выходит из редактора <application>vi</application>. Для выхода из
+	      редактора <application>vi</application> без сохранения изменений, сделанных
+	      в файле, используется команда <command>:q!</command>.
+	    </para>
+	  </sect4>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+    </sect2>
+    <sect2 id="base-admin-cmd-system">
+      <title>Команды по управлению системой</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-init">init</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>init</command> служит для переключения <emphasis>уровня
+	      выполнения</emphasis> операционной системы (см. раздел <xref
+	      linkend="base-admin-lect-sysinit-unixes-sysv"/>). <command>init</command>&nbsp;&mdash;
+	      первая команда, запускаемая ядром операционной системы. Пользователь имеет
+	      возможность с помощью её запуска переключать уровень выполнения без
+	      перезагрузки. Для запуска этой команды необходимы права суперпользователя.
+	    </para>
+	    <para>
+	      Команда <command>init</command> имеет следующий вид:
+	      <synopsis>init [уровень]</synopsis>
+	      Параметры загрузки системы на определённых уровнях зависят от конкретной
+	      UNIX-системы, и обычно задаются в файле <filename>/etc/inittab</filename>.
+	    </para>
+	    <para>
+	      Для переключения системы в альтернативный уровень исполнения, необходимо
+	      передать его как параметр запуска <command>init</command>:
+
+	      <informalexample>
+		<screen>[root@localhost ~]# init 1
+...
+</screen>
+	      </informalexample>
+	      
+	      После выполнения этой команды система переключается в первый уровень
+	      выполнения, так называемый <emphasis>однопользовательский режим (single user
+	      mode)</emphasis>.
+	    </para>
+	    <para>
+              В большинстве Linux-систем чаще всего используются 1-й, 3-й и 5-й уровни
+              выполнения. Переключение между 3-м и 5-м уровнем используется при изменениии
+              вида входа в систему&nbsp;&mdash; в текстовой консоли или в графической
+              подсистеме соответственно. Первый уровень исполнения служит для конфигурации
+              системы в ограниченном однопользовательском режиме. Команду
+              <command>init</command> можно использовать также для выключения системы или
+              перезагрузки&nbsp;&mdash; переведя её в 0-й или 6-й уровень выполнения
+              соответственно, но чаще для этого используются специальные команды (см. ниже).
+	    </para>
+	    <para>
+              В некоторых UNIX-системах для переключения уровня выполнения используется
+              команда <command>telinit</command>, которая может предоставлять более гибкий
+              интерфейс переключения уровня исполнения.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-shutdown">shutdown</definition></term>
+	  <listitem>
+	    <para>
+              Команда <command>shutdown</command> является универсальным интерфейсом для
+              остановки и перезапуска операционной системы. Команда имеет следующий вид:
+	      <synopsis>shutdown [-t секунды] [-k | -r | -h] [-p] время [сообщение]</synopsis>
+	      Для запуска этой команды необходимы права суперпользователя.
+	    </para>
+	    <para>
+              В UNIX-системах с уровнями выполнения команда <command>shutdown</command> в
+              зависимости от параметров и ключей фактически переводит систему в один из трёх
+              уровней выполнения:
+	      
+              <variablelist>
+		<varlistentry>
+		  <term><parameter class='command'>-k</parameter></term>
+		  <listitem>
+		    Не производит переключение или перезагрузку, а только отправляет
+		    сообщение пользователям системы. 
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>-r</parameter></term>
+		  <listitem>
+		    Перезагружает систему (переключает в 6-й уровень выполнения). 
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>-h</parameter></term>
+		  <listitem>
+		    Останавливает систему (переключает в 0-й уровень выполнения). Вместе с
+		    этим ключом в некоторых системах может использоваться ключ
+		    <parameter class='command'>-p</parameter>, который указывает
+		    операционной системе на необходимость выключения питания компьютера (с
+		    использованием APM или ACPI).
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term>без указанных параметров</term>
+		  <listitem>
+		    Система переключается в 1-й уровень выполнения (однопользовательский
+		    режим). 
+		  </listitem>
+		</varlistentry>
+              </variablelist>
+	    </para>
+	    <para>
+              Еще одним возможным параметром выполнения команды является время (<parameter
+              class='command'>-t</parameter>) в секундах, которое дожно пройти в процессе
+              выключения или переагрузки системы между отправлением процессам сигналов
+              SIGTERM и SIGKILL. 
+	    </para>
+	    <para>
+              Обязательным параметром команды <command>shutdown</command> является время,
+	      в которое необходимо произвести данное выключение или перезагрузку. Если
+	      необходимо произвести её в данный момент, то вместо времени можно указать
+	      слово <quote>now</quote>. Также можно указать сообщение, которое будет
+	      отправлено всем пользователям системы&nbsp;&mdash; для уведомления
+	      пользователей о предстоящей перезагрузке. Если сообщение явно не
+	      указывается, система отправит всем пользователям стандартное сообщение.
+	    </para>
+	    <para>
+              Рассмотрим примеры использования программы:
+
+	      <informalexample>
+		<screen>[root@localhost ~]# shutdown -r 22:00 "The system will be rebooted in 30 minutes!"
+...
+</screen>
+	      </informalexample>
+
+              Эта команда производит перезагрузку системы в 22:00.
+
+	      <informalexample>
+		<screen>[root@localhost ~]# shutdown -ph now
+...
+</screen>
+	      </informalexample>
+
+              Эта команда выключает систему сразу после выполнения команды.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-halt">halt</definition>,
+		<definition id="def-cmd-poweroff">poweroff</definition>,
+		<definition id="def-cmd-reboot">reboot</definition></term>
+	  <listitem>
+	    <para>
+	       Эти команды являются сокращением указанных выше опций команды
+	       <command>shutdown</command> и соответсвенно останавливают систему,
+	       останавливают с выключением питания и перезагружают систему непосредственно
+	       после выполнения команды. Для выполнения этих команд необходимы права суперпользователя.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="base-admin-cmd-services">
+      <title>Команды по управлению службами</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-crontab">crontab</definition></term>
+	  <listitem>
+	    <para>
+	       Команда <command>crontab</command> является интерфейсом управления службой
+	       планировщика. С помощью данной команды пользователи могут изменять список
+	       программ, запускаемых планировщиком по расписанию. При этом необходимо,
+	       чтобы в системе был запущен сам демон планировщика (например,
+	       <command>crond</command>), который и производит запуск программ.
+	    </para>
+	    <para>
+	       Команда <command>crontab</command> может запускаться в одном из двух вариантов:
+	       <synopsis>crontab [-u пользователь] файл
+crontab [-u пользователь] [-l | -r | -e]</synopsis>
+	       В первом случае, можно загрузить файл с конфигурацией планировщика (например,
+	       <filename>/etc/crontab</filename>). Во втором&nbsp;&mdash; посмотреть или
+	       изменить план запуска для указанного пользователя.
+	    </para>
+	    <para>
+	       В обоих случаях ключ <parameter class='command'>-u</parameter> может
+	       использоваться суперпользователем для изменения конфигурации планировщика
+	       других пользователей системы.
+	    </para>
+	    <para>
+	       Конфигурацию планировщика можно сохранить в файле согласно формату,
+	       рассмотренному в разделе <xref
+	       linkend="base-admin-lect-services-cron-config"/>. После этого можно
+	       загрузить его во внутренний формат демона планирования с помощью
+	       команды <command>crontab</command>:
+	      <informalexample>
+		<screen>[root@localhost ~]# cat /etc/crontab
+*/5 * * * *      /usr/bin/vnstat -u
+58  * * * *      rdate -s ptbtime1.ptb.de
+[root@localhost ~]# crontab /etc/crontab
+14:37:13 installing file /etc/crontab for user root
+Modifications will be taken into account right now.</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Второй вариант запуска программы позволяет просматривать и изменять текущюю
+	      конфигурацию планировщика. При этом используется один из ключей:
+
+              <variablelist>
+		<varlistentry>
+		  <term><parameter class='command'>-l</parameter></term>
+		  <listitem>
+		    посмотреть текущую конфигурацию планировщика;
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>-e</parameter></term>
+		  <listitem>
+		    отредактировать текущую конфигурацию планировщика, при этом
+		    запускается системный редактор (который задаётся переменной окружения
+		    <envar>EDITOR</envar>);
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>-r</parameter></term>
+		  <listitem>
+		    удалить текущую конфигурацию планировщика.
+		  </listitem>
+		</varlistentry>
+              </variablelist>
+
+	      Рассмотрим примеры использования команды <command>crontab</command>:
+	    </para>
+	    <para>
+	      Текущая конфигурация планировщика может выглядеть, например, так:
+
+	      <informalexample>
+		<screen>[user@localhost ~]$ crontab -l
+15:23:04 listing user's fcrontab
+0 3 */3 * *      backup.sh</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Сценарий резервного копирования запускается в 3 часа ночи раз в три дня.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-service">service</definition></term>
+	  <listitem>
+	    <para>
+	      В ряде UNIX-систем для управления службами может использоваться команда
+	      <command>service</command>. Она принимает следующие параметры:
+	      <synopsis>service служба (start|stop|restart)</synopsis>
+	      Третий параметр&nbsp;&mdash; это команда на запуск, остановку и перезапуск
+	      службы, имя которой указывается вторым параметром.
+	      Для запуска этой команды необходимы права суперпользователя.
+	    </para>
+	    <para>
+	      Пример перезапуска службы печати:
+	      <informalexample>
+		<screen>[root@localhost ~]# service cups restart
+Stopping cups:                                             [  OK  ]
+Starting cups:                                             [  OK  ]</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Обычно системные службы располагаются в каталоге
+	      <filename>/etc/init.d</filename>.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-chkconfig">chkconfig</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>chkconfig</command> используется для изменения списка
+	      служб, соответствующих тому или иному уровню выполнения системы. Эта команда
+	      позволяет Вам указывать, какие службы следует запускать при старте системы,
+	      а какие нет.
+	    </para>
+	    <para>
+	      Команда имеет следующий синтаксис:
+	      <synopsis>chkconfig (--list|--add|--del) [имя службы]
+chkconfig [--level уровни] имя службы (on|off|reset)</synopsis>
+	    </para>
+	    <para>      
+	      В первом варианте использования можно посмотреть список установленных в
+	      системе служб и уровни выполнения, на которых они запускаются или
+	      останавливаются. Например:
+
+	      <informalexample>
+		<screen>[root@localhost ~]# chkconfig --list
+readahead       0:off   1:off   2:off   3:off   4:off   5:on    6:off
+kudzu           0:off   1:off   2:on    3:on    4:on    5:on    6:off
+lisa            0:off   1:off   2:off   3:off   4:off   5:off   6:off
+portmap         0:off   1:off   2:off   3:off   4:off   5:off   6:off
+...</screen>
+	      </informalexample>
+	      
+	      Для каждой из служб всем уровням выполнения соответствует слово
+	      <command>on</command> или <command>off</command>, означающее соответственно запуск и
+	      останов службы на данном уровне выполнения. В этом примере служба
+	      <command>lisa</command> не будет запущена ни на одном из уровней выполнения.
+	    </para>
+	    <para> 
+	      С помощью параметрических ключей <parameter class='command'>--add</parameter> и
+	      <parameter class='command'>--del</parameter> можно добавлять и удалять
+	      службы из системной загрузки. 
+
+	      <informalexample>
+		<screen>[root@localhost ~]# chkconfig --list | grep autofs
+autofs          0:off   1:off   2:off   3:on    4:on    5:on    6:off
+[root@localhost ~]# chkconfig --del autofs
+[root@localhost ~]# chkconfig --list | grep autofs
+[root@localhost ~]# chkconfig --add autofs
+[root@localhost ~]# chkconfig --list | grep autofs
+autofs          0:off   1:off   2:off   3:on    4:on    5:on    6:off</screen>
+	      </informalexample>
+
+	      В этом примере служба <application>autofs</application> последовательно удаляется из
+	      загрузки и добавлется обратно.
+	    </para>
+	    <para> 
+	      Второй вариант команды используется для настройки запуска службы на
+	      различных уровнях выполнения. К примеру, эта команда устанавливает запуск
+	      службы только на 3-м и 5-м уровнях выполнения:
+
+	      <informalexample>
+		<screen>[root@localhost ~]# chkconfig --list | grep autofs
+autofs          0:off   1:off   2:off   3:on    4:on    5:on    6:off
+[root@localhost ~]# chkconfig --level 35 autofs on
+[root@localhost ~]# chkconfig --level 4 autofs off
+[root@localhost ~]# chkconfig --list | grep autofs
+autofs          0:off   1:off   2:off   3:on    4:off   5:on    6:off</screen>
+	      </informalexample>
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="base-admin-cmd-users">
+      <title>Команды по мониторингу пользователей</title>
+      <para>
+	В прошлых практических занятиях уже рассматривалась команда <xref
+	linkend="def-cmd-who"/>. Здесь будут рассмотрены аналогичные команды, связанные с
+	историей входа пользователей в систему.
+      </para>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-last">last</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>last</command> отображает список пользователей, вошедших в
+	      систему, отсортированный по времени. Команда имеет ряд параметров, среди
+	      которых:
+              <variablelist>
+		<varlistentry>
+		  <term><parameter class='command'>-n</parameter> число</term>
+		  <listitem>
+		    число последних входов в систему, которые команда должна вывести на экран;
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>-t</parameter> ГГГГММДДЧЧММСС</term>
+		  <listitem>
+		    дата и время, для которых необходимо показать информацию о входе в систему;
+		  </listitem>
+		</varlistentry>
+		<varlistentry>
+		  <term><parameter class='command'>имя пользователя</parameter></term>
+		  <listitem>
+		    отображать только сеансы указанного пользователя.
+		  </listitem>
+		</varlistentry>
+              </variablelist>
+	    </para>
+	    <para>
+	      В этом примере выводится информация о последних семи входах в систему. В
+	      первом столбце указано имя пользователя, во втором&nbsp;&mdash; терминал или
+	      номер графического дисплея, время входа и общее время работы в системе.
+
+	      <informalexample>
+		<screen>[user@localhost ~]$ last -n 7
+user     pts/1        :0.0             Wed Oct 11 15:21   still logged in
+user     pts/1        :0.0             Wed Oct 11 14:34 - 14:52  (00:17)
+user     pts/1        :0.0             Wed Oct 11 12:33 - 13:30  (00:56)
+user     pts/1        :0.0             Wed Oct 11 12:04 - 12:31  (00:27)
+user     pts/1        :0.0             Wed Oct 11 11:26 - 11:27  (00:00)
+user     :0                            Wed Oct 11 11:20   still logged in
+reboot   system boot  2.6.9-42.0.2.EL  Wed Oct 11 11:19          (05:50)
+
+wtmp begins Mon Oct  2 17:57:35 2006</screen>
+	      </informalexample>
+
+	      Особый интерес представляет псевдопользователь <quote>reboot</quote>,
+	      который соответствует системным перезагрузкам.
+	    </para>
+	    <para>
+	      Этот пример показывает выборку по указанному времени:
+
+	      <informalexample>
+		<screen>[user@localhost ~]$ last -t 20061003100000
+dralex   pts/1        :0.0             Mon Oct  2 18:04 - down   (00:25)
+dralex   pts/1        :0.0             Mon Oct  2 17:57 - 18:00  (00:02)
+
+wtmp begins Mon Oct  2 17:57:35 2006</screen>
+	      </informalexample>
+
+	      В последней строке говорится о том, с какого момента хранится информация о
+	      входах в систему.
+	    </para>
+	    <para>
+	      Можно запросить информацию об отдельном пользователе:
+
+	      <informalexample>
+		<screen>[user@localhost ~]$ last reboot
+reboot   system boot  2.6.9-42.0.2.EL  Wed Oct 11 11:19          (06:03)
+reboot   system boot  2.6.9-42.0.2.EL  Tue Oct 10 23:59          (02:22)
+reboot   system boot  2.6.9-42.0.2.EL  Tue Oct 10 10:53          (05:46)
+...</screen>
+	      </informalexample>
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-lastlog">lastlog</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>lastlog</command> показывает время последнего входа в
+	      систему для всех зарегистрированных пользователей. 
+
+	      <informalexample>
+		<screen>[root@localhost ~]# lastlog
+Username         Port     From             Latest
+root             tty1                      Tue Sep 12 23:42:13 +0400 2006
+bin                                        **Never logged in**
+daemon                                     **Never logged in**
+adm                                        **Never logged in**
+...
+pegasus                                    **Never logged in**
+user            :0                        Wed Oct 11 11:20:18 +0400 2006</screen>
+	      </informalexample>
+
+	      Видно, что большая часть пользователей не являются интерактивными, и
+	      используются только при исполнении системных процессов (а, может быть, и
+	      вовсе не используются), т.&nbsp;к. они ни разу не производили вход в систему.
+	    </para>
+	    <para>
+	      Для того, чтобы получить информацию об отдельно взятом пользователе, можно
+	      использовать ключ <parameter class='command'>-u</parameter>:
+
+	      <informalexample>
+		<screen>[root@localhost ~]# lastlog -u root
+Username         Port     From             Latest
+root             tty1                      Tue Sep 12 23:42:13 +0400 2006</screen>
+	      </informalexample>
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-faillog">faillog</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>faillog</command> показывает время последней неудачной
+	      попытки входа в систему. По параметрам она аналогична команде
+	      <command>lastlog</command>.
+	    </para>
+	    <para>
+
+	      <informalexample>
+		<screen>[root@localhost ~]# faillog
+Login       Failures Maximum Latest                   On
+root            2        0   07/06/06 13:28:19 +0400</screen>
+	      </informalexample>
+
+	      Для каждого пользователя показывается также общее и максимальное число
+	      неверных попыток.      
+	    </para>
+	    <para>
+	      Для каждого из пользователей можно задать максимальное число ошибочных
+	      попыток входа в систему, по достижению которого аккаунт
+	      блокируется. Установить новое значение максимального числа ошибок можно с
+	      помощью ключа <parameter class='command'>-m</parameter>. Установка его в
+	      <literal>0</literal> означает отсутствие контроля максимального числа неверных попыток.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="base-admin-cmd-summary">
+      <title>Резюме</title>
+      <para>
+	В данном разделе рассматриваются команды по работе со службами и системными
+	журналами.
+      </para>
+      <list-of-definitions/>
+    </sect2>    
+    <sect2 id="base-admin-cmd-additional">
+      <title>Дополнительные материалы</title>
+      <para>
+	<orderedlist>
+	  <listitem>
+	    Курячий Г.В. <emphasis>Операционная система UNIX</emphasis>.&nbsp;&mdash;
+	    М.:Интуит.Ру, 2004.&nbsp;&mdash; 292 с.: ил.
+	  </listitem>
+	</orderedlist>
+      </para>
+    </sect2>    
+  </sect1>
+
+  <!-- занятие №12 (практическое занятие) -->
+  <sect1-scenario id="base-admin-examples">
+    <title>Управление службами</title>
+    <para>
+      <emphasis>Цель занятия:</emphasis> знакомство с этапами загрузки системы и уровнями
+      выполнения, изучение команд управления службами, изучение отдельных служб
+      (планирования заданий и системного журнала), команд мониторинга пользователей.
+    </para>
+    <para>
+      <emphasis>Изучаемые команды:</emphasis> 
+      <xref linkend="def-cmd-chkconfig"/>,
+      <xref linkend="def-cmd-crontab"/>,
+      <xref linkend="def-cmd-faillog"/>,
+      <xref linkend="def-cmd-init"/>,
+      <xref linkend="def-cmd-last"/>,
+      <xref linkend="def-cmd-lastlog"/>,
+      <xref linkend="def-cmd-reboot"/>,
+      <xref linkend="def-cmd-service"/>,
+      <xref linkend="def-cmd-shutdown"/>
+    </para>
+    <scenario id="base-admin-scenario-sysinit" dontlog="1">
+      <title>Загрузка системы</title>
+      <scenario-intro>
+	<para>
+	  Сценарий рассматривает процесс загрузки операционной системы.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Выключенный компьютер.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Во время загрузки компьютер последовательно исполняет несколько
+	    программ. Первая из них&nbsp;&mdash; программа BIOS, производящая проверку
+	    оборудования. BIOS передаёт исполнение программе загрузчика, которая запускает
+	    UNIX-систему.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Загрузчик передаёт управление ядру системы. Ядро выводит отладочную информацию
+	    в процессе загрузки:
+
+	    <informalexample>
+	      <screen>Linux version 2.6.16-std26-up-alt4 (builder@mash.office.altlinux.ru) (gcc version 3.4.5 20051201 (ALT Linux, ...
+BIOS-provided physical RAM map:
+ BIOS-e820: 0000000000000000 - 000000000009fc00 (usable)
+ BIOS-e820: 000000000009fc00 - 00000000000a0000 (reserved)
+ BIOS-e820: 00000000000f0000 - 0000000000100000 (reserved)
+ BIOS-e820: 0000000000100000 - 000000000fff0000 (usable)
+ BIOS-e820: 000000000fff0000 - 000000000fff8000 (ACPI data)
+ BIOS-e820: 000000000fff8000 - 0000000010000000 (ACPI NVS)
+ BIOS-e820: 00000000fec00000 - 00000000fec01000 (reserved)
+ BIOS-e820: 00000000fee00000 - 00000000fee01000 (reserved)
+ BIOS-e820: 00000000fff80000 - 0000000100000000 (reserved)
+0MB HIGHMEM available.
+255MB LOWMEM available.
+found SMP MP-table at 000fb4c0
+On node 0 totalpages: 65520
+  DMA zone: 4096 pages, LIFO batch:0
+  DMA32 zone: 0 pages, LIFO batch:0
+  Normal zone: 61424 pages, LIFO batch:15
+  HighMem zone: 0 pages, LIFO batch:0
+DMI 2.3 present.
+...</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Когда загрузка ядра завершена, монтируется корневая файловая система, и
+	    управление передаётся процессу <command>init</command>, специфичному
+	    для конкретной UNIX-системы. Обычно при старте системы выводится название
+	    дистрибутива:
+	    <informalexample>
+	      <screen>INIT: version 2.86 booting
+                              Welcome to ALT Linux
+                     Press 'I' to enter interactive startup
+Mounting proc filesystem:                                               [ DONE ]
+Mounting sys filesystem:                                                [ DONE ]
+Setting system clock (utc):                                             [ DONE ]
+Today's date: Thu Mar 29 00:36:19 MSD 2007                              [ DONE ]
+Activating swap partitions:                                             [ DONE ]
+Setting hostname localhost:                                             [ DONE ]
+Remounting /mnt read/write:                                             [ DONE ]
+...</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    <command>init</command> производит загрузку системы на определённый
+	    уровень выполнения, запуская соответствующие службы:
+
+	    <informalexample>
+	      <screen>...
+INIT: Entering runlevel: 5
+Entering non-interactive startup
+Starting udevd service:                                                 [ DONE ]
+Populating /dev:                                                        [ DONE ]
+Starting network:                                                       [ DONE ]
+Initializing random number generator:                                   [ DONE ]
+Starting system logger service:                                         [ DONE ]
+Handling remaining udev events:                                         [ DONE ]
+...</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Когда все системные службы загружены, запускается программа управления
+	    терминалом, и пользователь может войти в систему:
+	    <informalexample>
+	      <screen>Welcome to ALT Linux Sisyphus (20070101) / tty1
+localhost login:</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-8-1">
+	Посмотрите варианты загрузки системы в меню загрузчика. Выберите разные режимы
+	загрузки, чем при этом отличается ход загрузки операционной системы?
+      </practice>
+    </scenario>
+    <scenario id="base-admin-scenario-services">
+      <title>Системные службы: запуск и остановка</title>
+      <scenario-intro>
+	<para>
+	  В сценарии будут рассмотрены основные системые службы, команды их запуска и остановки.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка, права суперпользователя.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Список системных служб можно получить, просмотрев содержимое каталога
+	    <filename>/etc/init.d</filename> с помощью команды <command>ls
+	    /etc/init.d</command>. Каждый из этих файлов является скриптом, запускающим и
+	    останавливающим соответствующую службу.
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Любой из этих скриптов может запускаться, останавливаться и перезапускаться:
+	    <command>/etc/init.d/crontab restart</command> или <command>...</command>
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Также можно и получить информацию о текущем состоянии службы&nbsp;&mdash;
+	    запущена она или нет с помощью параметра <parameter
+	      class='command'>status</parameter>, <command>/etc/init.d/network status</command>:
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Альтернативный способ запуска команд&nbsp;&mdash; использование команды
+	    <command dontlog="1">service</command> с теми же параметрами, что и файлы
+	    скриптов служб, рассмотренные выше. Например, 
+	    <command>service crontab restart</command>.
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-8-2">
+	Получите список системных служб вместе с их текущим состоянием выполнения.
+      </practice>
+    </scenario>
+    <scenario id="base-admin-scenario-runlevels">
+      <title>Уровни выполнения системы</title>
+      <scenario-intro>
+	<para>
+	  В сценарии рассматривается программа <command dontlog="1">init</command>, уровни
+	  выполнения системы, переключение между уровнями выполнения и их
+	  конфигурирование.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка, права суперпользователя.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Рассмотрим содержимое каталога <filename>/etc/rc.d</filename>, запустив команду <command>ls
+	    /etc/rc.d</command>. 
+
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+
+	    Каталог <filename>/etc/rc.d</filename> содержит наборы скриптов, которые
+	    должны быть запущены для каждого из уровней выполнения системы: 
+	    <filename>rc1.d</filename>&nbsp;&mdash; для 1-го уровня,
+	    <filename>rc2.d</filename>&nbsp;&mdash; для 2-го уровня и т.п.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Каталоги <filename>rcX.d</filename> в свою очередь содержат ссылки на соответствующие скрипты системных служб,
+	    <command>ls -l /etc/rc.d/rc1.d</command>.
+
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+
+	    Имена ссылок содержат букву (<quote>S</quote> для стартующих служб и
+	    <quote>K</quote> для останавливающихся служб) и номер, который указывает на
+	    порядок запуска или остановки службы. Процесс <command
+	    dontlog="1">init</command> при переходе на соответствующий уровень
+	    последовательно останавливает и запускает скрипты из данного каталога.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для того, чтобы автоматически запускать или останавливать службы на каком-то
+	    из уровней системы, не нужно вручную модифицировать ссылки в этих
+	    каталогах. Для этого используется команда <command
+	    dontlog="1">chkconfig</command>.
+	    С помощью команды <command>chkconfig --list</command> можно увидеть список
+	    всех служб в системе и то, на каких уровнях выполнения системы они работают.
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    <informalexample>
+	      <screen></screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>
+    <scenario id="base-admin-scenario-reboot">
+      <title>Остановка и перезагрузка системы</title>
+      <scenario-intro>
+	<para>
+	  Сценарий посвящен командам остановки и перезагрузки системы.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка, права суперпользователя.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>
+    <scenario id="base-admin-scenario-cron">
+      <title>Использование службы планировщика заданий</title>
+      <scenario-intro>
+	<para>
+	  В сценарии рассматривается служба планировщика <application>cron</application>,
+	  её конфигурирование. Цель сценария&nbsp;&mdash; научиться запускать программы по
+	  расписанию.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>
+    <scenario id="base-admin-scenario-syslog">
+      <title>Системные журналы</title>
+      <scenario-intro>
+	<para>
+	  Сценарий рассматривает основные системные журналы и процесс ротации журналов.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка, права суперпользователя.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>
+    <scenario id="base-admin-scenario-usermon">
+      <title>Мониторинг пользователей</title>
+      <scenario-intro>
+	<para>
+	  Сценарий рассматривает основные системные журналы, связанные с аутентификацией и
+	  соответствующие им команды мониторинга пользователей системы.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка, права суперпользователя.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>
+    <list-of-practices/>
+  </sect1-scenario> 
+
+  <sect1 id="base-admin-software-cmd">
+    <title>Методические указания по командам управления программным обеспечением</title>
+    <sect2 id="base-admin-software-cmd-make">
+      <title>Программы сборки и установки программ</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-make">make</definition></term>
+	  <listitem>
+	    <para>
+	      Программа <command>make</command>, традиционная для UNIX-систем, служит для
+	      управления файловыми проектами и позволяет формализовать правила обновления
+	      целевых файлов при изменении исходных файлов. Наибольшее распространение эта
+	      программа получила в области программирования&nbsp;&mdash; при создании
+	      программы из множества исходных файлов невозможно обойтись без специальных
+	      средств управления проектом.
+	    </para>
+	    <para>
+	      Основой для работы программы <command>make</command> является файл проекта,
+	      называемый <quote>make-файлом</quote>, который описывает правила работы. По
+	      умолчанию этот файл называется <filename>Makefile</filename>, при запуске
+	      команды <command>make</command> без параметров используется файл
+	      проекта с таким именем. Рассмотрим структуру make-файла на следующем примере:
+
+	      <example id="example-makefile">
+		<title>Пример make-файла</title>
+		<programlisting>.PHONY: clear
+
+book.html: book.xml image.png
+	xsltproc xsl/current/html/docbook.xsl book.xml
+	-rm -rf result
+	mkdir result
+	mv book.html image.png result/
+
+clean:
+	-rm *~
+	-rm -rf result</programlisting>
+	      </example>
+	    </para>
+	    <para>
+	      Основным элементом make-файла является описание правила:
+	      <informalexample>
+		<programlisting>&lt;цель 1&gt; &lt;цель 2&gt; ... &lt;цель n&gt;: &lt;зависимость 1&gt; &lt;зависимость 2&gt; ... &lt;зависимость m&gt;
+	&lt;команда 1&gt;
+	&lt;команда 2&gt;
+	...
+	&lt;команда k&gt;
+		</programlisting>
+	      </informalexample>
+	      Каждое правило состоит из целей, зависимостей и команд. Цели&nbsp;&mdash;
+	      это файлы, которые должны быть получены в результате работы правила,
+	      зависимости&nbsp;&mdash; <quote>исходные</quote> файлы, которые необходимы
+	      для получения целей, команды&nbsp;&mdash; описывают механизм получения
+	      целей из зависимостей.
+	    </para>
+	    <para>
+	      Проанализируем пример <xref linkend="example-makefile"/>. Основной целью этого
+	      проекта является создание файла <filename>book.html</filename> из файла
+	      <filename>book.xml</filename>. Если в файлах <filename>book.xml</filename>
+	      или <filename>image.png</filename> будут произведены какие-то изменения,
+	      запуск команды <command>make</command> приведет к выполнению проекта, т.е. в
+	      данном случае к запуску нескольких команд.
+	    </para>
+	    <para>
+	      Помимо целей, связанных с файлами, существуют служебные цели, такие
+	      как <quote>clean</quote> в данном примере. С помощью специальной опции
+	      <quote>.PHONY</quote> указывается, что цель clean служит не для получения
+	      файла <filename>clean</filename> на диске, а просто может быть использована
+	      как параметр запуска команды: <command>make clean</command>, чтобы в
+	      процессе выполнения правила удалить ненужные файлы.
+	    </para>
+	    <para>
+	      Утилита <command>make</command> обладает большим числом параметров, а язык
+	      make-файлов достаточно сложный, поэтому не будет подробно рассматриваться в рамках
+	      этих занятий.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-rpm">rpm</definition></term>
+	  <listitem>
+	<para>
+	  Рассмотрим основные операции, выполняемые с помощью программы
+	  <command>rpm</command>. Любые действия по изменению
+	  состава пакетов в системе требуют прав суперпользователя.
+
+	  <orderedlist>
+	    <listitem>
+	      <para>
+		<emphasis>Установка пакета</emphasis>:
+
+		<synopsis>rpm -i имя_пакета</synopsis>
+
+		Менеджер пакетов проверяет зависимости и конфликты для данного пакета, а затем
+		разворачивает его в операционной системе.
+	      </para>
+	    </listitem>
+            <listitem>
+	      <para>
+		<emphasis>Обновление пакета:</emphasis>
+
+		<synopsis>rpm -U имя_пакета</synopsis>
+
+		Менеджер пакетов проверяет возможность обновления установленного в системе
+		пакета данным пакетом, затем разворачивает новые файлы в системе. При этом
+		используется специальный механизм для сохранения старых версий изменённых
+		файлов (например, конфигурационных).
+	      </para>
+	    </listitem>
+	    <listitem>
+	      <para>
+		<emphasis>Удаление пакета:</emphasis>
+
+		<synopsis>rpm -e имя_пакета</synopsis>
+
+		Менеджер пакетов удаляет пакет, предварительно проверив наличие обратных
+		зависимостей от этого пакета.
+	      </para>
+	    </listitem>
+	    <listitem>
+	      <para>
+		<emphasis>Получение информации о пакетах.</emphasis> Информация обо всех установленных пакетах
+		сохраняется и индексируется в специальной базе данных. С помощью следующих
+		команд можно узнать как информацию об установленных пакетах, так и
+		информацию, извлекаемую из локальных <filename>.rpm</filename>-файлов.
+
+		<orderedlist>
+	    	  <listitem>
+	      	    <para>
+		      <emphasis>Список установленных пакетов:</emphasis>
+
+		      <synopsis>rpm -qa</synopsis>
+
+		      Менеджер пакетов выводит список всех пакетов, установленных в
+		      системе. Вот пример вывода такой команды:
+
+			<example>
+			  <title>Получение списка установленных пакетов</title>
+			  <screen>[user@localhost ~]$ rpm -qa
+rpm -qa
+apt-0.5.15lorg2-alt3
+nvidia_glx_1.0.7676-1.0.7676-alt17
+gnupg-1.4.2.2-alt1
+libpcap0.8-0.9.4-alt1
+printer-drivers-base-2.1-alt5
+...</screen>
+			</example> 
+		      </para>
+		    </listitem>
+		    <listitem>
+		      <para>
+
+			<emphasis>Поиск пакета по файлу:</emphasis>
+
+			<synopsis>rpm -qf имя_файла</synopsis>
+
+			Полезной функцией является поиск пакета, который содержит заданный
+			файл. 
+			<example>
+			  <title>Получение пакета по имени файла</title>
+			  <screen>[user@localhost ~]$ rpm -qf /var/log/messages
+syslog-common-1.4.1-alt23</screen>
+			</example> 
+		      </para>
+		    </listitem>
+		    <listitem>
+		      <para>
+			<emphasis>Информация о пакете:</emphasis>
+
+			<synopsis>rpm -qi имя_пакета</synopsis>
+
+			С помощью этой команды можно узнать сведения о пакете: название и
+			версию программы, организацию и человека, собравших этот пакет,
+			время создания пакета, лицензию и т.&nbsp;п. В примере
+			<xref linkend="example-rpm-qi-bash"/> показана информация о
+			пакете <command>bash</command>, установленном в системе.
+
+			<example id="example-rpm-qi-bash">
+			  <title>Получение информации о пакете</title>
+			  <screen>[user@localhost ~]$ rpm -qi bash
+Name        : bash                         Relocations: (not relocateable)
+Version     : 3.1.17                            Vendor: ALT Linux Team
+Release     : alt1                          Build Date: Птн 14 Апр 2006 00:38:44
+Install date: Птн 12 Май 2006 03:24:15      Build Host: ldv.hasher.altlinux.org
+Group       : Интерпретаторы команд   Source RPM: bash-3.1.17-alt1.src.rpm
+Size        : 1019953                          License: GPL
+Packager    : Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+URL         : http://www.gnu.org/software/bash/
+Summary     : The GNU Bourne Again SHell (Bash)
+Description :
+Bash is an sh-compatible command language interpreter that executes
+commands read from the standard input or from a file.  Bash also
+incorporates useful features from the Korn and C shells (ksh and csh).
+Most sh scripts can be run by bash without modifiation.
+
+Bash is ultimately intended to be a conformant implementation of the
+IEEE POSIX Shell and Tools specification (IEEE Working Group 1003.2).</screen>
+			</example> 
+		      </para>
+		    </listitem>
+		    <listitem>
+		      <para>
+			<emphasis>Список файлов в пакете:</emphasis>
+
+			<synopsis>rpm -ql имя_пакета</synopsis>
+
+			С помощью этой команды можно увидеть полный список файлов в
+			пакете. 
+
+			<example id="example-rpm-ql-gzip">
+			  <title>Получение информации о пакете</title>
+			  <screen>[user@localhost ~]$ rpm -ql gzip
+/bin/gunzip
+/bin/gzip
+/bin/zcat
+/usr/bin/gunzip
+/usr/bin/gzip
+/usr/bin/zcat
+/usr/share/doc/gzip-1.3.5
+/usr/share/doc/gzip-1.3.5/AUTHORS
+/usr/share/doc/gzip-1.3.5/ChangeLog.bz2
+/usr/share/doc/gzip-1.3.5/NEWS
+/usr/share/doc/gzip-1.3.5/README
+/usr/share/doc/gzip-1.3.5/THANKS
+/usr/share/doc/gzip-1.3.5/TODO
+/usr/share/info/gzip.info.bz2
+/usr/share/man/man1/gunzip.1.gz
+/usr/share/man/man1/gzip.1.gz
+/usr/share/man/man1/zcat.1.gz</screen>
+			</example>
+		      </para>
+		    </listitem>
+		    <listitem>
+			<para>
+			  <emphasis>Файлы, изменённые после установки:</emphasis>
+
+			Во время обновления пакетов часто бывает нужно узнать изменения,
+			произошедшие с момента установки пакета. Это можно сделать,
+			выполнив следующую команду:
+			
+			  <synopsis>rpm -V имя_пакета</synopsis>
+			  
+			  При этом выводится информация об изменениях в файлах
+			  пакета. Показываются следующие изменения:
+			  
+			  <itemizedlist>
+			    <listitem><emphasis>S</emphasis>&nbsp;&mdash; размер
+			      файла;</listitem>
+			    <listitem><emphasis>M</emphasis>&nbsp;&mdash; тип файла и
+			      права доступа;</listitem>
+			    <listitem><emphasis>5</emphasis>&nbsp;&mdash; MD5-сумма;</listitem>
+			    <listitem><emphasis>D</emphasis>&nbsp;&mdash; старший/младший
+			      номер устройства;</listitem>
+			    <listitem><emphasis>L</emphasis>&nbsp;&mdash; содержание
+			      ссылки;</listitem>
+			    <listitem><emphasis>U</emphasis>&nbsp;&mdash; владелец
+			      файла;</listitem>
+			    <listitem><emphasis>G</emphasis>&nbsp;&mdash; группа
+			      владельцев файла;</listitem>
+			    <listitem><emphasis>T</emphasis>&nbsp;&mdash; время последнего изменения.</listitem>
+			  </itemizedlist>
+			</para>
+			<para>
+			  В данном примере из пакета был изменен только один файл:
+			  <example id="example-rpm-V-joe">
+			    <title>Получение информации о пакете</title>
+			    <screen>[user@localhost ~]$ rpm -V joe
+S.5....T  c /etc/joe/joerc</screen>
+			  </example>
+			</para>
+		      </listitem>
+		</orderedlist>
+	      </para>
+	    </listitem>
+	  </orderedlist>
+	</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="base-admin-software-cmd-repo">
+      <title>Команды по работе с репозиторием пакетов</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-apt-get">apt-get</definition></term>
+	  <listitem>
+	    <sect3>
+	<title>Установка или обновление пакета</title>
+
+	<para>
+	  Установка пакета с помощью APT
+	  выполняется командой
+
+		<informalexample>
+	  <screen>
+[root@localhost ~]# apt-get install имя_пакета</screen>
+		</informalexample>
+	</para>
+
+    <para><command>apt-get</command> позволяет устанавливать в систему
+	  пакеты, требующие для работы другие, пока ещё не
+	  установленные пакеты. В этом случае он определяет, какие
+	  пакеты необходимо установить, и устанавливает их, пользуясь
+	  всеми доступными репозиториями.</para>
+
+    <para>Установка пакета <filename>clanbomber</filename> командой
+		  <command>apt-get install clanbomber</command> приведёт к
+		  следующему диалогу с APT:</para>
+
+	      <informalexample>
+	  <screen>Обработка файловых зависимостей... Завершено
+Чтение списков пакетов... Завершено
+Построение дерева зависимостей... Завершено
+Следующие дополнительные пакеты будут установлены:
+clanlib clanlib-mikmod clanlib-sound libmikmod
+Следующие НОВЫЕ пакеты будут установлены:
+clanbomber clanlib clanlib-mikmod clanlib-sound libmikmod
+0 пакетов будет обновлено, 5 будет добавлено новых,
+0 будет удалено(заменено) и 0 не будет обновлено.
+Необходимо получить 0B/2577kB архивов. После распаковки 3862kБ будет
+использовано.
+Продолжить? [Y/n] y
+Выполняется программа RPM (/bin/rpm -Uv --replacepkgs -h)...
+Подготовка... ##########################################
+libmikmod ##########################################
+clanlib ##########################################
+clanlib-mikmod ##########################################
+clanlib-sound ##########################################
+clanbomber ##########################################</screen>
+	      </informalexample>
+	  
+	<para>
+	  Команда <command>apt-get install имя_пакета</command>
+	  используется и для обновления уже установленного пакета или
+	  группы пакетов. В этом случае <command>apt-get</command>
+	  дополнительно проверяет, не обновилась ли версия пакета в
+	  репозитории по сравнению с установленным в системе. 
+	</para>
+
+
+    <para>При помощи APT можно установить и отдельный двоичный
+      rpm-пакет, не входящий ни в один из репозиториев (например,
+      полученный из Интернет). Для этого достаточно выполнить команду
+      <command>apt-get install путь_к_файлу</command>. При этом
+      APT проведёт стандартную процедуру проверки зависимостей и
+      конфликтов с уже установленными пакетами.
+    </para>
+
+    <para>
+      Иногда, в результате операций с пакетами без использования
+      APT, целостность системы нарушается, и
+      <command>apt-get</command> отказывается выполнять операции
+      установки, удаления или обновления. В этом случае необходимо
+      повторить операцию, задав опцию <parameter class="option">-f</parameter>,
+      заставляющую <command>apt-get</command> исправить нарушенные
+      зависимости, удалить или заменить конфликтующие пакеты. В этом
+      случае необходимо внимательно следить за сообщениями,
+      выдаваемыми <command>apt-get</command>. Любые действия в этом
+      режиме обязательно требуют подтверждения со стороны
+      пользователя.
+    </para>
+
+  </sect3>
+
+  <sect3>
+
+	<title>Удаление установленного пакета</title>
+
+	<para>
+	  Для удаления пакета используется команда <command>apt-get remove
+	  имя_пакета</command>. Для того, чтобы не нарушать
+	  целостность системы, будут удалены и все пакеты, зависящие
+	  от удаляемого: если отсутствует необходимый для работы
+	  приложения компонент (например, библиотека), то само
+	  приложение становится
+	  бесполезным. В случае удаления пакета, который относится к
+	  базовым компонентам системы, <command>apt-get</command> потребует
+	  дополнительного подтверждения производимой операции с целью
+	  предотвратить возможную случайную ошибку. 
+	</para>
+
+	<para>
+	  Если вы попробуете при помощи <command>apt-get</command>
+	  удалить базовый компонент системы, вы увидите такой запрос
+	  на подтверждение операции:
+		
+		<informalexample>
+	  <screen>[root@localhost ~]# apt-get remove filesystem
+Обработка файловых зависимостей... Завершено
+Чтение списков пакетов... Завершено
+Построение дерева зависимостей... Завершено
+Следующие пакеты будут УДАЛЕНЫ:
+basesystem filesystem ppp sudo
+Внимание: следующие базовые пакеты будут удалены:
+В обычных условиях этого не должно было произойти, надеемся, вы точно
+представляете, чего требуете!
+basesystem filesystem (по причине basesystem)
+0 пакетов будет обновлено, 0 будет добавлено новых, 4 будет
+удалено(заменено) и 0 не будет обновлено.
+Необходимо получить 0B архивов. После распаковки 588kБ будет
+освобождено.
+Вы собираетесь совершить потенциально вредоносное действие
+Для продолжения, наберите по-английски 'Yes, I understand this may be
+bad'
+(Да, я понимаю, что это может быть плохо).</screen>
+		</informalexample>
+	</para>
+
+	<para>
+	  Каждую ситуацию, в которой APT выдаёт такое
+	  сообщение, необходимо рассматривать отдельно. Однако
+	  вероятность того, что после выполнения этой команды система
+	  окажется неработоспособной, очень велика. 
+	</para>
+
+  </sect3>
+
+  <sect3>
+
+	<title>Обновление всех установленных пакетов</title>
+
+	<para>
+	  Для обновления всех установленных пакетов используется команда
+	  <command>apt-get upgrade</command>. Она позволяет обновить те и
+	  только те установленные пакеты, для которых в репозиториях,
+	  перечисленных в <filename>/etc/apt/sources.list</filename>,
+	  имеются новые версии; при этом из системы
+	  не будут удалены никакие другие пакеты. Этот способ полезен при
+	  работе со стабильными пакетами приложений, относительно которых
+	  известно, что они при смене версии изменяются несущественно.
+	</para>
+
+	<para>
+	  Иногда, однако, происходит изменение в именовании
+	  пакетов или изменение их зависимостей. Такие ситуации
+	  не обрабатываются командой <command>apt-get upgrade</command>, в
+	  результате чего происходит нарушение целостности системы:
+	  появляются неудовлетворённые зависимости. Например,
+	  переименование пакета <command>MySQL-shared</command>,
+	  содержащего динамически загружаемые библиотеки для работы 
+          с СУБД <application>MySQL</application>, в
+	  <command>libMySQL</command> (отражающая общую тенденцию к наименованию
+	  библиотек в дистрибутиве) не приводит к тому, что
+	  установка обновлённой версии <command>libMySQL</command> требует удаления старой версии
+	  <command>MySQL-shared</command>. Для разрешения этой проблемы
+	  существует режим обновления в масштабе дистрибутива &mdash;
+	  <command>apt-get dist-upgrade</command>.
+	</para>
+
+	<para>
+	  В случае обновления всего дистрибутива APT
+	  проведёт сравнение системы с репозиторием и удалит устаревшие
+	  пакеты, установит новые версии присутствующих в системе пакетов,
+	  а также отследит ситуации с переименованиями пакетов или
+	  изменения зависимостей между старыми и новыми версиями
+	  программ. Всё, что потребуется поставить (или удалить)
+	  дополнительно к уже имеющемуся в системе, будет указано в отчёте
+	  <command>apt-get</command>, которым APT
+	  предварит само обновление.
+	</para>
+
+  </sect3>
+
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-apt-cache">apt-cache</definition></term>
+	  <listitem>
+
+	    <sect3>
+	      <title>Поиск пакетов</title>
+
+	<para>
+          Если вы не знаете точного названия пакета, для его поиска можно
+	  воспользоваться утилитой <command>apt-cache</command>, 
+          которая позволяет искать не только
+	  по имени пакета, но и по его описанию.
+	</para>
+
+	<para>
+	  Команда <command>apt-cache search подстрока</command> позволяет
+	  найти все пакеты, в именах или описании которых присутствует
+	  указанная подстрока. Например:
+
+		<informalexample>
+		  <screen>[user@localhost ~]$ apt-cache search master
+xcdroast - A GUI program for burning Cds
+bluefish - A WYSIWYG GPLized HTML editor
+xmess - X-Mess Multi Emulator Super System
+mkisofs - Creates an image of an ISO9660 filesystem</screen>
+		</informalexample>
+
+	</para>
+
+    <para>
+      Для того, чтобы подробнее узнать о каждом из найденных пакетов и прочитать его
+      описание, можно воспользоваться
+      командой <command>apt-cache show</command>, которая покажет
+      информацию о пакете из репозитория:
+
+	  <screen>Пакет: bluefish
+Секция: Networking/WWW
+Размер установленных пакетов: 2018
+Упаковщик: AEN &lt;aen@logic.ru&gt;
+Версия: 1:0.7-alt0.1
+..
+Предоставляет: bluefish
+Архитектура: i586
+..
+Имя файла: bluefish-0.7-alt0.1.i586.rpm
+Описание: A WYSIWYG GPLized HTML editor
+Bluefish is a programmer's HTML editor, designed to save the
+experienced webmaster some keystrokes.
+It features a multiple file editor, multiple toolbars, custom menus,
+image and thumbnail dialogs, open from the web, HTML validation and
+lots of wizards.
+It is in continuous development, but it's already one of the best
+WYSIWYG HTML editors.</screen>
+
+	  Как можно заметить, в кратком описании этого пакета
+	  нет слова <quote>master</quote>, которое было задано в
+	  качестве подстроки для поиска. 
+	  Однако здесь присутствует слово <quote>webmaster</quote>,
+	  что объясняет наличие этого
+	  пакета в результате поиска по слову <quote>master</quote>.
+	</para>
+  
+    <para><command>apt-cache</command> позволяет осуществлять поиск и по
+    русскому слову, однако в этом случае будут найдены только те
+    пакеты, у которых помимо английского есть ещё и описание на
+    русском языке. К сожалению, русское описание на настоящий момент есть
+    не у всех пакетов, хотя описания наиболее актуальных для
+    пользователя пакетов переведены.</para>
+	    </sect3>
+
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="base-admin-software-cmd-summary">
+      <title>Резюме</title>
+      <para>
+	В данном разделе рассматриваются команды по управлению установленным программным
+	обеспечением.
+      </para>
+      <list-of-definitions/>
+    </sect2>    
+    <sect2 id="base-admin-cmd-software-additional">
+      <title>Дополнительные материалы</title>
+      <para>
+	<orderedlist>
+	  <listitem>
+	    Курячий Г.В. <emphasis>Операционная система UNIX</emphasis>.&nbsp;&mdash;
+	    М.:Интуит.Ру, 2004.&nbsp;&mdash; 292 с.: ил.
+	  </listitem>
+	  <listitem>
+	    Владимир Игнатов <emphasis>Эффективное использование GNU Make</emphasis>.&nbsp;&mdash;
+	    <ulink url="http://www.opennet.ru/docs/RUS/gnumake/">http://www.opennet.ru/docs/RUS/gnumake/</ulink>
+	  </listitem>
+	</orderedlist>
+      </para>
+    </sect2>    
+  </sect1>
+
+<!-- занятие №12 (практическое занятие) -->
+<sect1-scenario id="base-admin-software-examples">
+  <title>Управление программным обеспечением</title>
+    <para>
+      <emphasis>Цель занятия:</emphasis> 
+    </para>
+    <para>
+      <emphasis>Изучаемые команды:</emphasis> 
+      <xref linkend="def-cmd-apt-cache"/>,
+      <xref linkend="def-cmd-apt-get"/>,
+      <xref linkend="def-cmd-make"/>,
+      <xref linkend="def-cmd-rpm"/>
+    </para>
+    <scenario id="base-admin-software-scenario-targz">
+    <title>Установка программы из исходных текстов</title>
+    <scenario-intro>
+	Сценарий посвящен установке новых программ в системе с применением стандартного
+	для открытых проектов подхода&nbsp;&mdash; компиляции программы из исходных
+	текстов.
+    </scenario-intro>
+    <scenario-start>
+	Командная строка после входа в систему, права суперпользователя.
+    </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>  
+    <scenario id="base-admin-software-scenario-rpminfo">
+    <title>Получение информации о пакетах</title>
+    <scenario-intro>
+    </scenario-intro>
+    <scenario-start>
+	Командная строка после входа в систему, права суперпользователя.
+    </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>  
+    <scenario id="base-admin-software-scenario-rpm">
+    <title>Установка и удаление пакетов</title>
+    <scenario-intro>
+    </scenario-intro>
+    <scenario-start>
+	Командная строка после входа в систему, права суперпользователя.
+    </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>  
+    <scenario id="base-admin-software-scenario-apt">
+    <title>Работа с репозиторием</title>
+    <scenario-intro>
+    </scenario-intro>
+    <scenario-start>
+	Командная строка после входа в систему, права суперпользователя.
+    </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <!-- TODO (practice) -->
+    </scenario>  
+    <list-of-practices/>
+  </sect1-scenario>  
+
+</chapter>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

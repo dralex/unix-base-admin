@@ -1,0 +1,4266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+	  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+	  <!ENTITY % CommonEntities PUBLIC
+		   "-//IU7 LUG//ENTITIES Common Documentation//RU"
+		   "common.ent">
+	  %CommonEntities;
+	  
+	  <!ENTITY BASEIMAGES "images/">
+
+]>
+
+<chapter id="chapter-shell-pract">
+  <title>Практические занятия по командам UNIX</title>
+  <sect1 id="shell-maincmd">
+    <title>Методические указания по основным командам UNIX</title>
+    <para>
+      Описание команд разбито на несколько разделов&nbsp;&mdash; по функциональному
+      назначению команд.
+    </para>
+    <sect2 id="shell-maincmd-fs">
+      <title>Команды по работе с файловой системой</title>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term><definition id="def-cmd-pwd">pwd</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>pwd</command> (print working directory&nbsp;&mdash;
+		печать pабочего каталога) позволяет узнать имя текущего каталога:
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost ~]$ pwd
+/home/user</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Т.&nbsp;е. в настоящее вpемя текущия каталогом
+		является домашний каталог пользователя <command>user</command>.
+	      </para>
+	      <para>
+		Если вы в пpоцессе путешествия по файловой системе
+		вы <quote>потеpялись</quote> и не знаете, где находитесь, пpосто набеpите
+		эту команду, котоpая выведет на экpан полное имя текущего каталога,
+		начиная от коpневого.
+	      </para>
+	      <para>
+		Если вместо имени текущего каталога
+		на экран будет выдано диагностическое сообщение
+		вида: <quote>Cannot open...</quote> (<quote>Не
+		может открыть...</quote>) и <quote>Read error
+		in...</quote> (<quote>Ошибка считывания в...</quote>),
+		то, возможно, у Вас не хватает прав на
+		чтение текущего каталога либо он по каким-то причинам
+		перестал существовать.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-cd">cd</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>cd</command> используется для смены текущего каталога,
+		т.&nbsp;е. для пеpехода в дpугой каталог, и является встpоенной командой оболочки
+		(аналог соответствующей команды для DOS-систем). В качестве параметра этой
+		команды указывается путь к каталогу, котоpый нужно
+		сделать текущим. Напpимеp, <command>cd
+		/etc</command>. 
+	      </para>
+	      <!--FIXME: поставить ссылку на то место в лекциях, где
+	      про относит/абс пути -->
+	      <para>
+		В качестве параметра <command>cd</command> можно передать как абсолютный
+		путь к каталогу, начинающийся от корневого каталога (со знака
+		<literal>/</literal>, как в <command>cd /etc</command>),
+		так и относительный путь, начинающийся от текущего
+		каталога (если параметр начинается не на
+		<literal>/</literal>, то путь считается относительным). 
+		Допустим Вы находитесь в каталоге <filename>/usr</filename> и вам надо
+		пеpейти в каталог <filename>local</filename>, котоpый является
+		подкаталогом этого каталога. В этом случае вы можете выполнить следующие
+		действия:
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost usr]$ pwd
+/usr
+[user@localhost usr]$ cd local
+[user@localhost local]$ pwd
+/usr/local</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Если ввести команду <command>cd</command> без
+		параметров, то текущим станет домашний каталог данного
+		пользователя (путь к домашнему каталогу, берется из
+		переменной окружения <envar>HOME</envar>).  
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost usr]$ cd
+[user@localhost ~]$ pwd
+/home/user</screen>
+		</informalexample>
+	      </para>
+	      <para>
+	        Пpиведем еще несколько пpимеpов использования этой команды:
+		<itemizedlist>
+		  <listitem><command>cd ..</command>&nbsp;&mdash; веpнуться в pодительский
+		  каталог (подняться на один каталог ввеpх по деpеву);</listitem>
+		  <listitem><command>cd ../..</command>&nbsp;&mdash; подняться на два
+		  каталога ввеpх по деpеву;</listitem>
+		  <listitem><command>cd /</command>&nbsp;&mdash; пеpейти в коpневой
+		  каталог;</listitem>
+		  <listitem><command>cd ../local</command>&nbsp;&mdash; веpнуться в
+		  pодительский каталог и пеpейти в его
+		  подкаталог <filename>local</filename>.</listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-ls">ls</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>ls</command> выдает pазличную инфоpмацию о файлах и
+		каталогах (аналог команды <command>DIR</command> для DOS-систем).
+		Как и большинство команд, <command>ls</command>
+		принимает большое количество ключей, которые
+		модифицируют выводимую информацию. 
+	      </para>
+	      <para>
+		Пеpейдите с помощью команды <command>cd /</command> в
+		коpневой каталог и просмотpите его содеpжимое. Команда
+		<command>ls</command>, вызванная без параметров, выводит
+		отсоpтиpованные по алфавиту имена файлов и каталогов,
+		содержащихся в <emphasis>текущем каталоге</emphasis>.
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost ~]$ cd /
+[user@localhost /]$ ls
+bin   dev  home   lib    mnt  proc  sbin  sys  usr
+boot  etc  image  media  opt  root  srv   tmp  var</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		К сожалению, при таком лаконичном формате вывода никак
+		не различаются файлы и каталоги. Для исправления
+		ситуации служит ключ <option>-F</option>, при указании
+		которого к названиям каталогов добавляется
+		<literal>/</literal>, например,
+		<filename>bin/</filename>. Чтобы получить больший объем инфоpмации о каждом
+		файле (пpава доступа, pазмеp, дата последней
+		модификации и т.&nbsp;д.), необходимо указать
+		<command>ls</command> ключ <option>-l</option> (от
+		long, <quote>длинный</quote> формат вывода):
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost /]$ ls -l
+total 6                       
+drwxr-xr-x  2 root root   40 Feb 10 17:57 bin
+drwx------  2 root root  172 Feb 10  2007 boot
+drwxr-xr-x  8 root root 3200 Feb 10 17:58 dev
+drwxr-xr-x 50 root root  480 Feb 10 18:00 etc
+drwxr-xr-x  3 root root   60 Feb 10 18:00 home
+dr-xr-xr-x  5 root root 2048 Feb 10  2007 image
+drwxr-xr-x 11 root root   40 Feb 10 17:57 lib
+drwxr-xr-x  2 root root   40 Feb 10  2007 media
+drwxr-xr-x  5 root root  100 Feb 10 17:57 mnt
+drwxr-xr-x  2 root root    3 Feb 10  2007 opt
+dr-xr-xr-x 53 root proc    0 Feb 10 17:56 proc
+drwxr-xr-x  3 root root   40 Feb 10 17:57 root
+drwxr-xr-x  2 root root   40 Feb 10 17:57 sbin
+drwxr-xr-x  2 root root    3 Feb 10  2007 srv
+drwxr-xr-x 11 root root    0 Feb 10 17:56 sys
+drwxrwxrwt  7 root root  140 Feb 10 18:00 tmp
+drwxr-xr-x 13 root root  152 Feb 10  2007 usr
+drwxr-xr-x 19 root root   40 Feb 10 17:57 var
+</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Столбцы слева направо: тип файла и права доступа,
+		число жестких ссылок на файл, имя владельца, группа владельца, размер в байтах, время модификации, имя.
+	      </para>
+	      <para>
+		Если в качестве параметра указать путь к файлу (в простейшем случае&nbsp;&mdash; имя файла в текущем каталоге), то <command>ls</command> выдаст
+		информацию только об этом файле:
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost /]$ ls -l bin/ls
+-rwxr-xr-x 1 root root 73704 Feb 10  2007 bin/ls</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Если в качестве параметра указать путь к каталогу, то будет выдано содеpжимое
+		этого каталога, т.&nbsp;е. список имён файлов (и
+		подкаталогов), в нем содержащихся:
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost /]$ ls -l bin
+total 4366
+-rwxr-xr-x 1 root root    2852 Feb  1 23:01 arch
+-rwxr-xr-x 1 root root   10732 Feb 18  2005 aumix-minimal
+lrwxrwxrwx 1 root root       4 Feb 10  2007 awk -> gawk
+-rwxr-xr-x 1 root root   13004 Feb 10  2007 basename
+-rwxr-xr-x 1 root root  458000 Feb 14  2006 bash
+...</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		В случае, если указано несколько параметров, сначала выводится
+		инфоpмация о файлах, а потом о каталогах. Вывод пpоисходит в алфавитном
+		поpядке (если не указаны ключи, модифицирующие порядок
+		вывода).
+	      </para>
+	      <para>
+		Ниже перечислены некоторые из ключей, которые
+		принимает команда <command>ls</command>:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-C</parameter></term>
+		    <listitem>
+		      Вывод   содеpжимого   каталога   в   несколько   столбцов.
+		      Пpинимается по умолчанию пpи выводе на теpминал.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-F</parameter></term>
+		    <listitem>
+		      Добавить <quote>слэш</quote> (<literal>/</literal>) к имени
+		      каталога, звездочку (<literal>*</literal>) к имени исполнимого
+		      файла, знак (<literal>@</literal>) к каждой символьной ссылке.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-R</parameter></term>
+		    <listitem>
+		      Рекуpсивный обход встpетившихся подкаталогов. Может быть полезна для
+		      создания списка всех файлов системы.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-c</parameter></term>
+		    <listitem>
+		      Вывод соpтиpуется по вpемени последней модификации файла.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-d</parameter></term>
+		    <listitem>
+		      Вывод только имени каталога (но не содеpжимого).
+		      <informalexample>
+			<screen>[user@localhost /]$ ls -ld bin
+drwxr-xr-x 2 root root 40 Feb 10 17:57 bin</screen>
+		      </informalexample>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-f</parameter></term>
+		    <listitem>
+		      Вывод не сортируется, т.е. поpядок  вывода  соответствует
+		      поpядку файлов в каталоге.
+		      <informalexample>
+			<screen>[user@localhost /]$ ls -f
+.   bin   dev  home   lib    mnt  proc  sbin  sys  usr
+..  boot  etc  image  media  opt  root  srv   tmp  var</screen>
+		      </informalexample>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-i</parameter></term>
+		    <listitem>
+		      Для каждого файла выводится номер индексного дескpиптоpа
+		      (уникальный номеp файла).
+		      <informalexample>
+			<screen>[user@localhost /]$ ls -i
+  27 bin      2 etc      11 lib     484 opt     31 sbin  1063 tmp
+1216 boot    32 home    867 media     1 proc   485 srv   1215 usr
+1467 dev   1856 image   829 mnt      33 root     1 sys     10 var</screen>
+		      </informalexample>
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-r</parameter></term>
+		    <listitem>
+		      Изменение поpядка соpтиpовки на обpатный (по алфавиту или по вpемени
+		      последнего использования).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-t</parameter></term>
+		    <listitem>
+		      Сортиpовать по вpемени последней модификации файла (последний
+		      модифициpованный выводится пеpвым).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-1</parameter></term>
+		    <listitem>
+		      Вывод одного имени на каждой стpоке. Пpинимается по умолчанию пpи
+		      выводе не на терминал.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-mkdir">mkdir</definition></term>
+	    <listitem>
+	      <para>
+		В пpоцессе освоения системы Вам необходимо будет создать свою собственную
+		стpуктуpу каталогов. После установки системы, каталогов в ней довольно
+		немного и в них пока еще тpудно затеpяться начинающему пользователю. В
+		пpоцессе pасшиpения файловой системы вам пpидется постоянно создавать
+		новые и уничтожать стаpые каталоги, поэтому pассмотpим, как это все можно
+		сделать.
+	      </para>
+	      <para>
+		Создать каталог довольно легко.  Для этого существует
+		команда <command>mkdir</command> (аналог её есть и в DOS-системах). В
+		качестве параметра необходимо указать имя создаваемого каталога:
+		<command>mkdir [-p] имя_каталога</command>
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost /]$ cd
+[user@localhost ~]$ mkdir test
+[user@localhost ~]$ ls
+Documents  test  tmp</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Стандартные элементы содержимого каталога: точка (.),
+		обозначающая текущий каталог, и две точки (..), обозначающие
+		его родительский каталог, создаются автоматически.
+	      </para>
+	      <para>
+		Команда <command>mkdir</command> может быть использована и для создания
+		нижележащих подкаталогов непосpедственно из текущего каталога с указанием
+		полного пути к ним. В этом случае все указанные в пути каталоги должны
+		существовать и быть доступны. Если же Вам необходимо создать иерархию
+		каталогов, удобно пользоваться
+		ключом <parameter class='command'>-p</parameter>:
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost ~]$ mkdir -p test/xxx/yyy/zzz
+                   [user@localhost ~]$ ls -R test
+test:
+xxx
+
+test/xxx:
+yyy
+
+test/xxx/yyy:
+zzz
+
+test/xxx/yyy/zzz:</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Без использования ключа <parameter class='command'>-p</parameter> при
+		попытке создать уже существующий каталог будет выдано соответствующее
+		предупреждение.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-rmdir">rmdir</definition></term>
+	    <listitem>
+	      <para>
+		После создания pазнообpазнейших каталогов, чеpез некотоpое вpемя у вас
+		возникнет естественное желание удалить некотоpые из них. В этом вам может
+		помочь команда <command>rmdir</command>. Ее фоpмат так
+		же пpост, как и
+		фоpмат пpедыдущей команды <command>mkdir</command>: 
+		<command>rmdir имя_каталога</command>.
+	      </para>
+	      <para>
+		Команда <command>rmdir</command> удаляет каталог, имя котоpого указано в
+		качестве параметра. Удаляемый каталог должен быть пустым, то есть пеpед
+		его уничтожением вы должны удалить все находящиеся в нем
+		файлы. Пpактически это пpиходится делать очень pедко, так как с двумя
+		этими пpоблемами успешно спpавляется команда <command>rm</command>,
+		котоpая будет pассмотpена позже.
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost ~]$ rmdir test
+rmdir: test: Directory not empty</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Указанные имена каталогов обрабатываются по поpядку. Пpи одновpеменном
+		удалении каталога и его подкаталога, подкаталог должен быть удален pаньше.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-touch">touch</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>touch</command> меняет время
+		последнего доступа к файлу. Замечательной особенностью этой команды
+		является то, что с её помощью можно создавать новые пустые
+		файлы&nbsp;&mdash; если в качестве параметра передать имя
+		несуществующего файла:
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost test]$ ls
+xxx
+[user@localhost test]$ touch file.test
+[user@localhost test]$ ls -l
+total 0
+-rw-r--r-- 1 user user  0 Feb 10 18:26 file.test
+drwxr-xr-x 3 user user 80 Feb 10 18:23 xxx</screen>
+		</informalexample>
+	      </para>      
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-rm">rm</definition></term>
+	    <listitem>
+<!-- FIXME переписать про rm: утилита rm удаляет из каталога имя файла -->
+<!-- (системный вызов unlink() поскльку в UNIX один и тот же файл -->
+<!-- может иметь разные имена в разных каталогах (жесткие ссылки), -->
+<!-- индексный дескриптор удаляется при удалении последней жесткой -->
+<!-- ссылки
+про права: операция удаления производится над каталогом, поэтому файл -->
+<!-- можно удалить, не имея на него никаких прав
+по умолчанию предупреждения не выводятся).     -->
+	      <para>
+		В пpоцессе pаботы с системой довольно часто возникает необходимость
+		удаления файлов. Для этого существует команда <command>rm</command>,
+		котоpая позволяет удалять как файлы, так и каталоги. Пользоваться ей нужно
+		с большой остоpожностью, так как UNIX-системы не имеют пpивычки, в отличие
+		от Windows, пеpеспpашивать пользователя пеpед удалением файла, а делают
+		это быстpо и навсегда. Поэтому, связи с тем, что в UNIX-системах нет
+		пpивычных пpогpамм восстановления удаленных файлов, хорошо подумайте
+		пеpед тем, как что-либо удалять.
+	      </para>
+	      <para>
+		Команда <command>rm</command> имеет следующий фоpмат:
+                <command>rm [-f | -i ] [-dRr ] имя_файла ...</command>
+	      </para>
+	      <para>
+		С помощью данной команды вы можете удалить файлы, имена котоpых указаны в
+		качестве паpаметpов. Если файл защищен от записи и стандартным
+		устройством ввода данных является терминал, пользователю будет выдан
+		запpос на подтвеpждение удаления файла.
+	      </para>
+	      <para>
+		Пpи попытке удаления каталога с помощью этой команды  будет  выдано
+		сообщение об ошибке.
+	      </para>
+	      <para>
+		Вы можете использовать <command>rm</command>
+		со следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-d</parameter></term>
+		    <listitem>
+		      Если удаляемый объект окажется каталогом, его также следует
+		      удалить.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-f</parameter></term>
+		    <listitem>
+		      Удалить защищенный от записи файл без подтвеpждения.  Если данный
+		      файл не существует, то не выводить сообщение о его
+		      отсутствии. Ключ <parameter class='command'>-f</parameter> отменяет
+		      действие ранее выбранного ключа <parameter class='command'>-i</parameter>.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-i</parameter></term>
+		    <listitem>
+		      Запpашивать подтверждение на удаление любого файла, независимо от
+		      того, является ли теpминал стандаpтным устpойством ввода или
+		      нет. Ключ <parameter class='command'>-i</parameter> отменяет
+		      действие ключа <parameter class='command'>-f</parameter>.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-r</parameter></term>
+		    <listitem>
+		      Удалить все файлы и подкаталоги данного каталога, а после этого
+		      удалить и сам каталог.
+		      Ключ <parameter class='command'>-r</parameter>
+		      предполагает использование ключа 
+		      <parameter class='command'>-d</parameter>. Если
+		      также задан ключ
+		      <parameter class='command'>-i</parameter>, то пользователю выдается
+		      запpос на подтвеpждение удаления файлов и каталогов.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-cp">cp</definition></term>
+	    <listitem>
+	      <para>
+		Команда копирует содержимое файла в файл с другим именем либо в другой
+		каталог с сохранением существующего имени файла, а также применяется для
+		копирования каталогов с их содержимым. Команда имеет следующий формат:
+                <command>cp [-ipr] имя_файла ... имя_файла_назначения</command>
+	      </para>
+	      <para>
+		Вы можете использовать команду со следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-i</parameter></term>
+		    <listitem>
+		      Пользователю выдается запpос на подтвеpжение при перезаписи
+		      существующих файлов и каталогов.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-p</parameter></term>
+		    <listitem>
+		      Сохранять существующий режим доступа к файлу.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-r</parameter></term>
+		    <listitem>
+		      Копирование каталога с его подкаталогами.
+		    </listitem>
+		  </varlistentry>
+	      	</variablelist>
+	      </para>
+	      <para>
+		Копирование файла в текущий каталог с новым именем:
+		<informalexample>
+		  <screen>[user@localhost ~]$ cp /etc/resolv.conf resolv</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Копирование файла в текущий каталог с сохранением имени:
+		<informalexample>
+		  <screen>[user@localhost ~]$ cp /var/log/apache/access_log .</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Копирование каталога:
+		<informalexample>
+		  <screen>[user@localhost ~]$ cp -r test test.old</screen>
+		</informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-mv">mv</definition></term>
+	    <listitem>
+	      <para>
+		Переименование файла или перемещение одного либо нескольких файлов (или
+		каталогов) в другой каталог. Формат команды:
+		<command>mv [-i | -f] имя_файла ... имя_файла_назначения</command>
+	      </para>
+	      <para>
+		При переносе в рамках одной файловой системы команда
+		меняет путевое имя файла, не осуществляя его
+		физического перемещения. Поэтому переименование и перенос идентичны по реализации.
+	      </para>
+	      <para>
+		Вы можете использовать команду со следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-f</parameter></term>
+		    <listitem>
+		      Запрет запроса на подтверждение перезаписи существующих файлов.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-i</parameter></term>
+		    <listitem>
+		      Пользователю выдается запpос на подтвеpжение перезаписи
+		      существующих файлов и каталогов.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Пример использования команды для переноса файла в каталог:
+		<informalexample>
+		  <screen>[user@localhost ~]$ mv text/user.html text/htmls/</screen>
+		</informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-ln">ln</definition></term>
+	    <listitem>
+	      <para>
+		Эта команда создаёт ссылки на файлы: как жёсткие, так и символьные. Она
+		имеет следующий формат (аналогичный команде <command>mv</command> по
+		порядку параметров):
+		<command>ln [-s] имя_файла имя_файла_ссылки</command>
+	      </para>
+	      <para>
+		Вы можете использовать команду со следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-f</parameter></term>
+		    <listitem>
+		      Запрет запроса подтверждений при перезаписи существующих файлов
+		      (ссылок). 
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-s</parameter></term>
+		    <listitem>
+		      Создание символьной ссылки.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Примеры использования команды:
+		<informalexample>
+		  <screen>[user@localhost ~]$ ln text/alex/linux.html working/linux-todo.html</screen>
+		</informalexample>
+		Создание символьной ссылки на каталог:
+		<informalexample>
+		  <screen>[user@localhost ~]$ ln -s images/my/photos photos</screen>
+		</informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-du">du</definition></term>
+	    <listitem>
+	      <para>
+		Команда выводит размер пространства на диске, занятого каталогом (и всеми
+		его подкаталогами), в блоках (по умолчанию, 1 блок составляет 512
+		байт). По умолчанию выводится информация о текущем каталоге.
+	      </para>
+	      <para>
+		Команда имеет следующие параметры:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-a</parameter></term>
+		    <listitem>
+		      Выводить информацию не только о каталогах, но и о файлах.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-h</parameter></term>
+		    <listitem>
+		      Вывод размера каталога в <quote>человеческом</quote> формате:
+		      килобайтах, мегабайтах и т.п..
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-s</parameter></term>
+		    <listitem>
+		      Вывод только общего итога, без отображения промежуточной информации.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Пример выполнения программы:
+		<informalexample>
+		  <screen>[user@localhost ~]$ du -sh test
+925K    test</screen>
+		</informalexample>
+	      </para>      
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-tar">tar</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>tar</command> предназначена для архивации групп файлов и
+		каталогов. Она позволяет объединять группу файлов и каталогов со
+		всеми атрибутами в единый файл, который имеет
+		расширение <filename>.tar</filename>. Полученный файл
+		затем разворачивается с помощью той же
+		команды <command>tar</command>. Команда  принимает
+		множество ключей, мы же остановимся на следующем
+		формате её использования: 
+		<command>tar [-c | -x] [-z | -j] -f имя_tar_файла имена_файлов_и_каталогов</command>
+	      </para>
+	      <para>
+		Ключ <parameter class='command'>-c</parameter> соответствует созданию
+		архива, <parameter class='command'>-x</parameter>&nbsp;&mdash;
+		разворачивание архива. 
+	      </para>
+	      <para>
+		Созданный архив можно также сжать с помощью
+		архиваторов <application>gzip</application>
+		или <application>bzip2</application>. Для этого применяются соответственно
+		ключи <parameter class='command'>-z</parameter> и 
+		<parameter class='command'>-j</parameter>. Здесь хорошо видна разница
+		между понятием <quote>архивирование</quote>, которое выполняет
+		команда <command>tar</command>, и <quote>сжатием</quote>, которе производят
+		специализированные программы.
+	      </para>
+	      <para>
+		Имя архива, который создаётся или разворачивается, передаётся после
+		ключа <parameter class='command'>-f</parameter>.
+	      </para>
+	      <para>
+		Рассмотрим примеры работы с этой программой:
+		<itemizedlist>
+		  <listitem>
+		    Создание архива <filename>etc.tar.bz2</filename>
+		    каталога <filename>/etc</filename> с использованием
+		    сжатия <application>bzip2</application>:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost ~]$ tar -cjf etc.tar.bz2 /etc
+[user@localhost ~]$ ls
+etc.tar.bz2
+</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Разворачивание архива <filename>etc.tar.bz2</filename>
+		    в текущий каталог с использованием
+		    разсжатия <application>bzip2</application>:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost ~]$ tar -xjf etc.tar.bz2
+[user@localhost ~]$ ls
+etc etc.tar.bz2
+</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>	  
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-find">find</definition></term>
+	    <listitem>
+	      <para>
+		При работе с файлами часто бывает необходимо найти
+		какой-нибудь из них. В UNIX для
+		этого существует команда <command>find</command>. В общем виде эта команда
+		имеет следующий формат:
+		<command>find [где_искать] [условие_поиска] [действие]</command>
+	      </para>
+	      <para>
+		Первый параметр команды <command>find</command>&nbsp;&mdash;
+		это <emphasis>имя каталога</emphasis>, в которой производится поиск. По
+		умолчанию это текущий каталог.
+	      </para>		
+	      <para>
+		Далее указываются <emphasis>условия поиска</emphasis>, которые могут
+		принимать следующие значения:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-name</parameter></term>
+		    <listitem>
+		      Имя файла. В нём можно использовать шаблоны, но при этом необходимо
+		      заключить имя в двойные кавычки.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-type</parameter></term>
+		    <listitem>
+		      Тип файла: <literal>f</literal>&nbsp;&mdash; обычный
+		      файл, <literal>d</literal>&nbsp;&mdash;
+		      каталог, <literal>l</literal>&nbsp;&mdash; символьная ссылка и
+		      т.&nbsp;п.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-user</parameter></term>
+		    <listitem>
+		      Имя владельца файла или его уникальный идентификатор
+		      (UID).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-group</parameter></term>
+		    <listitem>
+		      Имя группы владельца файла или её уникальный идентификатор
+		      (GID).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-perm</parameter></term>
+		    <listitem>
+		      Права доступа файла.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-size</parameter></term>
+		    <listitem>
+		      Размер файла. Обычно за числом следует буква,
+		      указывающая на то, в каких единицах
+		      отображается размер (в блоках, байтах, килобайтах и т.&nbsp;п.).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-atime</parameter></term>
+		    <listitem>
+		      Время доступа к файлу.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-ctime</parameter></term>
+		    <listitem>
+		      Время последнего изменения владельца файла.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-mtime</parameter></term>
+		    <listitem>
+		      Время последнего изменения содержимого файла.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-newer</parameter></term>
+		    <listitem>
+		      Поиск всех файлов новее указанного.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Условия поиска могут быть объединены с помощью модификаторов:
+		<parameter class='command'>-a</parameter>&nbsp;&mdash; И, 
+		<parameter class='command'>-o</parameter>&nbsp;&mdash; ИЛИ, 
+		<parameter class='command'>\!</parameter>&nbsp;&mdash; НЕ,
+		<parameter class='command'>\(...\)</parameter>&nbsp;&mdash; группа условий.
+	      </para>
+	      <para>
+		К найденым файлам могут применяться
+		следующие <emphasis>действия</emphasis>:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-print</parameter></term>
+		    <listitem>
+		      Вывести на экран имя найденного файла вместе с путём. Это действие
+		      выполняется по умолчанию.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-delete</parameter></term>
+		    <listitem>
+		      Удалить найденные файлы.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-exec команда {}
+		      \;</parameter></term>
+		    <listitem>
+		      Исполнение указанной команды для каждого найденного файла с
+		      передачей имени файла в качестве параметра ({}).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-ok команда {}
+		      \;</parameter></term>
+		    <listitem>
+		      Аналогична действию <parameter class='command'>-exec</parameter>,
+		      только для каждого файла запрашивается подьверждение перед
+		      выполнением команды.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>		  
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    Вывод всех файлов в текущем каталоге и подкаталогах:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost ~]$ find
+.
+./xxx
+./xxx/yyy
+./xxx/yyy/zzz
+./file.test</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Вывод всех файлов в каталоге <filename>/etc</filename>, начинающихся
+		    на <literal>re</literal>:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost ~]$ find /etc -name "re*"
+find: /etc/tcb: Permission denied
+find: /etc/default: Permission denied
+/etc/chroot.d/resolv.all
+/etc/chroot.d/resolv.conf
+/etc/chroot.d/resolv.lib
+/etc/redhat-release
+/etc/remounttab
+/etc/resolv.conf
+...</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Вывод всех подкаталогов в каталоге <filename>/etc</filename>,
+		    начинающихся на <literal>rp</literal>:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost test]$ find /etc -name "rp*" -type d
+/etc/rpm</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Вывод всех файлов в каталоге <filename>/etc</filename>, изменённых
+		    за последние сутки:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost test]$ find /etc -mtime -1
+/etc
+/etc/issue
+/etc/issue.net
+/etc/mtab</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Вывод всех файлов в каталоге <filename>/tmp</filename>, не
+		    принадлежащих пользователю <command>user</command>:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost test]$ find /tmp \! -user user
+/tmp
+/tmp/.private
+/tmp/.font-unix
+/tmp/.X11-unix</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Удаление в текущем каталоге всех устаревших файлов (оканчивающихся
+		    на <literal>~</literal>):
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost test]$ find -name "*~" -delete</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Вывод на экран имён всех текстовых файлов в домашнем каталоге:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost test]$ find ~ -name "*.txt" -exec echo {} \;
+/home/user/a.txt
+/home/user/unix_commands.txt</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    Копирование всех текстовых файлов на дискету:
+		    <para>
+		      <informalexample>
+			<screen>[user@localhost test]$ find ~ -name "*.txt" -exec cp {} /mnt/floppy/ \;</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-mkfifo">mkfifo</definition></term>
+	    <listitem>
+	      <para>
+		Команда используется для создания специальных файлов: <emphasis>именованных
+		каналов</emphasis>. С помощью этих каналов можно осуществлять
+		взаимодействие между процессами операционной системы.
+	      </para>
+	      <para>
+		Для создания канала необходимо ввести команду <command>mkfifo</command>,
+		параметром которой является имя файла канала:
+		<informalexample>
+		  <screen>[user@localhost test]$ mkfifo pipe</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Именованный канал аналогичен неименованному (который устанавливается с
+		помощью символа <literal>|</literal>)&nbsp;&mdash; процессы могут писать в него
+		и читать из него. При этом к каналам можно применять
+		те же операции, что и к файлам.
+		<informalexample>
+		  <screen>[user@localhost test]$ echo "Hello, world." &gt; pipe
+[user@localhost test]$ cat &lt; pipe
+Hello, world.</screen>  
+		</informalexample>
+	      </para>
+	      <para>
+		Каналы, в отличие от файлов, только передают, но не сохраняют
+		информацию. Например, последующее чтение канала приведёт к приостановке
+		просматривающего процесса: пока не поступят новые данные.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>
+      </para>
+    </sect2> 
+    <sect2 id="shell-maincmd-text">
+      <title>Команды по работе с текстовыми данными</title>
+      <para>
+	В операционной системе UNIX большинство информации хранится в текстовом
+	виде. Поэтому команды по обработке текстовой информации играют очень важную роль в
+	этой операционной системе.
+      </para>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term><definition id="def-cmd-echo">echo</definition></term>
+	    <listitem>
+	      <para>
+		Познакомимся еще с одной командой, аналог котоpой имеется в DOS-си-
+		темах. Это команда <command>echo</command> (эхо).
+	      </para>
+	      <para>
+		Она имеет фоpмат:
+                <command>echo [-n] [arg ...] </command>
+	      </para>
+	      <para>
+		Команда <command>echo</command> выводит на устройство стандартного вывода
+		заданные ей параметры, разделяя их пробелами и завершая их символом новой
+		строки <literal>\n</literal>).
+	      </para>
+	      <para>
+		Эта команда удобна для формирования диагностических сообщений в командных
+		файлах и для передачи известных данных в программном канале.
+	      </para>
+	      <para>
+		С помощью следующей команды можно довольно пpосто создать пустой файл:
+                <command>echo > имя_файла</command>.
+	      </para>
+	      <para>
+		Можно использовать команду с
+		ключом <parameter class='command'>-n</parameter>, предписывающим
+		не выводить завеpшaющий символ перевода строки.
+	      </para>
+	      <para>
+		Интеpпpетатоp команд имеет встроенную команду <command>echo</command>,
+		которая имеет синтаксические различия с внешней
+		командой <command>echo</command>. Следует знать, что пользователям,
+		работающим с оболочкой, будет доступна встроенная
+		команда <command>echo</command>, если они не
+		укажут обратного в <filename>/bin/echo</filename>.
+	      </para>
+	      <para>
+		Рассмотрим примеры использования этой команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Вывод на экран сообщения <quote>Hello, world</quote>:
+		      <informalexample>
+			<screen>[user@localhost ~]$ echo "Hello, world."
+Hello, world.
+[user@localhost ~]$</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Вывод сообщения без завеpшающего символа новой стpоки:
+		      <informalexample>
+			<screen>[user@localhost ~]$ echo -n "Hello, world."
+Hello, world.[user@localhost test]$</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Вывод сообщения в файл <filename>file1</filename>:
+		      <informalexample>
+			<screen>[user@localhost ~]$ echo "Hello, world." > file1</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Добавление сообщения к содеpжимому файла <filename>file1</filename>:
+		      <informalexample>
+			<screen>[user@localhost ~]$ echo "Hello, world." >> file1</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Вывод имен файлов текущего каталога в алфавитном поpядке:
+		      <informalexample>
+			<screen>[user@localhost ~]$ echo *</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Вывод списка файлов с именами, соответствующих шаблону:
+		      вывести имена файлов с pасшиpением .txt:
+		      <informalexample>
+			<screen>[user@localhost ~]$ echo *.txt</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-cat">cat</definition></term>
+	    <listitem>
+	      <para>
+		Рассмотpим еще одну команду, котоpая может быть полезна пpи pаботе с
+		файлами. Это команда <command>cat</command> (аналог
+		команды <command>TYPE</command> для DOS-систем).
+	      </para>		
+	      <para>
+		Команда <command>cat</command> имеет следующий фоpмат:
+                <command>cat [-benstuv] [-] [file1 [file2 ...]]</command>
+	      </para>		
+	      <para>
+		Она по очеpеди читает файлы, чьи имена указаны в
+		качестве параметров, и выводит их
+		содеpжимое на стандаpтное устpойство вывода.
+	      </para>		
+	      <para>
+		Поименованный файл или файлы выводятся последовательно один за дpугим
+		без пpомежутков. Если файл достаточно длинный, то можно пpиостановить
+		вывод с помощью комбинации
+		клавиш <keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>. Для
+		пpодолжения вывода нажмите любую клавишу. Окончание ввода производится
+		комбинацией <keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo>.
+	      </para>
+	      <para>
+		Параметры обрабатываются в порядке их pазмещения в командной строке. Если
+		не указан ни один файл или используется ключ <literal>-</literal>), команда читает данные со
+		стандаpтного устpойства ввода.
+	      </para>
+	      <para>
+		Вы можете использовать <command>cat</command> со
+		следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-n</parameter></term>
+		    <listitem>
+		      Нумеpовать стpоки начиная с <literal>1</literal>.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-b</parameter></term>
+		    <listitem>
+		      Подразумевает использование ключа <parameter class='command'>-n</parameter>, но не
+		      нумеpует пустые стpоки.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-e</parameter></term>
+		    <listitem>
+		      Подразумевает использование ключа <parameter class='command'>-v</parameter> и
+		      отображает знак доллара ($) в конце каждой строки (визуализация
+		      символа пеpевода стpоки).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-s</parameter></term>
+		    <listitem>
+		      Пpи наличии идущих подpяд пустых стpок выводить только
+		      одну.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-t</parameter></term>
+		    <listitem>
+		      Подразумевает
+		      использование ключа <parameter class='command'>-v</parameter>. Выводит cимволы
+		      табуляции как <literal>^I</literal>.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-u</parameter></term>
+		    <listitem>
+		      Вывод не буферизуется, то есть символы из входного файла
+		      записываются в стандаpтный вывод без задеpжки,
+		      сразу после прочтения. По умолчанию вывод буфеpизуется, то есть символы могут
+		      накапливаться в пpомежуточном буфеpе.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-v</parameter></term>
+		    <listitem>
+		      Отображение непечатных символов. Упpавляющие символы выводятся в
+		      виде
+		      <literal>^X</literal> (CRTL+X), символ DEL (восьмеричное 0177)&nbsp;&mdash; как
+		      <literal>^?</literal>. Символы, не
+		      входящие в стандаpтный ASCII-набоp (напpимеp, символы киpиллицы с
+		      набоpом стаpших pазpядов), выводятся как
+		      <literal>M-x</literal>, где
+		      <literal>x</literal>&nbsp;&mdash; опpеделяемый младшими семи битами символ.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Файл <filename>file</filename> выводится на устройство стандартного
+		      вывода:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cat file</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Сцепление (слияние) файлов <filename>file1</filename> и <filename>file2</filename>, после чего они помещаются в файл <filename>file3</filename>:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cat file1 file2 > file3</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Пpисоединение файла <filename>file1</filename> к концу
+		      файла <filename>file2</filename>:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cat file1 >> file2</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Вывод содеpжимого файла с нумеpацией стpок, но без нумеpации
+		      пустых стpок:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cat -b file1
+1  Number 1
+2  Number 2
+3  Number 3
+4  Number 4
+
+
+5  Number 5</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Нумеpация всех стpок:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cat -n file1
+1  Number 1
+2  Number 2
+3  Number 3
+4  Number 4
+5
+6
+7  Number 5</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-less">less</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>less</command> используется для просмотра файлов, размер
+		которых превышает размер экрана. Пользователю предоставляется
+		интерактивынй интерфейс, в котором текст можно пролистывать, производить
+		по нему поиск и т.&nbsp;п..
+	      </para>
+	      <para>
+		Имя просматриваемого файла необходимо указать в качестве параметра
+		команды: 
+		<informalexample>
+		  <screen>[user@localhost ~]$ less README.txt</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Управлять программой <command>less</command> просто: страницы
+		перелистываются пробелом, а когда читать надоест, надо нажать
+		<keycap>q</keycap> (Quit). Перелистывать страницы можно и клавишами
+		<keycap>Page Up</keycap>/<keycap>Page Down</keycap>, для сдвига на одну
+		строку вперед можно применять <keycap>Enter</keycap> или стрелку вниз, а
+		на одну строку назад&nbsp;&mdash; стрелку вверх. Переход на начало и конец
+		текста выполняется по нажатию <keycap>g</keycap> и <keycap>G</keycap>
+		соответственно (Go). Полный список того, что можно делать с текстом
+		в <command>less</command>, выводится нажатием <keycap>h</keycap>
+		(Help). Для поиска и подстветки интересующего понятия можно
+		воспользоваться командой <keycap>/</keycap>, после которой необходимо
+		ввести интересующий Вас термин&nbsp;&mdash; по нажатию
+		клавиши <keycap>Enter</keycap>, курсор перейдёт к первому упоминанию
+		термина, который будет выделен серым цветом. Последующие
+		нажатия <keycap>/</keycap> и <keycap>Enter</keycap> приведут к продолжению
+		поиска слова по документу.
+	      </para>
+	      <para>
+		Программа <command>less</command> используется в качестве основы 
+		команды <command>man</command>&nbsp;&mdash; при просмотре страниц руководства.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-head">head</definition></term>
+	    <listitem>
+	      <para>
+		Команда выводит на экран первые несколько строк файла. По умолчанию
+		выводится первые 10 строк. В качестве
+		параметра команды указывается имя выводимого файла, а если оно не задано, производится чтение информации
+		со стандартного входа.
+	      </para>
+	      <para>
+		С помощью ключа <parameter class='command'>-n</parameter> можно задать
+		число строк от начала файла, которые будут выведены на экран. Например:
+		<informalexample>
+		  <screen>[user@localhost ~]$ head -n 4 /etc/inittab
+# /etc/inittab: init(8) configuration.
+
+# The default runlevel.
+id:5:initdefault:</screen>
+		</informalexample>
+	      </para>		
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-tail">tail</definition></term>
+	    <listitem>
+	      <para>
+		Команда выводит на экран последние несколько строк файла. По умолчанию
+		выводятся последние 10 строк. Имя выводимого файла указывается в качестве
+		параметра команды, и если оно не задано, производится чтение информации
+		со стандартного входа.
+	      </para>
+	      <para>
+		С помощью параметра <parameter class='command'>-n</parameter> можно задать
+		число строк от конца файла, которые будут выведены на экран. Например:
+		<informalexample>
+		  <screen>[user@localhost ~]$ tail -n 5 /var/log/dmesg
+loop: loaded (max 8 devices)
+squashfs: version 3.1 (2006/08/19) Phillip Lougher
+Registering unionfs 1.4
+unionfs: debugging is not enabled
+device-mapper: ioctl: 4.7.0-ioctl (2006-06-24) initialised: dm-devel@redhat.com</screen>
+		</informalexample>
+		Таким способом удобно просматривать последние записи системных журналов.
+	      </para>
+	      <para>
+		Другим важным ключом команды
+		является <parameter class='command'>-f</parameter>: команда ожидает
+		изменения в конце файла и отображает их на
+		экране. Ключ удобно использовать
+		для просмотра постоянно увеличивающихся файлов. Для завершения команды
+		нажмите <keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-cut">cut</definition></term>
+	    <listitem>
+	      <para>
+		Команда позволяет выводить указанные столбцы или записи из одного или
+		нескольких файлов. Столбцом называется именно столбец&nbsp;&mdash; символы
+		с одной и той же позицией в строке, записи же разделяюся символами
+		табуляции. И столбцы и записи задаются указанием их порядкового номера в
+		строке. 
+	      </para>
+	      <para>
+		Вы можете использовать команду со следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-c</parameter>список</term>
+		    <listitem>
+		      вывод столбцов, указанных параметром <emphasis>список</emphasis>;
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-f</parameter>список</term>
+		    <listitem>
+		      вывод полей, указанных параметром <emphasis>список</emphasis>;
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-d</parameter>символ</term>
+		    <listitem>
+		      устанавливает заданный символ в качестве разделителя полей при
+		      использовании
+		      ключа <parameter class='command'>-f</parameter>. Если в качестве
+		      разделителя используется небуквенный символ (например, пробел), он
+		      должен быть заключён в кавычки. 
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Примеры работы программы:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Выделение первых семи столбцов файла:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cat phones.txt
+1234567		Борис Петрович
+5557845		Анна Иоановна
+...
+[user@localhost ~]$ cut -c1-7 phones.txt
+1234567
+5557845
+...</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Получение списка групп пользователей, зарегистрированных в системе:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cut -f1 -d: /etc/group
+root
+bin
+daemon
+sys
+adm
+...</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-paste">paste</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>paste</command> объединяет два текстовых файла в один. В
+		получившемся файле исходные строки располагаются в соседних столбцах,
+		разделённые символом табуляции (или любым другим
+		символом, указанным в качестве
+		параметра после ключа <parameter class='command'>-d</parameter>). 
+	      </para>
+	      <para>
+		Часто применяется совместно с программой <command>cut</command>.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-sort">sort</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>sort</command> сортирует строки, входящие во все исходные
+		файлы, и выдает результат на стандартный вывод. Если имена файлов не
+		указаны, или в качестве файла указан <literal>-</literal>, исходная информация
+		поступает со стандартного ввода. Команда имеет формат:
+		<command>sort  [-c] [-r] [файл ...]</command>
+	      </para>
+	      <para>
+		При упорядочении используется один или несколько ключей сортировки,
+		выделяемых из каждой вводимой строки. По умолчанию ключ сортировки
+		один&nbsp;&mdash; вся строка, а порядок является лексикографическим,
+		соответствующим принятой кодировке символов.
+	      </para>
+	      <para>
+		Основные ключи, которые принимает команда:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-c</parameter></term>
+		    <listitem>
+		      Вместо сортировки файла проверяет, отсортирован ли он. Если файл не
+		      отсортирован, команда возвращает <literal>1</literal> и выводит
+		      соответствующее сообщение.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-r</parameter></term>
+		    <listitem>
+		      Заменить результат сравнения на противоположный. 
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Отсортировать файл с фамилиями:
+		      <informalexample>
+			<screen>[user@localhost ~]$ cat f.txt
+Petrov
+Ivanov
+Sidorov
+Abramov
+[user@localhost ~]$ sort f.txt
+Abramov
+Ivanov
+Petrov
+Sidorov</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Отсортировать список файлов в обратном порядке:
+		      <informalexample>
+			<screen>[user@localhost ~]$ ls / | sort -r
+var
+usr
+tmp
+sys
+srv
+sbin
+root
+...</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-uniq">uniq</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>uniq</command> построчно анализирует файл и в случае,
+		если он содержит в себе повторяющиеся строки, выбрасывает
+		дубликаты. Команда имеет следующий формат:
+		<command>uniq [-c] [исходный_файл]</command>
+	      </para>
+	      <para>
+		Если имя исходного файла не указано, команда читает данные со стандартного
+		ввода.
+	      </para>
+	      <para>
+		При использовании ключа <parameter class='command'>-c</parameter> рядом с каждой
+		строкой выводится число повторений этой строки.
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Получим имена всех пользователей, работающих в системе в настоящий
+		      момент: 
+		      <informalexample>
+			<screen>[user@localhost ~]$ who | cut -f1 -d' '
+root
+root
+ivan
+maria
+[user@localhost ~]$ who | cut -f1 -d' ' | uniq
+root
+ivan
+maria</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Однако такой результат будет не всегда:
+		      <informalexample>
+			<screen>[user@localhost ~]$ who | cut -f1 -d' '
+root
+ivan
+root
+maria
+[user@localhost ~]$ who | cut -f1 -d' ' | uniq
+root
+ivan
+root
+maria</screen>
+		      </informalexample>
+		      Это происходит потому, что команда <command>uniq</command>
+		      сравнивает строки последовательно. Для того, чтобы избежать
+		      дублирования, результат нужно предварительно сортировать:
+		      <informalexample>
+			<screen>[user@localhost ~]$ who | cut -f1 -d' ' | sort | uniq
+ivan
+maria
+root</screen>
+		      </informalexample>
+		    </para>  
+		  </listitem>
+		</itemizedlist>
+	      </para>     
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-iconv">iconv</definition></term>
+	    <listitem>
+	      <para>
+		Команда <command>iconv</command> не является оригинальной командой UNIX,
+		она появилась в системах, разработанных в рамках
+		проекта GNU. Однако большинство современных версий UNIX
+		содержат эту команду.
+	      </para>
+	      <para>
+		Команда предназначена для перекодирования текстовых файлов из одной
+		кодировки в другую и имеет следующий формат:
+		<command>iconv [-l] -f исходная_кодировка -t конечная_кодировка [исходный_файл]</command>
+		
+	      </para>
+	      <para>
+		Если имя исходного файла не указано, команда читает данные со стандартного
+		ввода.
+	      </para>
+	      <para>
+		Имя кодировки&nbsp;&mdash; исходной или конечной&nbsp;&mdash; должно соответствовать
+		кодировке в файле. Список доступных кодировок можно получить, если
+		запустить команду <command>iconv</command> с
+		ключом <parameter class='command'>-l</parameter>. 
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-wc">wc</definition></term>
+	    <listitem>
+	      <para>
+		Эта команда предназначена для подсчёта количества строк, символов и слов в
+		указанных файлах. Команда имеет следующий формат:
+		<command>wc [-clmw] file ...</command>
+	      </para>
+	      <para>
+		Можно использовать команду со следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-c</parameter></term>
+		    <listitem>
+		      Вывод только количества байт.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-l</parameter></term>
+		    <listitem>
+		      Вывод только количества строк.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-m</parameter></term>
+		    <listitem>
+		      Вывод только количества символов. Отличается от числа байт при
+		      многобайтной кодировке.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-w</parameter></term>
+		    <listitem>
+		      Вывод только количества слов.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Подсчёт числа слов в документе:
+		      <informalexample>
+			<screen>[user@localhost test]$ wc -w lectures.txt
+568 lectures.txt</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>		      
+		  <listitem>
+		    <para>
+		      Число файлов в каталоге:
+		      <informalexample>
+			<screen>[user@localhost test]$ ls / | wc -l
+15</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>		      
+		  <listitem>
+		    <para>
+		      Полная статистика по группе xml-файлов (число строк, число слов,
+		      число байт):
+		      <informalexample>
+			<screen>[user@localhost test]$ cat *.xml | wc 
+   3978   16138  253680</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>		      
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-dd">dd</definition></term>
+	    <listitem>
+	      <para>
+		<command>dd</command>&nbsp;&mdash; команда блочного копирования
+		файлов. Она имеет следующий формат:
+		<command>dd if=исходный_файл of=конечный_файл bs=размер_блока
+		count=число_блоков skip=число_блолов seek=число_блоков</command>
+	      </para>
+	      <para>
+		Программа используется при копировании частей одного файла в другой, часто
+		применяется при работе с устройствами. Рассмотрим параметры, принимаемые
+		командой:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>if=</parameter></term>
+		    <listitem>
+		      Задаёт имя файла (или устройства), откуда будут копироваться данные.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>of=</parameter></term>
+		    <listitem>
+		      Задаёт имя файла (или устройства), куда будут копироваться данные.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>bs=</parameter></term>
+		    <listitem>
+		      Задаёт размер блока копирования в байтах. Можно применять модификаторы
+		      размера: <literal>K</literal>&nbsp;&mdash;
+		      килобайты, <literal>M</literal>&nbsp;&mdash; мегабайты и т.&nbsp;п.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>count=</parameter></term>
+		    <listitem>
+		      Задаёт число копируемых блоков. Если этот параметр не задан,
+		      копируется всеь исходный файл.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>skip=</parameter></term>
+		    <listitem>
+		      Число блоков в исходном файле, которое будет пропущено до чтения.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>seek=</parameter></term>
+		    <listitem>
+		      Число блоков в файле назначения, которое будет пропущено до записи.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Копирование загрузочного сектора жёсткого диска в
+		      файл <filename>bootsect</filename>: 
+		      <informalexample>
+			<screen>[root@localhost test]# dd if=/dev/hda of=bootsect bs=512 count=1
+1+0 входных записей
+1+0 выходных записей
+512 bytes (512 B) copied, 9e-05 seconds, 5,7 MB/s</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>		      
+		  <listitem>
+		    <para>
+		      Копирование файла размером до двух мегабайт на простой гибкий диск и
+		      обратно:
+		      <informalexample>
+			<screen>[user@localhost test]$ dd if=arch.tar.bz2 of=/dev/fd0 bs=1
+1788990+0 входных записей
+1788990+0 выходных записей
+[user@localhost test]$ dd if=/dev/fd0 of=arch2.tar.bz2 bs=1 count=1788990
+1788990+0 входных записей
+1788990+0 выходных записей</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>		      
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>		
+      </para>
+      <sect3 id="shell-maincmd-text-regexp">
+	<title>Команды, использующие регулярные выражения</title>
+	<para>
+	  <variablelist>
+	    <varlistentry>
+	      <term><definition id="def-cmd-grep">grep</definition></term>
+	      <listitem>
+		<para>
+		  Часто пользователю нужно найти только упоминания чего-то конкретного в
+		  файле или среди данных, выводимых программой. Обычно эта задача сводится
+		  к поиску строк, в которых встречается определенное слово или комбинация
+		  символов. Для этого подходит стандартная
+		  утилита <command>grep</command>. которая может искать
+		  строку в файлах, а может работать как фильтр: получив строки со
+		  стандартного ввода, она выведет на стандартный вывод только те строки,
+		  где встретилось искомое сочетание символов.
+		</para>
+		<para>
+		  Простой пример: найти своего пользователя в
+		  файле <filename>/etc/passwd</filename>:
+		  <informalexample>
+		    <screen>[user@localhost test]$ grep user /etc/passwd
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/dev/null
+rpc:x:32:32:Portmapper RPC user:/:/dev/null
+user:x:500:500::/home/user:/bin/bash</screen>
+		  </informalexample>
+		  Первый параметр команды <command>grep</command>&nbsp;&mdash; та строка,
+		  которую нужно искать в файле или стандартном вводе, в данном случае это
+		  <command>user</command>, а поскольку файл <filename>/etc/passwd</filename>
+		  выводит сведения по строке на каждого пользователя,
+		  то таким образом можно
+		  получить информацию о пользователе <command>user</command>.
+		</para>
+		<para>
+		  В случае, если нужно искать не конкретное сочетание символов, а какую-то
+		  их несложную комбинацию, используют <definition id="def-regexp"
+		  orig="регулярное выражение">регулярные
+		  выражения</definition>&nbsp;&mdash; способ специальной формулой задать
+		  все допустимые последовательности символов (в дискретной математике это
+		  понятие формулируется более строго).
+		</para>
+		<para>
+		  В регулярном выражении большинство символов обозначают сами себя, как
+		  если бы мы искали обыкновенную текстовую строку,
+		  например, <literal>Note</literal> и <literal>::</literal> в регулярном выражении
+		  соответствуют строкам <literal>Note</literal> и <literal>::</literal> в
+		  тексте. Однако некоторые символы обладают специальным значением, самый
+		  главный из таких символов&nbsp;&mdash; звездочка (<literal>*</literal>),
+		  поставленная после элемента регулярного выражения, обозначает, что могут
+		  быть найдены тексты, где этот элемент повторен любое количество раз, в
+		  том числе и ни одного, т.&nbsp;е. просто отсутствует.
+		</para>
+		<para>
+		  С помощью следующей команды можно посмотреть все локальные сетевые
+		  имена, зарегистрированные в системе:
+		  <informalexample>
+		    <screen>[user@localhost ~]$ grep "^127.*" /etc/hosts
+127.0.0.1       localhost.localdomain localhost</screen>
+		  </informalexample>
+		  Символ <literal>.</literal> заменяет <quote>любой символ</quote>, а вместе
+		  с <literal>*</literal> означает 0 или больше любых символов.
+		  Символ <literal>^</literal> в начале регулярного выражения означает, что
+		  необходимы строки, <emphasis>начинающиеся</emphasis> с данного шаблона
+		  (для обозначения конца строки используют символ <literal>$</literal>).
+		</para>	
+		<para>
+		  Существуют и другие способы группирования символов:
+		  <itemizedlist>
+		    <listitem>
+		      <para>
+			<literal>[</literal> и <literal>]</literal> задают <emphasis>класс
+			символов</emphasis>, когда в выражении может встретиться любой из
+			них. С помощью следующего регулярного выражения выводятся все
+			строки, содержащие любые числа (знак <literal>+</literal> является
+			аналогом <literal>*</literal>, только задаёт
+			одно или больше упоминаний предыдущего символа):
+			<informalexample>
+			  <screen>[user@localhost ~]$ grep "[0-9]\+" /etc/hosts
+127.0.0.1       localhost.localdomain localhost
+192.168.1.4     cat.home     cat</screen>
+			</informalexample>
+		      </para>
+		    </listitem>		      
+		    <listitem>
+		      <para>
+			<literal>(</literal> и <literal>)</literal> позволяют группировать
+			выражения. Например, следующая команда выводит все строки,
+			содержащие IP-адрес:
+			<informalexample>
+			  <screen>[user@localhost ~]$ grep "\([0-9]\+\.\)\{3\}[0-9]\+" /etc/resolv.conf
+nameserver 192.168.0.1</screen>
+			</informalexample>
+			Запись <literal>{3}</literal> означает, что предыдущий символ или
+			выражение должно повторяться в точности 3 раза.
+		      </para>
+		    </listitem>
+		  </itemizedlist>  
+		</para>
+		<para>
+		  Регулярные выражения содержат множество <emphasis>управляющих</emphasis>
+		  символов, каждый их которых наделён собственным значением. Для того, чтобы
+		  воспользоваться непосредственным значением символа (для поиска его в
+		  строке), необходимо поставить перед ним символ обратной
+		  косой: <literal>\</literal>.
+		</para>
+		<para>
+		  Команда <command>grep</command> принимает множество
+		  ключей, делающих поиск более удобным,
+		  например, <parameter class='command'>-n</parameter>&nbsp;&mdash;
+		  вывод номера найденной строки,
+		  или <parameter class='command'>-o</parameter>&nbsp;&mdash; вывод только подстроки,
+		  соответствующей самому регулярному выражению.
+		</para>
+		<para>
+		  Благодаря регулярным выражениям можно автоматизировать очень многие
+		  задачи, которые в противном случае потребовали бы огромной и кропотливой
+		  работы человека. Более подробные сведения о возможностях языка
+		  регулярных выражений можно получить из руководства
+		  команды <command>grep</command>. 
+		</para>		
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><definition id="def-cmd-sed">sed</definition></term>
+	      <listitem>
+		<para>
+		  Регулярные выражения можно использовать не только для поиска по файлу,
+		  но и для изменения информации. Для такого поиска с заменой можно
+		  воспользоватья утилитой <command>sed</command> (stream
+		  editor&nbsp;&mdash; поточный редактор). <command>sed</command> имеет
+		  свой встроенный простой язык, с помощью которого можно задать правила
+		  модифицирования файла. 
+		</para>
+		<para>
+		  Все команды встроенного языка <command>sed</command> состоят из одной
+		  буквы. Например, поиск с заменой выполняет команда <literal>s</literal>
+		  (search). Синтаксис у нее следующий:
+		  <command>s/что_искать/на_что_заменять/</command>
+		  Например:
+		  <informalexample>
+		    <screen>[user@localhost ~]$ ls -l / | sed 's/^d[^ ]\+/directory/'
+total 6
+directory  2 root root   40 Feb 10 17:57 bin
+directory  2 root root  172 Feb 10 20:23 boot
+directory  8 root root 3200 Feb 10 17:58 dev
+directory 50 root root  480 Feb 10 18:00 etc
+directory  3 root root   60 Feb 10 18:00 home
+...</screen>
+		  </informalexample>
+		  Эта команда заменяет в информации о корневом каталоге все строки,
+		  начинающиеся с символа <literal>d</literal> и все, следующие за ним
+		  непробельные символы, на слово <literal>directory</literal>.
+		</para>
+		<para>
+		  Кроме команды поиска, <command>sed</command> имеет команды удаления,
+		  копирования и замены строк. Также команды могут иметь модификаторы,
+		  например, символ <literal>g</literal> в конце команды поиска указывает
+		  делать замену для всех найденных по регулярному выражению подстрок, а не
+		  только для первой.
+		</para>
+		<para>
+		  Попробуем разобраться подробнее, как работает
+		  редактор <command>sed</command>. Входной текст <command>sed</command>
+		  считывает построчно. К считанной строке он по очереди пробует применить
+		  каждую команду сценария. Применив все возможные команды к
+		  строке, <command>sed</command> выводит на стандартный вывод то, что от
+		  нее осталось. Команда сценария может начинаться с т.&nbsp;н. <emphasis>контекстного
+		  адреса</emphasis>, определяющего свойства строк, к которым эту команду можно
+		  применять. Простой контекстный адрес&nbsp;&mdash; это номер строки
+		  (команда применяется к единственной&nbsp;&mdash; совпадающей по
+		  номеру&nbsp;&mdash; строке входного потока) или регулярное выражение
+		  (команда применяется ко всем строкам, в которых найдено соответствие
+		  этому РВ). Например, команда <command>sed "1s/_/ /g"</command> заменит в
+		  первой строке все подчеркивания на пробелы, а <command>sed
+		  "/^a/d"</command> удалит (delete) все строки, начинающиеся
+		  с <literal>a</literal>.
+		</para>
+		<para>
+		  У <command>sed</command> очень широкие возможности, но довольно
+		  непривычный синтаксис.  Чтобы в нем разобраться, нужно обязательно
+		  прочесть руководство <command>sed</command> и знать регулярные
+		  выражения.
+		</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</para>    
+      </sect3>
+    </sect2>
+    <sect2 id="shell-maincmd-summary">
+      <title>Резюме</title>
+      <para>
+	В данном разделе рассмотрены основные команды по работе с файловой системой и
+	текстовыми данными, а также примеры их комплексного использования.
+      </para>
+      <list-of-definitions/>
+    </sect2>    
+    <sect2 id="shell-maincmd-additional">
+      <title>Дополнительные материалы</title>
+      <para>
+	<orderedlist>
+	  <listitem>
+	    Курячий Г.В., Маслинский К.А. <emphasis>Операционная система
+	      Linux</emphasis>.&nbsp;&mdash; М.: Интуит.Ру, 2005.&nbsp;&mdash; 392 с.: ил.
+	  </listitem>
+	  <listitem>
+	    Курячий Г.В. <emphasis>Операционная система UNIX</emphasis>.&nbsp;&mdash;
+	    М.: Интуит.Ру, 2004.&nbsp;&mdash; 292 с.: ил.
+	  </listitem>
+	  <listitem>
+	    Рейчардс К., Фостер-Джонсон Э. <emphasis>UNIX:
+	      справочник</emphasis>.&nbsp;&mdash; СПб.: Питер Ком, 1999.&nbsp;&mdash; 384 с.:
+	    ил.
+	  </listitem>
+	</orderedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <!-- занятие №4 (практическое занятие) -->
+  <sect1-scenario id="shell-maincmdexamples">
+    <title>Работа с файлами в UNIX</title>
+    <para>
+      <emphasis>Цель занятия:</emphasis> знакомство с командной строкой UNIX, командами по
+      работе с файловой системой и командами обработки текстовых файлов.
+    </para>
+    <para>
+      <emphasis>Изучаемые команды:</emphasis> 
+      <xref linkend="def-cmd-cat"/>,
+      <xref linkend="def-cmd-cd"/>,
+      <xref linkend="def-cmd-cp"/>,
+      <xref linkend="def-cmd-cut"/>,
+      <xref linkend="def-cmd-echo"/>,
+      <xref linkend="def-cmd-find"/>,
+      <xref linkend="def-cmd-grep"/>,
+      <xref linkend="def-cmd-head"/>,
+      <xref linkend="def-cmd-ln"/>,
+      <xref linkend="def-cmd-ls"/>,
+      <xref linkend="def-cmd-mkdir"/>,
+      <xref linkend="def-cmd-mv"/>,
+      <xref linkend="def-cmd-paste"/>,
+      <xref linkend="def-cmd-pwd"/>,
+      <xref linkend="def-cmd-sort"/>,
+      <xref linkend="def-cmd-tail"/>,
+      <xref linkend="def-cmd-tar"/>,
+      <xref linkend="def-cmd-touch"/>,
+      <xref linkend="def-cmd-uniq"/>,
+      <xref linkend="def-cmd-wc"/>
+    </para>
+    <scenario id="shell-scenario-dirs">
+      <title>Знакомство с каталогами UNIX</title>
+      <scenario-intro>
+	<para>
+	  В этом сценарии будет осуществлено знакомство с командами UNIX, изучение файловой
+	  системы и базовых каталогов, создание рабочей среды в домашнем каталоге
+	  пользователя для выполнения всех последующих команд.
+	</para>
+      </scenario-intro>	  
+      <scenario-start>
+	Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Получить имя текущего каталога с помощью команды <command>pwd</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ pwd
+/home/user/</screen>
+	    </informalexample>		
+	</para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Перейти в корневой каталог с помощью команды <command>cd /</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ cd /
+[user@localhost /]$ pwd
+/</screen>
+	    </informalexample>
+	    Отметить, как изменилась строка приглашения.
+	</para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Посмотреть содержимое корневого каталога с помощью
+	    команды <command>ls</command>:
+	    <informalexample>
+	      <screen>[user@localhost /]$ ls
+bin   dev  home   lib    mnt  proc  sbin  sys  usr
+boot  etc  image  media  opt  root  srv   tmp  var</screen>
+	    </informalexample>
+	</para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Сравнить с использованием <quote>расширенного</quote> вывода
+	    команды <command>ls -F</command>:
+	    <informalexample>
+	      <screen>[user@localhost /]$ ls -F
+bin/   dev/  home/   lib/    mnt/  proc/  sbin/  sys/  usr/
+boot/  etc/  image/  media/  opt/  root/  srv/   tmp/  var/</screen>
+	    </informalexample>
+	    Каталоги отмечаются синим цветом и знаком <literal>/</literal> после имени.
+	</para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Посмотреть содержимое домашнего каталога с помощью команды <command>ls ~</command>:
+	    <informalexample>
+	      <screen>[user@localhost /]$ ls ~
+Documents  tmp</screen>
+	    </informalexample>
+	    Домашний каталог содержит набор стандартных каталогов.
+	</para>
+	</listitem>
+	<listitem>
+	  <para>Вернуться в домашний каталог с
+	    помощью <command>cd</command> без параметров:
+	    <informalexample>
+	      <screen>[user@localhost /]$ cd
+[user@localhost ~]$</screen>
+	    </informalexample>		
+	</para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Создать каталог <filename>test</filename> с помощью
+	    команды <command>mkdir test</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ mkdir test</screen>
+	    </informalexample>		
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Посмотреть обновлённое содержимое домашнего каталога <command>ls</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ls
+Documents  test  tmp</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Создать подкаталог <filename>subtest</filename> в
+	    каталоге <filename>test</filename> командой <command>mkdir test/subtest</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ mkdir test/subtest</screen>
+	    </informalexample>		
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Посмотреть содержимое домашнего каталога и его подкаталогов с помощью ключа
+	    рекурсивного просмотра <parameter class='command'>-R</parameter> в команде
+	    <command>ls -R</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ls -R
+.:
+Documents  test  tmp
+
+./Documents:
+
+./test:
+subtest
+
+./test/subtest:
+
+./tmp:</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-3-1">
+	Создайте каталог <filename>test1</filename> в домашнем каталоге. Сравните время
+	создания системных каталогов <filename>/bin</filename>, <filename>/tmp</filename>
+	с каталогом <filename>test1</filename>.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-filetypes">
+      <title>Изучение типов файлов в UNIX</title>
+      <scenario-intro>
+	<para>
+	  В этом сценарии рассматриваются типы файлов в UNIX: простые файлы, каталоги,
+	  ссылки. Изучаются команды создания и копирования файлов. Показывается разница
+	  между жесткими и символьными ссылками, между копированием и переносом
+	  файла.
+	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка. Каталог <filename>test</filename> после предыдущего сценария.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Cоздать пустой файл с помощью команды <command>touch first.txt</command>: 
+	    <informalexample>
+	      <screen>[user@localhost test]$ touch first.txt
+[user@localhost test]$ ls
+first.txt  subtest</screen>
+	    </informalexample>
+	  </para>	    
+	</listitem>
+	<listitem>
+	  <para>
+	    Добавить в файл строку текста с помощью
+	    команды <command>echo</command> и перенаправления вывода: <command>echo "Hello, world" >> first.txt</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ echo "Hello, world" >> first.txt</screen>
+	    </informalexample>
+	  </para>	    
+	</listitem>
+	<listitem>
+	  <para>
+	   Посмотреть содержимое файла с помощью команды <command>cat first.txt</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ cat first.txt
+Hello, world
+[user@localhost test]$</screen>
+	    </informalexample>
+	  </para>	    
+	</listitem>
+	<listitem>
+	  <para>
+	    Посмотреть расширенную информацию о каталоге, используя
+	    ключ <parameter class='command'>-l</parameter>
+	    команды <command>ls</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ ls -l
+total 4
+-rw-r--r-- 1 user user 13 Feb 14 20:12 first.txt
+drwxr-xr-x 2 user user 60 Feb 14 19:42 subtest</screen>
+	    </informalexample>
+	  </para>	    
+	</listitem>
+	<listitem>
+	  <para>
+	    Добавить псевдоним командной оболочки, чтобы сократить размер команды, с помощью команды
+	    <command>alias ls='ls -F -l'</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ alias ls='ls -F -l'
+[user@localhost test]$ ls test
+total 4
+-rw-r--r-- 1 user user 13 Feb 14 20:12 first.txt
+drwxr-xr-x 2 user user 60 Feb 14 19:42 subtest</screen>
+</informalexample>
+	  </para>	    
+	</listitem>
+	<listitem>
+	  <para>
+	    Получить более подробную информацию о каталоге <filename>test</filename>, используя ключи
+	    <parameter class='command'>-a</parameter>, <parameter class='command'>-l</parameter>
+	    и <parameter class='command'>-i</parameter> команды <command>ls</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ ls -a -l -i
+total 4
+1014 drwxr-xr-x 3 user user 100 Feb 14 20:07 ./
+ 941 drwx------ 8 user user 340 Feb 14 19:28 ../
+1081 -rw-r--r-- 1 user user  13 Feb 14 20:12 first.txt
+1015 drwxr-xr-x 2 user user  60 Feb 14 19:42 subtest/</screen>
+	    </informalexample>
+	    Первый столбец&nbsp;&mdash; номера индексных узлов файловой системы.
+	    Третий столбец&nbsp;&mdash; число жёстких ссылок на файл.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	   Скопировать файл с помощью команды <command>cp first.txt copy1.txt</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ cp first.txt copy1.txt
+[user@localhost test]$ ls -a -l -i 
+total 8
+1014 drwxr-xr-x 3 user user 120 Feb 14 20:33 ./
+ 941 drwx------ 8 user user 340 Feb 14 19:28 ../
+1082 -rw-r--r-- 1 user user  13 Feb 14 20:33 copy1.txt
+1081 -rw-r--r-- 1 user user  13 Feb 14 20:12 first.txt
+1015 drwxr-xr-x 2 user user  60 Feb 14 19:42 subtest/</screen>
+	    </informalexample>
+	    Новый файл имеет свой собственный индексный узел.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	   Переименовать файл с помощью команды <command>mv first.txt orig.txt</command>.
+	    <command>mv first.txt orig.txt</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ mv first.txt orig.txt
+[user@localhost test]$ ls -a -l -i
+total 8
+1014 drwxr-xr-x 3 user user 120 Feb 14 20:37 ./
+ 941 drwx------ 8 user user 340 Feb 14 19:28 ../
+1082 -rw-r--r-- 1 user user  13 Feb 14 20:33 copy1.txt
+1081 -rw-r--r-- 1 user user  13 Feb 14 20:12 orig.txt
+1015 drwxr-xr-x 2 user user  60 Feb 14 19:42 subtest/</screen>
+	    </informalexample>
+	    Отметим, что изменилось только имя файла, все остальные атрибуты
+	    остались прежними.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	   Создать жёсткую ссылку командой <command>ln orig.txt copy2.txt</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ ln orig.txt copy2.txt
+[user@localhost test]$ ls -a -i
+total 12
+1014 drwxr-xr-x 3 user user 140 Feb 14 20:41 ./
+ 941 drwx------ 8 user user 340 Feb 14 19:28 ../
+1082 -rw-r--r-- 1 user user  13 Feb 14 20:33 copy1.txt
+1081 -rw-r--r-- 2 user user  13 Feb 14 20:12 copy2.txt
+1081 -rw-r--r-- 2 user user  13 Feb 14 20:12 orig.txt
+1015 drwxr-xr-x 2 user user  60 Feb 14 19:42 subtest/</screen>
+	    </informalexample>
+	    Добавилась ещё одна ссылка на тот же файл, число ссылок увеличилось
+	    на <literal>1</literal>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	   Создать символьную ссылку командой <command>ln -s orig.txt orig.lnk</command>:
+	    <informalexample>
+	      <screen>[user@localhost test]$ ln -s orig.txt orig.lnk
+[user@localhost test]$ ls -a -i
+total 12
+1014 drwxr-xr-x 3 user user 160 Feb 14 20:45 ./
+ 941 drwx------ 8 user user 340 Feb 14 19:28 ../
+1082 -rw-r--r-- 1 user user  13 Feb 14 20:33 copy1.txt
+1081 -rw-r--r-- 2 user user  13 Feb 14 20:12 copy2.txt
+1083 lrwxrwxrwx 1 user user   8 Feb 14 20:45 orig.lnk -> orig.txt
+1081 -rw-r--r-- 2 user user  13 Feb 14 20:12 orig.txt
+1015 drwxr-xr-x 2 user user  60 Feb 14 19:42 subtest/</screen>
+	    </informalexample>
+	    Новый файл имеет новый индексный узел и размер, равный имени
+	    файла <filename>orig.txt</filename>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Сравним содержимое файлов при обращении к ним по имени:
+	    <informalexample>
+	      <screen>[user@localhost test]$ cat orig.txt
+Hello, world.
+[user@localhost test]$ cat copy2.txt
+Hello, world.
+[user@localhost test]$ cat orig.lnk
+Hello, world.</screen>
+	    </informalexample>
+	  </para>
+	  К одним и тем же данным можно обратиться через жесткую или символьную
+	  ссылку.
+	</listitem>
+      </orderedlist>
+      <!-- FIXME зачем нужно такое задание? -->
+      <practice id="pract-3-2">
+	Скопируйте файл <filename>/bin/ls</filename> в локальный каталог. Посмотрите
+	атрибуты этого файла. Попробуйте запустить его.
+      </practice>
+      <practice id="pract-3-3">
+	Создайте в локальном каталоге символьную ссылку <filename>tmplnk</filename>
+	на каталог <filename>/tmp</filename>. Скопируйте несколько файлов в
+	каталог <filename>tmplnk</filename>.
+      </practice>
+      <practice id="pract-3-4">
+	Сравните файлы <filename>/dev/tty1</filename>
+	и <filename>/dev/hda1</filename>. Какой тип они имеют? Чем они отличаются?
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-find">
+      <title>Поиск системных журналов</title>
+      <scenario-intro>
+	<para>
+	  В этом сценарии изучается команда поиска файлов и каталогов.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка, каталог <filename>test</filename> после прошлого сценария.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	 <para>
+	  Вывести список всех файлов и каталогов в текущем каталоге, включая содержимое
+	  подкаталогов, с помощью команды <command>find</command>:
+	  <informalexample>
+	    <screen>[user@localhost test]$ find
+.
+./orig.lnk
+./copy2.txt
+./orig.txt
+./copy1.txt
+./subtest</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Найти в текущем каталоге и его подкаталогах все файля и каталоги,
+	  которые начиняются на <literal>o</literal> с помощью команды <command>find -name "o*"</command>:
+	  <informalexample>
+	    <screen>[user@localhost test]$ find -name "o*"
+./orig.lnk
+./orig.txt</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Найти все файлы и каталоги в каталоге <filename>/etc</filename> и его подкаталогах,
+	  которые начиняются на <literal>o</literal> с помощью команды <command>find /etc
+	  -name "o*"</command>:
+	  <informalexample>
+	    <screen>[user@localhost test]$ find /etc -name "o*"
+find: /etc/tcb: Permission denied
+find: /etc/default: Permission denied
+find: /etc/buildreqs: Permission denied
+...</screen>
+	  </informalexample>
+
+	  Список найденных файлов может быть слишком большим, и для его просмотра
+	  можно воспользоваться <quote>прокруткой</quote> терминала с помощью
+	  клавиш <keycombo><keycap>Shift</keycap><keycap>PgUp</keycap></keycombo>
+	  и <keycombo><keycap>Shift</keycap><keycap>PgDn</keycap></keycombo>.
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Вы увидели множество сообщений об ошибках доступа (<quote>Permission
+	  denied</quote>), которые можно подавить с помощью перенаправления ошибок
+	  следующим образом: <command>find /etc -name "o*" 2>/dev/null</command>
+	  <informalexample>
+	    <screen>[user@localhost test]$ find /etc -name "o*" 2>/dev/null
+/etc/modprobe.d/options
+/etc/modutils.d/oss
+/etc/net/ifaces/default/fw/options
+/etc/net/ifaces/default/options
+...
+/etc/pam.d/other
+/etc/rc.d/init.d/outformat</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Найти все каталоги в <filename>/etc</filename>, которые
+	  начинаются на <literal>o</literal>
+	  с помощью команды <command>find /etc -name "o*" -a -type d 2>/dev/null</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ find /etc -name "o*" -a -type d 2>/dev/null
+/etc/net/options.d
+/etc/openssh
+/etc/openssl
+/etc/opt</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Найти все обычные файлы в каталоге <filename>/var</filename> и его подкаталогах,
+	  заканчивающиеся на <filename>.log</filename>:
+	   <informalexample> 
+	     <screen>[user@localhost test]$ find /var -name "*log" -a -type f 2>/dev/null
+/var/log/Xorg.0.log
+/var/log/xdm-error.log
+/var/log/faillog
+/var/log/lastlog</screen>
+	   </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Создать каталог <filename>logs</filename> с помощью команды 
+	  <command>mkdir logs</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ mkdir logs</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Скопировать найденные файлы в локальный каталог с помощью параметра 
+	  <parameter class='command'>-exec</parameter>
+	  команды <application>find</application>. Для этого выполнить: 
+	  <command>find /var -name "*log" -a -type f -exec cp {} test/logs/ 2>/dev/null</command>:
+	   <informalexample>
+	     <screen>[user@localhost test]$ find /var -name "*log" -a -type f -exec cp {} logs/ 2>/dev/null \;
+[user@localhost test]$ ls logs
+total 48
+-rw-r--r--  1 user user  23521 Feb 14 21:45 Xorg.0.log
+-rw-r--r--  1 user user  12048 Feb 14 21:45 faillog
+-rw-r--r--  1 user user 146584 Feb 14 21:45 lastlog
+-rw-r--r--  1 user user    762 Feb 14 21:45 xdm-error.log
+</screen>
+	   </informalexample>
+	  Были скопированы все файлы, права на чтение которых у нас есть.
+	 </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-3-5">
+	Найдите все файлы в системе, которые были модифицированы не более суток назад.
+      </practice>
+      <practice id="pract-3-6">
+	С помощью одной команды найдите все файлы с расширением <filename>.html</filename> в
+	каталоге <filename>/usr</filename> и скопируйте их в локальный
+	каталог <filename>htmls</filename>.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-arch">
+      <title>Архивирование и деархивирование файлов и каталогов</title>
+      <scenario-intro>
+	<para>
+	  В этом сценарии изучается команда архивирования файлов и каталогов.
+  	</para>
+	<scenario-start>
+	  Командная строка, каталог <filename>test</filename> после прошлого сценария.
+	</scenario-start>
+      </scenario-intro>
+      <orderedlist>
+	<listitem>
+	 <para>
+	  Перейти в домашний каталог с помощью команды <command>cd</command>:
+	  <informalexample> 
+	      <screen>[user@localhost test]$ cd
+[user@localhost ~]$</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Создать архив с именем <filename>test.tar.gz</filename> с применением
+	  сжатия, содержащий каталог <filename>test</filename>, с помощью команды 
+	  <command>tar -czf test.tar.gz test</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ tar -czf test.tar.gz test
+[user@localhost ~]$ ls
+Documents  test  test.tar.gz  tmp</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Создать новый каталог для содержимого архива командой <command>mkdir test2</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ mkdir test2</screen>			
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Перейти в новый каталог с помощью команды <command>cd test2</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ cd test2</screen>			
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Развернуть содержимое архива в текущий каталог с помощью команды
+	  <command>tar -xzf ../test.tar.gz</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test2]$ tar -xzf ../test.tar.gz</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Убедиться, что содержимое распакованного архива совпадает с
+	  оригинальным каталогом. Выполнить команду <command>ls -l -a -F</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test2]$ ls -l -a -F
+total 0
+drwxr-xr-x 2 user user 140 Feb 14 21:45 test/
+[user@localhost test2]$ ls -l -a -F test
+total 12
+drwxr-xr-x 3 user user 160 Feb 14 20:45 ./
+drwx------ 8 user user 340 Feb 14 19:28 ../
+-rw-r--r-- 1 user user  13 Feb 14 20:33 copy1.txt
+-rw-r--r-- 2 user user  13 Feb 14 20:12 copy2.txt
+drwxr-xr-x 2 user user 140 Feb 14 21:45 logs/
+lrwxrwxrwx 1 user user   8 Feb 14 20:45 orig.lnk -> orig.txt
+-rw-r--r-- 2 user user  13 Feb 14 20:12 orig.txt
+drwxr-xr-x 2 user user  60 Feb 14 19:42 subtest/</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-3-7">
+	Создайте архив каталога <filename>/etc</filename> и узнайте его
+	размер. Попробуйте создать сжатый архив того же каталога. Сравните степень
+	сжатия <application>gzip</application> и <application>bzip2</application> на этом
+	примере.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-text">
+      <title>Cоздание новых текстовых файлов</title>
+      <scenario-intro>
+	<para>
+	  В этом сценарии изучаются команды для создания и модифицирования текстовых файлов.
+  	</para>
+	<scenario-start>
+	  Командная строка.
+	</scenario-start>
+      </scenario-intro>
+      <orderedlist>
+	<listitem>
+	 <para>
+	  Перейти в новый каталог с помощью команды <command>cd ~/test</command> перейдите
+	  в каталог <filename>test</filename>:
+	  <informalexample> 
+	    <screen>[user@localhost test2]$ cd ~/test</screen>			
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Ввести команду <command>echo "One line"</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ echo "One line"
+One line</screen>
+	  </informalexample>
+	   Данная команда принимает строку в виде параметра и выводит её на стандартный
+	   вывод.
+  	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Ввести ту же команду, но перенаправить вывод в
+	  файл <filename>second.txt</filename> с
+	  помощью <literal>&gt;</literal>. Команда <command>echo "One line" > second.txt</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ echo "One line" > second.txt</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Добавить в конец файла <filename>second.txt</filename> строку <quote>A
+	  line</quote> с помощью другого перенаправления <command>echo "A line" >>
+	  second.txt</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ echo "A line" >> second.txt</screen>
+	  </informalexample>
+	</para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Вывести содержимое файла с помощью команды <command>cat second.txt</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat second.txt
+One line
+A line</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  С помощью команды <command dontlog="1">cat</command> можно создавать многострочные
+	  файлы&nbsp;&mdash;, если переопределить вывод программы в файл и вводить текст
+	  до нажатия <keycombo><keycap>Ctrl</keycap> <keycap>D</keycap></keycombo> (конец
+	  ввода). Ввести команду <command>cat > multiline.txt</command> и набрать текст
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat > multiline.txt
+Simple text:
+blah-blah-blah
+1 2 3 4 5 6 7 8 9 0
+
+bye!
+
+(Ctrl+D)
+[user@localhost test]$</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Убедиться, что содержимое файла совпадает с введённым текстом, включая все переводы строки.
+	  Для этого ввести команду <command>cat multiline.txt</command>
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat multiline.txt
+Simple text:
+blah-blah-blah
+1 2 3 4 5 6 7 8 9 0
+
+bye!
+
+</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	  <para>
+	   Основным назначением команды <command dontlog="1">cat</command> является
+	   объединение файлов, имена которых передаются как параметры командной строки.
+	   Объединить файлы с помощью команды <command>cat orig.txt second.txt
+	   multiline.txt > big.txt</command>:
+		  <informalexample> 
+		    <screen>[user@localhost test]$ cat orig.txt second.txt multiline.txt > big.txt</screen>
+		  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Убедиться, что новый файл содержит строки из перечисленных файлов, с помощью
+	  команды <command>cat big.txt</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat big.txt
+Hello, world
+One line
+A line
+Simple text:
+blah-blah-blah
+1 2 3 4 5 6 7 8 9 0
+
+bye!
+
+</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-3-8">
+	Создайте текстовый файл <filename>a.txt</filename> из десяти строк. Узнайте его
+	размер. Создайте новый файл, содержащий в себе файл <filename>a.txt</filename>
+	четыре раза.
+      </practice>
+      <practice id="pract-3-9">
+	С помощью одной команды найдите все файлы с расширением <filename>.txt</filename> в
+	каталоге <filename>/usr</filename> и объедините их в один большой
+	файл <filename>big.txt</filename>.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-cutpaste">
+      <title>Разрезание и склеивание файлов</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии изучается, как выделять информацию, разбитую на части с
+	  помощью специального символа-разделителя (например, пробела или
+	  символа <literal>:</literal>), из файлов и создавать новые структурированные файлы.
+	</para>
+      </scenario-intro>	  
+      <scenario-start>
+	Командная строка.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	 <para>
+	  Посмотреть содержимое файла <filename>/etc/passwd</filename>, в котором содержится информация о
+	  пользователях системы, с помощью команды <command>cat /etc/passwd</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat /etc/passwd
+root:x:0:0:System Administrator:/root:/bin/bash
+bin:x:1:1:bin:/:/dev/null
+daemon:x:2:2:daemon:/:/dev/null
+adm:x:3:4:adm:/var/adm:/dev/null
+lp:x:4:7:lp:/var/spool/lpd:/dev/null
+mail:x:8:12:mail:/var/spool/mail:/dev/null
+...</screen>
+	  </informalexample> 
+	  Каждая строка хранит запись об отдельном пользователе. Запись состоит
+	  из полей, разделённых символом <literal>:</literal>.
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Выделить первый столбец в каждой записи, выбрав в качестве
+	  разделителя <literal>:</literal>, с помощью команды <command>cat /etc/passwd | cut -f1 -d:</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat /etc/passwd | cut -f1 -d:
+root
+bin
+daemon
+adm
+lp
+mail
+news
+...</screen>
+	  </informalexample> 
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Отсортировать список пользователей по алфавиту с помощью
+	  команды <command>cat /etc/passwd | cut -f1 -d: | sort</command>: 
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat /etc/passwd | cut -f1 -d: | sort
+adm
+apache
+bin
+cacheman
+daemon
+exim
+ftp
+...</screen>
+	  </informalexample> 
+	 </para>
+	</listitem>
+	<listitem>
+	  <para>
+	   Выделить в каждой записи седьмой столбец, соответствующий командной оболочке
+	   пользователя, с помощью команды <command>cat /etc/passwd | cut -f7 -d:</command>
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat /etc/passwd | cut -f7 -d:
+/bin/bash
+/dev/null
+/dev/null
+/dev/null
+/dev/null
+...</screen>
+	  </informalexample> 
+	  Список содержит много повторяющихся строк.
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Удалить повторяющиеся строки командой <command>cat /etc/passwd | cut -f7 -d: | uniq</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ cat /etc/passwd | cut -f7 -d: | uniq
+/bin/bash
+/dev/null
+/sbin/nologin
+/bin/bash</screen>
+	  </informalexample> 
+	  Некоторые повторяющиеся строки остались, так как сравниваются только
+	  последовательные строки.
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Добиться полной уникальности, предварительно отсортировав строки с помощью команды
+	  <command>sort</command>. Ввести команду <command>cat /etc/passwd | cut
+	  -f7 -d: | sort | uniq</command>:
+	  <informalexample>
+	    <screen>[user@localhost test]$ cat /etc/passwd | cut -f7 -d: | sort | uniq
+/bin/bash
+/dev/null
+/sbin/nologin</screen>
+	  </informalexample> 
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Выделить первый и седьмой столбцы файла <filename>/etc/passwd</filename> в отдельные файлы. Для этого
+	  ввести команды <command>cat /etc/passwd | cut -f1 -d: > users</command> и 
+	  <command>cat /etc/passwd | cut -f7 -d: > shells</command>:
+	  <informalexample> 
+		    <screen>[user@localhost test]$ cat /etc/passwd | cut -f1 -d: > users
+[user@localhost test]$ cat /etc/passwd | cut -f7 -d: > shells</screen>
+	  </informalexample> 
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Объединить результаты с помощью команды <command>paste users shells</command>:
+	  <informalexample> 
+		    <screen>[user@localhost test]$ paste users shells
+root	/bin/bash
+bin	/dev/null
+daemon	/dev/null
+adm	/dev/null
+lp	/dev/null
+mail	/dev/null
+...</screen>
+	  </informalexample> 
+	 </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-3-10">
+	Получите с помощью одной команды файл, содержащий все числовые идентификаторы
+	пользователей, зарегистрированных в ситсеме.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-analysis">
+      <title>Быстрый анализ текстов</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии изучаются команды, которые позволяют провести первичный анализ
+	  файла: с чего он начинается, как заканчивается и каков его размер.
+	</para>
+      </scenario-intro>	  
+      <scenario-start>
+	Командная строка.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	   Получить число строк в файле <filename>/etc/passwd</filename> 
+	   с помощью команды <command>wc -l /etc/passwd</command>:
+	  <informalexample> 
+		    <screen>[user@localhost test]$ wc -l /etc/passwd
+33 /etc/passwd</screen>
+	  </informalexample> 
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Или другим способом: посчитав число слов в созданном ранее
+	  файле <filename>users</filename> с помощью команды <command>cat users | wc -w</command>: 
+	  <informalexample> 
+		    <screen>[user@localhost test]$ cat users | wc -w
+33</screen>
+	  </informalexample> 
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Посмотеть первые несколько строк длинного файла с помощью команды 
+	  <command>head logs/Xorg.0.log</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ head logs/Xorg.0.log
+X Window System Version 7.2.0
+Release Date: 21 February 2007
+X Protocol Version 11, Revision 0, Release 7.2
+Build Operating System: Linux 2.6.18-std-smp-alt4 i686 ALT Linux
+Current Operating System: Linux localhost 2.6.18-wks-alt1 #1 SMP Wed Dec 13 01:43:50 MSD 2006 i686
+Build Date: 21 February 2007
+        Before reporting problems, check http://wiki.X.Org
+        to make sure that you have the latest version.
+Module Loader present
+Markers: (--) probed, (**) from config file, (==) default setting,</screen>
+	  </informalexample>	    
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Аналогично, посмотеть последние несколько строк с помощью команды 
+	  <command>tail logs/Xorg.0.log</command>:
+	  <informalexample> 
+	    <screen>[user@localhost test]$ tail logs/Xorg.0.log
+(**) RADEON(0): Memory map updated.
+(**) RADEON(0): Programming CRTC1, offset: 0x00000000
+(**) RADEON(0): GRPH_BUFFER_CNTL from 20097c7c to 20095c5c
+(II) RADEON(0): [RESUME] Attempting to re-init Radeon hardware.
+(II) RADEON(0): [agp] Mode 0x1f000201 [AGP 0x8086/0x3340; Card 0x1002/0x4c66]
+(**) RADEON(0): EngineRestore (32/32)
+(**) RADEON(0): EngineRestore (32/32)
+(**) RADEON(0): RADEONSaveScreen(2)
+(II) Configured Mouse: ps2EnableDataReporting: succeeded
+(**) RADEON(0): RADEONDisplayPowerManagementSet(0,0x0)</screen>
+	  </informalexample> 		    
+	  Это бывает полезно при просмотре системных журналов&nbsp;&mdash; в
+	  них записи о самых последних событиях содержатся в конце файлов.
+	 </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-3-11">
+	Получите с помощью одной команды строки с 5-ой по 8-ю в
+	файле <filename>/proc/cpuinfo</filename>, содержащем информацию о процессоре.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-regexp">
+      <title>Поиск строк по регулярным выражениям</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии рассматривается практическое использование регулярных выражений
+	  для поиска по текстовым файлам.
+	</para>
+      </scenario-intro>	
+      <scenario-start>
+	Командная строка. Каталог <filename>test/logs</filename> с найденными системными
+	журналами.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	 <para>
+	  Среди найденных системных журналов посмотреть файл журнала загрузки
+	  графичской системы <filename>Xorg.0.log</filename> с помощью команды
+	  <command>less test/logs/Xorg.0.log</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ less test/logs/Xorg.0.log</screen>
+	  </informalexample>
+	  Выйти из просмоторщика можно нажатием клавиши <keycap>q</keycap>.
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Найти все предупреждения в журнале: строка, начинающаяся
+	  с <quote>(WW)</quote>. Для этого ввести команду <command>grep "^(WW)" test/logs/Xorg.0.log</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ grep "^(WW)" test/log/Xorg.0.log
+(WW) RADEON(0): Failed to detect secondary monitor, MergedFB/Clone mode disabled
+(WW) RADEON(0): DRI init changed memory map, adjusting ...
+(WW) RADEON(0):   MC_FB_LOCATION  was: 0xe3ffe000 is: 0xe3ffe000
+(WW) RADEON(0):   MC_AGP_LOCATION was: 0xffffffc0 is: 0xd07fd000
+...</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Получить все строки, содержащие следующий шаблон: последовательность из
+	  одной или более цифры или буквы, затем символ собаки, затем еще одна
+	  последовательность из одной или более цифры или буквы, или точки, затем символ
+	  точки, затем от двух до четырёх букв (имя домена первого
+	  уровня). При этом служебный вывод ошибок удаляется (перенаправляется в
+	  нулевое устройство). Для этого ввести команду 
+	  <command>grep "[a-zA-z0-9]\+@[a-zA-z0-9\.]\+\.[a-z]\{2,4\}" /etc/* 2>/dev/null</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ grep "[a-zA-z0-9]\+@[a-zA-z0-9\.]\+\.[a-z]\{2,4\}" /etc/* 2>/dev/null
+/etc/protocols:cbt      7       CBT             # CBT, Tony Ballardie &lt;A.Ballardie@cs.ucl.ac.uk&gt;
+/etc/sensors.conf:# Many thanks go to Peter T. Breuer &lt;ptb@it.uc3m.es&gt; for helping us figure
+/etc/sensors.conf:# Jonathan Yew &lt;j.teh@iname.com&gt; and Alex van Kaam &lt;darkside@chello.nl&gt;
+...</screen>
+	  </informalexample> При работе с несколькими
+	  файлами <command>grep</command> по умолчанию использует вывод имени
+	  файла перед найденной стокой.
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Избавиться от имени файла в начале строки с помощью ключа
+	  <parameter class='command'>-h</parameter>. Ввести команду
+	  <command>grep -h "[a-zA-z0-9]\+@[a-zA-z0-9\.]\+\.[a-z]\{2,4\}" /etc/*
+	  2>/dev/null</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ grep -h "[a-zA-z0-9]\+@[a-zA-z0-9\.]\+\.[a-z]\{2,4\}" /etc/* 2>/dev/null
+cbt      7       CBT             # CBT, Tony Ballardie &lt;A.Ballardie@cs.ucl.ac.uk&gt;
+# Many thanks go to Peter T. Breuer &lt;ptb@it.uc3m.es&gt; for helping us figure
+# Jonathan Yew &lt;j.teh@iname.com&gt; and Alex van Kaam &lt;darkside@chello.nl&gt;
+...</screen>
+	  </informalexample>     
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Для вывода только найденной подстроки используется
+	  ключ <parameter class='command'>-o</parameter>.  Ввести команду <command>grep
+	  -ho "[a-zA-Z0-9]\+@[a-zA-Z0-9\.]\+\.[a-z]\{2,4\}" /etc/* 2>/dev/null</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ grep -ho "[a-zA-Z0-9]\+@[a-zA-Z0-9\.]\+\.[a-z]\{2,4\}" /etc/* 2>/dev/null
+allardie@cs.ucl.ac.uk
+ptb@it.uc3m.es
+teh@iname.com
+...</screen>
+	  </informalexample>     
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Получить все файлы каталога <filename>/etc/</filename> с помощью
+	  команды <command>find /etc -type f 2>/dev/null</command>, игнорируя ошибки:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ find /etc -type f 2>/dev/null
+/etc/.pwd.lock
+/etc/gshadow
+/etc/gshadow-
+/etc/group
+/etc/group-
+/etc/passwd
+/etc/passwd-
+...</screen>
+	  </informalexample>     
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Для каждого из найденных файлов произвести поиск
+	  подстроки <quote>nameserver</quote>.  Для этого ввести команду <command>find
+	  /etc -type f -exec grep "nameserver" {} \; 2>/dev/null</command>:
+	  <informalexample>
+	    <screen>[user@localhost ~]$ find /etc -type f -exec grep "nameserver" {} \; 2>/dev/null
+nameserver 192.168.0.1
+nameserver      42/tcp          name            # Host Name Server
+nameserver      42/udp          name            # Host Name Server
+# nameserver lines into /etc/resolv.conf or not.</screen>
+	  </informalexample>     
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Для большего удобства добавить вывод имени файла
+	  (ключ <parameter class='command'>-H</parameter>) и номера строки
+	  (ключ <parameter class='command'>-n</parameter>), на которой было найдено
+	  совпадение, с помощью команды <command>find /etc -type f -exec grep -Hn
+	  "nameserver" {} \; 2>/dev/null</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ find /etc -type f -exec grep -Hn "nameserver" {} \; 2>/dev/null
+/etc/resolv.conf:1:nameserver 192.168.0.1
+/etc/services:60:nameserver     42/tcp          name            # Host Name Server
+/etc/services:61:nameserver     42/udp          name            # Host Name Server
+/etc/sysconfig/network:13:# nameserver lines into /etc/resolv.conf or not.</screen>
+	  </informalexample> Таким образом, команда <command dontlog="1">grep</command> может
+	  эффективно использоваться вместе с командой <command dontlog="1">find</command> для
+	  нахождения информации в файлах.
+	 </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-3-12">
+	Придумайте регулярное выражение, соответствующее URL с использованием
+	протокола <systemitem class="protocol">HTTP</systemitem>. Найдите все строки, содержащие такие URL в
+	файлах каталога <filename>/etc</filename>.
+      </practice>
+      <practice id="pract-3-13">
+	С помощью одной команды найдите все файлы с расширениями <filename>.txt</filename>
+	или <filename>.html</filename> в каталоге <filename>/usr</filename>, в которых
+	содержится слово <quote>user</quote>.
+      </practice>
+    </scenario>
+    <list-of-practices/>
+  </sect1-scenario>
+<!--
+  <sect1 id="shell-examples-shorts-1">
+    <title>Сценарии практического занятия на тему <quote>Работа с файлами в
+	UNIX</quote></title>
+    <scenario-summary scenario-id="shell-scenario-dirs"/>
+    <scenario-summary scenario-id="shell-scenario-filetypes"/>
+    <scenario-summary scenario-id="shell-scenario-find"/>
+    <scenario-summary scenario-id="shell-scenario-arch"/>
+    <scenario-summary scenario-id="shell-scenario-text"/>
+    <scenario-summary scenario-id="shell-scenario-cutpaste"/>
+    <scenario-summary scenario-id="shell-scenario-analysis"/>
+    <scenario-summary scenario-id="shell-scenario-regexp"/>
+  </sect1>-->
+  <sect1 id="shell-syscmd">
+    <title>Методические указания по командам управления системой в UNIX</title>
+    <sect2 id="shell-syscmd-info">
+      <title>Команды получения сведений о системе</title>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term><definition id="def-cmd-date">date</definition></term>
+	    <listitem>
+	      <para>
+		Команда позволяет посмотреть текущие дату и время в одном из множества
+		форматов. Суперпользователь также может использовать эту команду для
+		установки текущей даты и времени.
+	      </para>
+	      <para>
+		По умолчанию команда выводит время в формате заданной временной
+		зоны. Для получения времени по Гринвичу используется
+		ключ <parameter class='command'>-u</parameter>.
+	      </para>
+	      <para>
+		При выводе даты и времени используется формат вывода, принятый для данной
+		страны и задаваемый переменными окружения <envar>LC_TIME</envar> и т.&nbsp;п.
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Текущее время:
+		      <informalexample>
+			<screen>[user@localhost ~]$ date
+Срд Окт 19 08:21:38 MSD 2005</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Текущее время по Гринвичу:
+		      <informalexample>
+			<screen>[user@localhost ~]$ date -u
+Срд Окт 19 04:21:39 UTC 2005</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Вывод даты в специальном формате:
+		      <informalexample>
+			<screen>[user@localhost ~]$ date +%d%m%Y
+07012007</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-cal">cal</definition></term>
+	    <listitem>
+	      <para>	
+		Команда предназначена для вывода календаря на месяц или на год.
+		По умолчанию, выводит календарь текущего месяца.
+	      </para>
+	      <para>
+		В качестве параметра можно указать год или месяц и год. Обратим внимание,
+		что команда <command>cal 05</command> выведет календарь на 5-й год, а не
+		на 2005-й.
+	      </para>
+	      <para>
+		При выводе календаря используется формат вывода, принятый для данной
+		страны и задаваемый переменными окружения <envar>LC_TIME</envar> и т.&nbsp;п.
+	      </para>
+	      <para>
+		Рассмотрим примеры использования команды:
+		<itemizedlist>
+		  <listitem>
+		    <para>
+		      Календарь на текущий месяц
+		      <informalexample>
+			<screen>[user@localhost ~]$ cal
+    Октябрь 2005
+Вс Пн Вт Ср Чт Пт Сб
+                   1
+ 2  3  4  5  6  7  8
+ 9 10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30 31</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>
+		  <listitem>
+		    <para>
+		      Календарь на 2005 год.
+		      <informalexample>
+			<screen>[user@localhost ~]$ cal 2005
+                               2005
+
+       Январь                 Февраль                 Март
+Вс Пн Вт Ср Чт Пт Сб   Вс Пн Вт Ср Чт Пт Сб   Вс Пн Вт Ср Чт Пт Сб
+                   1          1  2  3  4  5          1  2  3  4  5
+ 2  3  4  5  6  7  8    6  7  8  9 10 11 12    6  7  8  9 10 11 12
+ 9 10 11 12 13 14 15   13 14 15 16 17 18 19   13 14 15 16 17 18 19
+16 17 18 19 20 21 22   20 21 22 23 24 25 26   20 21 22 23 24 25 26
+23 24 25 26 27 28 29   27 28                  27 28 29 30 31
+30 31
+...</screen>
+		      </informalexample>
+		    </para>
+		  </listitem>
+		</itemizedlist>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-ps">ps</definition></term>
+	    <listitem>
+	      <para>
+		Команда выводит список всех запущенных процессов. Когда эта команда
+		выполняется без параметров, то выводимый список содержит информацию о
+		номере процесса, связанном с ним терминале, времени работы
+		процесса <command>ps</command> и командной оболочки, в которой он был
+		запущен. Однако эта команда принимает множество ключей, позволяющих проследить
+		многие параметры исполняющихся в системе процессов.
+	      </para>
+	      <para>
+		Команда <command>ps</command> обладает несколькими видами записи
+		параметров, что может в вести в заблуждение: например, список всех
+		исполняющихся процессов можно получить как с помощью команды <command>ps
+		ax</command> или <command>ps -ef</command>, а также с помощью <command>ps
+		-A</command>. Получть полный список возможных ключей можно,
+		запустив <command>ps --help</command>. Таким
+		неоднородным набором ключей
+		команда обязана своей долгой истории использования во всех версиях UNIX
+		(например, ключи без знака <literal>-</literal> достались в наследство от BSD
+		UNIX).
+	      </para>
+	      <para>
+		Для просмотра всех процессов можно воспользуемся следующей командой:
+		<informalexample>
+		  <screen>[user@localhost ~]$ ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.1  0.4   1540   556 ?        Ss   19:46   0:04 init [5]
+root         2  0.0  0.0      0     0 ?        S    19:46   0:00 [migration/0]
+root         3  0.0  0.0      0     0 ?        S    19:46   0:00 [ksoftirqd/0]
+root         4  0.0  0.0      0     0 ?        S    19:46   0:00 [watchdog/0]
+..
+user      1655  0.2  1.3   3068  1676 tty1     S    20:38   0:00 -bash
+user      1695  0.0  0.6   2380   788 tty1     R+   20:41   0:00 ps aux</screen>
+		</informalexample>
+		Вывод этой команды ориентирован на пользователя (ключ 
+		<parameter class='command'>u</parameter>), но отсортирован по времени
+		запуска процесса.
+		Здесь можно увидеть следующие параметры процесса: пользователь,
+		идентификатор, уровень использования процессора (в процентах), уровень использования
+		памяти (в процентах), объём используемой виртуальной памяти, объём используемой реальной
+		памяти, терминал, с которым связан процесс, состояние выполнения, время
+		старта, время исполнения (на процессоре), имя
+		программы (с параметрами), в результате которой был
+		создан процесс. Отметим, что сам процесс <command>ps</command> всегда находится в
+		конце таблицы, так как сам выполнялся в момент сбора состояния процессов.
+	      </para>
+	      <para>
+		При использовании ключа <parameter class='command'>-H</parameter> можно
+		посмотреть процессы, выстроенные в иерархию:
+		<informalexample>
+		  <screen>[user@localhost ~]$ ps u -H
+USER   PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+user 22537  0.0  0.3   3720  1560 pts/3    Ss   22:37   0:00 /bin/bash
+user  8890  0.0  0.1   2644   876 pts/3    R+   23:13   0:00   ps u -H
+user  9243  0.0  0.2   3724  1368 pts/1    Ss+  17:15   0:00 /bin/bash --noediting -i
+user  8033  0.0  0.3   3720  1568 tty1     S    13:17   0:00 -bash
+user  8168  0.0  0.2   3260  1120 tty1     S+   13:18   0:00   /bin/sh /usr/bin/startx
+user  8179  0.0  0.1   2240   636 tty1     S+   13:18   0:00     xinit .xinitrc --
+user  8186  0.0  0.2   3516  1080 tty1     S    13:18   0:00       sh /home/user/.xinitrc
+...</screen>
+		</informalexample>
+		В данном случае выводятся все процессы текущего пользователя.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-pstree">pstree</definition></term>
+	    <listitem>
+	      <para>
+		Для иерархического отображения запущенных процессов больше подходит
+		программа <command>pstree</command>, отображающая дерево запущенных
+		процессов:
+		<informalexample>
+		  <screen>[user@localhost ~]$ pstree
+init-+-acpid
+     |-crond
+     |-dbus-daemon
+     |-events/0
+     |-hald---hald-runner-+-hald-addon-acpi
+     |                    |-hald-addon-keyb
+     |                    `-hald-addon-stor
+     |-khelper
+     |-ksoftirqd/0
+     |-kthread-+-aio/0
+     |         |-cqueue/0
+     |         |-kacpid
+     |         |-kblockd/0
+...</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Видно, что в корне дерева находится 
+                процесс <command dontlog="1">init</command>, который в UNIX является самым первым
+		процессом, запускаемым операционной системой.
+	      </para>
+	      <para>
+		Эта команда также имеет множество ключей, настраивающих формат вывода
+		информации о процессах. 
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-top">top</definition></term>
+	    <listitem>
+	      <para>
+		Для вывода динамически изменяющейся информации о процессах и используемых
+		ресурсах системы используется программа <command>top</command>. После
+		запуска программы пользователь попадает в интерактивный интерфейс:
+		<informalexample>
+		  <screen>Tasks:  86 total,   2 running,  84 sleeping,   0 stopped,   0 zombie
+Cpu(s):  6.2% us,  0.8% sy,  0.0% ni, 92.0% id,  0.6% wa,  0.3% hi,  0.0% si
+Mem:    512480k total,   428352k used,    84128k free,    44848k buffers
+Swap:   529160k total,    12312k used,   516848k free,   210444k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+ 8239 dralex    15   0 26856 8860 6512 S  7.9  1.7   5:39.31 artsd
+    1 root      16   0  1432  480  420 S  0.0  0.1   0:01.22 init
+    2 root      34  19     0    0    0 S  0.0  0.0   0:00.01 ksoftirqd/0
+    3 root      10  -5     0    0    0 S  0.0  0.0   0:00.54 events/0
+    4 root      10  -5     0    0    0 S  0.0  0.0   0:00.00 khelper
+    5 root      10  -5     0    0    0 S  0.0  0.0   0:00.00 kthread
+    8 root      10  -5     0    0    0 S  0.0  0.0   0:00.59 kacpid
+    7 root       7 -10     0    0    0 S  0.0  0.0   0:00.10 vesafb
+...</screen>
+		</informalexample>
+		Для выхода используется клавиша <keycap>q</keycap>. Программа имеет много
+		управляющих клавиш, которые можно узнать, нажав на <keycap>h</keycap>
+		(help).
+	      </para>
+	      <para>
+		Вверху экрана расположена общая информация о системе: число запущенных
+		процессов, уровень использования процессора и памяти. Далее следует
+		обновляемый список процессов в стиле <command>ps</command>,
+		отсортированный по уменьшению процессорной активности.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-free">free</definition></term>
+	    <listitem>
+	      <para>
+		Небольшая команда, предоставляющая информацию об использовании памяти. Она
+		представлена не во всех современных версиях UNIX.
+	      </para>
+	      <para>
+		<informalexample>
+		  <screen>[user@localhost ~]$ free
+             total       used       free     shared    buffers     cached
+Mem:        512480     476256      36224          0      51216     251712
+-/+ buffers/cache:     173328     339152
+Swap:       529160      11500     517660</screen>
+		</informalexample>
+		Команда выводит объём оперативной памяти (в килобайтах) и устройства
+		своппинга: общий, свободный, занятый, используемый для системных нужд.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-df">df</definition></term>
+	    <listitem>
+	      <para>
+		Существует команда и для просмотра заполненности дисков. 
+	      </para>
+	      <para>
+		Команда <command>df</command> выводит сведения обо всех примонтированных
+		файловых системах:
+		<informalexample>
+		  <screen>[user@localhost ~]$ df
+Файловая система     1K-блоков      Исп  Доступно  Исп% смонтирована на
+/dev/hda6             24697672  21164336   3533336  86% /
+udev                    256240       180    256060   1% /dev
+/dev/hda1              9827968   8073084   1754884  83% /mnt/win
+none                    256240         0    256240   0% /dev/shm
+server:/home/shared    8194752   5368992   2416032  69% /mnt/shared</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Для более <quote>человеческого</quote> представления объёма диска
+		используется ключ <parameter class='command'>-h</parameter>:
+		<informalexample>
+		  <screen>[user@localhost ~]$ df -h
+Файловая система      Разм  Исп  Дост  Исп% смонтирована на
+/dev/hda6              24G   21G  3,4G  86% /
+udev                  251M  180K  251M   1% /dev
+/dev/hda1             9,4G  7,7G  1,7G  83% /mnt/win
+none                  251M     0  251M   0% /dev/shm
+server:/home/shared   7,9G  5,2G  2,4G  69% /mnt/shared</screen>
+		</informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-who">who</definition></term>
+	    <listitem>
+	      <para>
+		Команда выводит список пользователей, работающих в настоящий момент в
+		системе. 
+	      </para>
+	      <para>
+		При запуске без параметров для каждого сеанса пользователя выводится
+		терминал и время входа в систему:
+		<informalexample>
+		  <screen>[user@localhost ~]$ who
+user   tty1         2005-10-24 13:17
+user   pts/0        2005-10-24 13:19
+user   pts/2        2005-10-24 23:59</screen>
+		</informalexample>
+	      </para>	
+	      <para>
+		При использовании ключа <parameter class='command'>-u</parameter> выводится
+		время неактивности для каждого терминала и идентификатор соответствующего
+		ему процесса:
+		<informalexample>
+		  <screen>[user@localhost ~]$ who -u
+user   tty1         2005-10-24 13:17 11:41        7992
+user   pts/0        2005-10-24 13:19 11:41        8228
+user   pts/2        2005-10-24 23:59   .          9280</screen>
+		</informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-mount">mount</definition></term>
+	    <listitem>
+	      <para>
+		Эта команда используется для <emphasis>монтирования</emphasis> новых файловых
+		систем (подробнее об этом сказано в разделе
+		<xref linkend="intro-unix-files-processors"/>). В общем случае
+		команда <command>mount</command> имеет следующий формат:
+		<command>mount [-t тип_ФС] имя_устройства точка_монтирования [параметры]</command>
+	      </para>
+	      <para>
+		Рассмотрим пример монтирования гибкого диска:
+		<informalexample>
+		  <screen>[user@localhost ~]$ mount -t vfat /dev/fd0 /mnt/floppy -o rw
+[user@localhost ~]$ ls /mnt/floppy
+document.tex files/</screen>
+		</informalexample>
+		В качестве файловой системы указан FAT, опции содержат флаг разрешения
+		чтения и записи содержимого диска. После монтирования файлы доступны в
+		каталоге <filename>/mnt/floppy</filename>.
+	      </para>
+	      <para>
+		Для размонтирования применяется команда <command>umount</command>.
+	      </para>
+	      <para>
+		При запуске <command>mount</command> без параметров выводится список всех
+		примонтированных локальных и сетевых файловых систем:
+		<informalexample>
+		  <screen>[user@localhost ~]$ mount
+/dev/hda6 on / type reiserfs (rw,noatime)
+proc on /proc type proc (rw)
+sysfs on /sys type sysfs (rw)
+udev on /dev type tmpfs (rw,nosuid)
+devpts on /dev/pts type devpts (rw)
+/dev/hda1 on /mnt/win type ntfs (ro,uid=1000,gid=100,nls=utf8)
+none on /dev/shm type tmpfs (rw)
+usbfs on /proc/bus/usb type usbfs (rw,devmode=0664,devgid=85)
+server:/home/shared on /mnt/shared type nfs (rw,rsize=32768,wsize=32768,intr,...</screen>
+		</informalexample>
+		Можно увидеть ряд служебных файловых систем (proc, udev, sysfs, т.&nbsp;п.).
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-uname">uname</definition></term>
+	    <listitem>
+	      <para>
+		Вывод имени запущенной UNIX-системы.
+		<informalexample>
+		  <screen>[user@localhost ~]$ uname
+Linux</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Для вывода полного имени используется
+		параметр <parameter class='command'>-a</parameter>:
+		<informalexample>
+		  <screen>[user@localhost ~]$ uname -a
+Linux localhost 2.6.18-wks-smp-alt1 #1 SMP Wed Dec 13 01:43:50 MSK 2006 i686 GNU/Linux</screen>
+		</informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>		
+      </para>
+    </sect2>   
+    <sect2 id="shell-syscmd-proc">
+      <title>Команды по работе с процессами</title>
+      <para>
+	<variablelist>
+	  <varlistentry>
+	    <term><definition id="def-cmd-kill">kill</definition></term>
+	    <listitem>
+	      <para>
+		Команда используется для отправки сигнала процессу.
+	      </para>
+	      <para>
+	       Команда <command>kill</command> имеет один из следующих форматов:
+	       <command>kill [-s название_сигнала] идентификатор_процесса</command>
+	       <command>kill -название_сигнала идентификатор_процесса</command>
+	       <command>kill -код_сигнала идентификатор_процесса</command>
+	       </para>
+	       <para>
+		 Для того, чтобы отправить сигнал, необходимо знать идентификатор процесса-получателя. Узнать идентификатор можно с помощью команды <command>ps</command>. Если при вызове команды <command>kill</command> сигнал не указан, то посылается сигнал <emphasis>TERM</emphasis>. Обычный пользователь может посылать сигналы только своим процессам. Посылать сигналы процессам других пользователей может только суперпользователь. Рассмотрим пример уничтожения процесса:
+		<informalexample>
+		 <screen>[user@localhost ~]$ ps
+PID  TT  STAT      TIME COMMAND
+3800  p3  S      0:00,03 su (bash)
+3822  p3  T      0:00,08 mplayer /home/guest/music/U96/Das\ Boot.mp3
+3824  p3  R+     0:00,00 ps
+[user@localhost ~]$ kill 3822</screen>
+		</informalexample>
+		После вызова команды <command>kill 3822</command> процесс <emphasis>mplayer</emphasis> будет уничтожен.
+	       </para>
+	       <para>
+		Для вывода списка всех сигналов используется команда <command>kill -l</command>:
+		<informalexample>
+		  <screen>[user@localhost ~]$ kill -l
+1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL
+5) SIGTRAP      6) SIGABRT      7) SIGEMT       8) SIGFPE
+9) SIGKILL     10) SIGBUS      11) SIGSEGV     12) SIGSYS
+13) SIGPIPE     14) SIGALRM     15) SIGTERM     16) SIGURG
+17) SIGSTOP     18) SIGTSTP     19) SIGCONT     20) SIGCHLD
+21) SIGTTIN     22) SIGTTOU     23) SIGIO       24) SIGXCPU
+25) SIGXFSZ     26) SIGVTALRM   27) SIGPROF     28) SIGWINCH
+29) SIGINFO     30) SIGUSR1     31) SIGUSR2</screen>
+		</informalexample>
+	       </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-exec">exec</definition></term>
+	    <listitem>
+	      <para>
+	       Является встроенной командой оболочки. Используется для замены процесса shell другим процессом.
+	      </para>
+	      <para>
+	       Команда <command>exec</command> имеет следующий синтаксис:
+	       <command>exec -lc -a имя исполняемый файл [перенаправление ...]</command>
+              </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-fork">fork (&amp;)</definition></term>
+	    <listitem>
+	      <para>
+	       Символ <literal>&amp;</literal> используется для запуска программ в фоновом режиме. Пример:
+	       <informalexample>
+		<screen>[user@localhost ~]$ mplayer /home/guest/music/U96/Das\ Boot.mp3&amp;
+[1] 1558</screen>
+	       </informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-jobs">bg, fg и jobs</definition></term>
+	    <listitem>
+	      <para>
+	       Являются встроенными командами оболочки. Команды используются для работы с заданиями &mdash; процессами, запущенными из командного интерпретатора.
+	      </para>
+	      <para>
+	       Команда <command>jobs</command> имеет следующий синтаксис:
+	       <command>jobs [-lnprs] [jobspec ...]</command>
+	       <command>jobs -x команда [параметры]</command>
+	      </para>
+	      <para>
+	       Для вывода всех заданий используется команда <command>jobs</command>:
+	       <informalexample>
+		       <screen>[user@localhost ~]$ jobs
+[1]+  Running                 nice -n 20 tar -cyf test.tar.bz2 /home/guest/data/* &amp;
+[2]+  Stopped                 nice -n 20 tar -cyf test.tar.bz2 /home/guest/texts/*
+[3]-  Exit 127                nice 20 tar -cyf /abcdefg/texts ./test.tar.bz2
+[4]+  Done                    tar -cyf test.tar.bz2 text.txt</screen>
+	       </informalexample>
+	       Напротив идентификатора задания указано состояние процесса.
+	      </para>
+	      <para>
+	       Для вывода, кроме основной информации, идентификаторов запущенных процессов 
+	       используется ключ <parameter class='command'>-l</parameter>.
+	       Для вывода только идентификаторов запущенных процессов используется ключ <parameter class='command'>-p</parameter>.
+	       Для вывода информации о процессах, у которых изменилось состояние с момента последнего вызова
+	       команды <command>jobs</command> используется ключ <parameter class='command'>-n</parameter>.
+	      </para>
+	      <para>
+	       Команда <command>bg</command> используется для перевода задания в фоновый режим.
+	      </para>
+	      <para>
+	       Команда имеет следующий синтаксис:
+	       <command>bg [идентификатор_задания]</command>
+	      </para>
+	      <para>
+	       Запуск команды без параметров приводит к запуску в фоновом режиме текущего задания.
+	       Если указан параметр <parameter class='command'>идентификатор_задания</parameter>, то в фоновом 
+	       режиме будет запущено указанное задание.
+	       Пример:
+	       <informalexample>
+		       <screen>[user@localhost ~]$ bg
+[1]+ nice -n 20 tar -cyf test.tar.bz2 /home/guest/texts/* &amp;</screen>
+	       </informalexample>
+	      </para>
+	      <para>
+	       Команда <command>fg</command> используется для перевода задания на передний план.
+	      </para>
+	      <para>
+	       Команда имеет следующий синтаксис:
+	       <synopsis>fg [идентификатор_задания]</synopsis>
+	      </para>
+	      <para>
+	       Запуск команды без параметров переводит к переводу текущего задания на передний план. Если указан параметр
+	       <parameter class='command'>идентификатор_задания</parameter>, то задание с указанным 
+	       идентификатором станет текущим и будет переведено на передний план.
+	       Пример:
+	       <informalexample>
+	        <screen>[user@localhost ~]$ fg
+nice -n 20 tar -cyf test.tar.bz2 /home/guest/texts/*</screen>
+	        </informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-nohup">nohup</definition></term>
+	    <listitem>
+	      <para>
+	       Команда позволяет запустить процесс, отключив его от управляющего терминала.
+	      </para>
+	      <para>
+	       Команда <command>nohup</command> имеет следующий синтаксис:
+	       <command>nohup [--] запускаемая_программа [аргументы]</command>
+	       <command>nohup</command> запускает указанную программу с игнорированием
+	       сигналов <command>HUP</command> и увеличением приоритета для планировщика
+	       задач на 5. Таким образом, команда может продолжать выполняться в фоновом
+	       режиме и после того, как пользователь выйдет из системы. Если стандартным
+	       выводом <command>stdout</command> команды является терминал, то он и
+	       стандартный поток ошибок <command>stderr</command> перенаправляются в
+	       файл <filename>nohup.out</filename> в текущем каталоге. Если это
+	       невозможно, то перенаправление происходит в
+	       файл <filename>$HOME/nohup.out</filename>. Если и это
+	       оказывается невозможным,
+	       то команда не запускается. Команда <command>nohup</command> не переводит
+	       автоматически запускаемый процесс в фоновый
+	       режим. Чтобы это сделать, необходимо завершить команду символом <literal>&amp;</literal>.
+              </para>
+	      <para>
+	       Пример использования:
+	       <informalexample>
+		 <screen>[user@localhost ~]$ nohup mplayer /home/guest/music/U96/Das\ Boot.mp3
+appending output to /home/guest/nohup.out</screen>
+		</informalexample>
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-nice">nice</definition></term>
+	    <listitem>
+	      <para>
+		Команда используется для запуска процесса с измененным приоритетом для планировщика задач.
+	      </para>
+	      <para>
+	       Команда <command>nice</command> имеет следующий формат:
+       	       <command>nice [-n смещение_приоритета] запускаемая_программа [параметры]</command>
+       	      </para>
+	      <para>
+	       Команда <command>nice</command> позволяет изменять приоритет от -20 (наивысший) до 20 (самый низкий) относительно текущего. По умолчанию, процессы имеют приоритет командного интерпретатора, из которого они запускаются. Повышать приоритет может только суперпользователь (т.&nbsp;е. задавать отрицательное значение параметра <parameter class='command'>-n смещение_приоритета</parameter>).
+	       Пример использования команды:
+	       <informalexample>
+		       <screen>[user@localhost ~]$ nice -n 15 mplayer /home/guest/music/U96/Das\ Boot.mp3 &amp;
+[1] 895
+uest@premudrij-peskar$ ps -l
+UID   PID  PPID CPU PRI NI   VSZ   RSS MWCHAN STAT  TT       TIME COMMAND
+1002   890   889   0   8  0  3112  1660 wait   S     p2    0:00,02 su (bash)
+1002   895   890   0 111 15 23000 13200 -      TN    p2    0:00,08 mplayer /home/guest/music/U96/Das\ Boot.mp3
+1002   896   890   0  96  0  1392   768 -      R+    p2    0:00,00 ps -l</screen>
+		</informalexample>
+		Значение <command>NI</command> процесса <command>mplayer</command> равно 15, для всех остальных процессов равно 0 по умолчанию.
+	      </para>
+	    </listitem>
+	  </varlistentry>
+	  <varlistentry>
+	    <term><definition id="def-cmd-renice">renice</definition></term>
+	    <listitem>
+	      <para>
+	       Команда используется для изменения приоритета запущенных процессов.
+	      </para>
+	      <para>
+	       Команда <command>renice</command> имеет следующий формат:
+	       <command>renice новое_значение_приоритета список_идентификаторов</command>
+	       <command>renice -n смещение_приоритета список_идентификаторов</command>
+	       Для изменения значения приоритета отдельных процессов достаточно перечислить их идентификаторы:
+	       <informalexample>
+		       <screen>[user@localhost ~]$ ps -l
+UID   PID  PPID CPU PRI NI   VSZ   RSS MWCHAN STAT  TT       TIME COMMAND
+1002   890   889   0  96  0  3112  1600 -      R     p2    0:00,06 su (bash)
+1002   895   890   0 111 17 23000 11224 -      TN    p2    0:00,08 mplayer Boot.mp3
+1002   900   890   0 101  5 23000 11224 -      TN    p2    0:00,08 mplayer Boot.mp3
+1002  1084   890   1  96  0  1392   760 -      R+    p2    0:00,00 ps -l
+[user@localhost ~]$ renice +18 895 900
+895: old priority 17, new priority 18
+900: old priority 5, new priority 18
+[user@localhost ~]$ ps -l
+UID   PID  PPID CPU PRI NI   VSZ   RSS MWCHAN STAT  TT       TIME COMMAND
+1002   890   889   0   8  0  3112  1600 wait   S     p2    0:00,06 su (bash)
+1002   895   890   0 111 18 23000 11224 -      TN    p2    0:00,08 mplayer Boot.mp3
+1002   900   890   0 101 18 23000 11224 -      TN    p2    0:00,08 mplayer Boot.mp3
+1002  1086   890   0  96  0  1392   760 -      R+    p2    0:00,00 ps -l</screen>
+		</informalexample>
+	       </para>
+       	       <para>
+		Для изменения приоритета всех процесов какого-либо
+		пользователя необходимо использовать ключ <parameter class='command'>-u</parameter>. В этом случае значения идентификаторов после ключа <parameter class='command'>-u</parameter> будут интерпретироваться как идентификаторы пользователей. Можно задавать как числовые, так и символьные идентификаторы пользователей.
+		<informalexample>
+			<screen>[user@localhost ~]$ renice -n 1 -u guest
+1002: old priority 0, new priority 1
+[user@localhost ~]$ ps -l
+UID   PID  PPID CPU PRI NI   VSZ   RSS MWCHAN STAT  TT       TIME COMMAND
+1002   890   889   0   8  1  3112  1600 wait   SN    p2    0:00,07 su (bash)
+1002   895   890   0 111 18 23000 11224 -      TN    p2    0:00,08 mplayer Boot.mp3
+1002   900   890   0 101 18 23000 11224 -      TN    p2    0:00,08 mplayer Boot.mp3
+1002  1110   890   0  97  1  1392   760 -      RN+   p2    0:00,00 ps -l</screen>
+		</informalexample>
+		Из данного примера видно, что значения <command>NI</command> для
+		процессов <command>mplayer</command> не изменились. Вызов
+		команды <command>renice</command> с
+		ключом <parameter class='command'>-n</parameter> изменяет только
+		минимальные приоритеты (в данном случае, нули).
+	       </para>
+	    </listitem>
+	  </varlistentry>
+	</variablelist>		
+      </para>
+    </sect2>
+    <sect2 id="shell-syscmd-summary">
+      <title>Резюме</title>
+      <para>
+	В данном разделе были рассмотрены команды управления процессами и сбора сведений о
+	системе. 
+      </para>
+      <list-of-definitions/>
+    </sect2>    
+    <sect2 id="shell-syscmd-additional">
+      <title>Дополнительные материалы</title>
+      <para>
+	<orderedlist>
+	  <listitem>
+	    Курячий Г.В., Маслинский К.А. <emphasis>Операционная система
+	    Linux</emphasis>.&nbsp;&mdash; М.: Интуит.Ру, 2005.&nbsp;&mdash; 392 с.: ил.
+	  </listitem>
+	  <listitem>
+	    Курячий Г.В. <emphasis>Операционная система UNIX</emphasis>.&nbsp;&mdash;
+	    М.: Интуит.Ру, 2004.&nbsp;&mdash; 292 с.: ил.
+	  </listitem>
+	  <listitem>
+	    Рейчардс К., Фостер-Джонсон Э. <emphasis>UNIX:
+	    справочник</emphasis>.&nbsp;&mdash; СПб.: Питер Ком, 1999.&nbsp;&mdash; 384 с.:
+	    ил.
+	  </listitem>
+	</orderedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <!-- занятие №5 (практическое занятие) -->
+  <sect1-scenario id="shell-syscmdexamples">
+    <title>Сбор сведений о системе и управление процессами</title>
+    <para>
+      <emphasis>Цель занятия:</emphasis> знакомство с командами по работе с процессами и
+      командами, предоставляющими сведения о системе.
+    </para>
+    <para>
+      <emphasis>Изучаемые команды:</emphasis> 
+      <xref linkend="def-cmd-grep"/>,
+      <xref linkend="def-cmd-jobs"/>,
+      <xref linkend="def-cmd-kill"/>,
+      <xref linkend="def-cmd-mkfifo"/>,
+      <xref linkend="def-cmd-mount"/>,
+      <xref linkend="def-cmd-nice"/>,
+      <xref linkend="def-cmd-nohup"/>,
+      <xref linkend="def-cmd-ps"/>,
+      <xref linkend="def-cmd-pstree"/>,
+      <xref linkend="def-cmd-pstree"/>,
+      <xref linkend="def-cmd-renice"/>,
+      <xref linkend="def-cmd-top"/>,
+      <xref linkend="def-cmd-uname"/>,
+      <xref linkend="def-cmd-who"/>
+    </para>
+    <scenario id="shell-scenario-sysinfo">
+      <title>Сбор сведений о системе</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии изучаются команды, предоставляющие сведения
+	  о системе.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	 Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Определить имя текущей UNIX-системы с помощью команды <command>uname -a</command>
+	    <informalexample> 
+	    <screen>[user@localhost ~]$ uname -a
+Linux localhost 2.6.18-wks-smp-alt1 #1 SMP Wed Dec 13 01:43:50 MSK 2006 i686 GNU/Linux</screen>
+	    </informalexample>
+	    На экран выводится полная версия системы, дата компиляции ядра и тип процессора.
+	  </para>
+	</listitem>	      
+	<listitem>
+	 <para>
+	  Вывести содержимое каталога <filename>proc</filename> с помощью команды <command>ls /proc</command>:
+	  <informalexample>
+	    <screen>[user@localhost ~]$ ls /proc
+1     1511  1730  7          config.gz    ide         mdstat      swaps
+10    1524  2     81         cpuinfo      interrupts  meminfo     sys
+1050  1569  237   811        crypto       iomem       misc        sysrq-trigger
+11    1570  260   82         devices      ioports     modules     sysvipc
+...</screen>
+	  </informalexample>
+	  Признаком операционной системы Linux является наличие
+	  каталога <filename>/proc</filename>, который содержит псевдофайлы,
+	  предоставляющие системную информацию и позволяющие настраивать ядро.
+	 </para>
+        </listitem>
+	<listitem>
+	  <para>
+	   Вывести текущие пользовательские сеансы с помощью команды <command>who</command>:
+	  <informalexample>
+	    <screen>[user@localhost ~]$ who
+user     tty1         Mar 11 20:38 (localhost)</screen>
+	  </informalexample>
+	 </para>
+	</listitem>	 
+	<listitem>
+	 <para>
+	  Вывести список всех примонтированных устройств с помощью команды <command>mount</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ mount
+/dev/root on / type auto (ro)
+proc on /proc type proc (rw,noexec,nosuid,gid=19)
+sysfs on /sys type sysfs (rw)
+devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=620)
+tmpfs on /tmp type tmpfs (rw)
+udev on /dev type tmpfs (rw,mode=755,size=5m)
+shmfs on /dev/shm type tmpfs (rw)</screen>
+	  </informalexample>
+	  Первый столбец&nbsp;&mdash; имя устройства, второй&nbsp;&mdash; точка
+	  монтирования, далее следует тип файловой системы и параметры монтирования.
+	 </para>
+        </listitem>	      
+	<listitem>
+	 <para>
+	  Вывести загруженность примонтированных дисков с помощью команды <command>df -h</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/root              46M   46M     0 100% /
+tmpfs                  62M     0   62M   0% /tmp
+udev                  5.0M   44K  5.0M   1% /dev
+shmfs                  62M     0   62M   0% /dev/shm</screen>
+	  </informalexample>
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Вывести информацию о всех выполняющихся процессах с помощью команды <command>ps aux</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.4   1540   556 ?        Ss   19:46   0:05 init [5]
+root         2  0.0  0.0      0     0 ?        S    19:46   0:00 [migration/0]
+root         3  0.0  0.0      0     0 ?        S    19:46   0:00 [ksoftirqd/0]
+root         4  0.0  0.0      0     0 ?        S    19:46   0:00 [watchdog/0]
+..
+root      1653  0.0  0.8   2372  1020 tty1     S    20:38   0:00 su - user
+user      1655  0.0  1.3   3068  1712 tty1     S    20:38   0:01 -bash
+user      1741  0.0  0.6   2376   788 tty1     R+   23:01   0:00 ps aux
+</screen>
+	  </informalexample>
+	 </para>
+	</listitem>	      
+	<listitem>	      
+	 <para>
+	  Оставить в выводе предыдущей команды только системные процессы с помощью команды 
+	  <command>ps aux | grep -v user</command>:
+	  <informalexample> 
+	    <screen>[user@localhost ~]$ ps aux | grep -v user
+USER     PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root       1  0.0  0.0   1432   480 ?        S    13:16   0:01 init [3]
+root       2  0.0  0.0      0     0 ?        SN   13:16   0:00 [ksoftirqd/0]
+root       3  0.0  0.0      0     0 ?        S&lt;   13:16   0:00 [events/0]
+...
+root      6989  0.0  0.1   1672   704 ?        Ss   Oct25   0:00 /usr/sbin/syslog
+root      7128  0.0  0.1   2020   716 ?        Ss   Oct25   0:00 /usr/sbin/fcron
+	    </screen>
+	  </informalexample>
+	  Некоторые процессы заключены  в квадратные скобки,&nbsp;&mdash; это
+	  потоки ядра, выполняющие специальные функции. Можно выделить
+	  демоны&nbsp;&mdash; в столбце терминала они имеют
+	  символ <literal>?</literal>. Например, системный журнал
+	  (<application>syslog</application>) или планировщик задач
+	  (<application>cron</application>).
+	 </para>
+	</listitem>
+	<listitem>
+	 <para>
+	  Вывести иерархию процессов с помощью команды <command>pstree</command>:
+	  <informalexample>
+	    <screen>[user@localhost ~]$ pstree
+init-+-acpid
+     |-crond
+     |-dbus-daemon
+     |-events/0
+     |-hald---hald-runner-+-hald-addon-acpi
+     |                    |-hald-addon-keyb
+     |                    `-hald-addon-stor
+     |-khelper
+     |-ksoftirqd/0
+     |-kthread-+-aio/0
+...</screen>
+	  </informalexample>
+	  В корне дерева находится процесс <command>init</command>.
+	 </para>
+	</listitem>
+	<listitem>	      
+	 <para>
+	  Рассмотреть поведение процессов интерактивно с помощью
+	  команды <command>top</command>.
+	 </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-4-1">
+	Сравните время создания корневого каталога с текущим временем системы.
+      </practice>
+      <practice id="pract-4-2">
+	Получите список всех типов файловых систем, примонтированных в настоящий
+	момент. Какой тип имеет корневая файловая система?
+      </practice>
+      <practice id="pract-4-3">
+	Найдите три процесса, использующих самый большой объём памяти. Какой процент
+	памяти от общего объёма они потребляют?
+      </practice>
+      <practice id="pract-4-4">
+	Получите иерархию родительских процессов для текущей командной оболочки.
+      </practice>
+      <practice id="pract-4-5">
+	Найдите, в каком файле в каталоге <filename>/proc</filename> хранится информация
+	о системной памяти.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-signals">
+      <title>Управление процессами с помощью сигналов</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии изучаются сигналы, управляющие клавиши для передачи процессам
+	  сигналов, команды управления процессами.
+	</para>
+      </scenario-intro>
+      <scenario-start>
+	  Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Запустите команду <command>yes</command>, производящую бесконечный вывод
+	    символа <literal>y</literal> на экран. Прервите её
+	    нажатием <keycombo><keycap>Ctrl</keycap> <keycap>C</keycap></keycombo>.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ yes
+y
+y
+y
+y
+...
+y
+
+[user@localhost ~]$</screen>
+	    </informalexample>
+	    При этом запущенному процессу был отправлен сигнал <systemitem class="constant">SIGTERM</systemitem>&nbsp;&mdash;
+	    завершения программы.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Запустим сбор информации обо всех файлах системы с помощью
+	    команды <command>find / > files.txt</command>.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ find / > files.txt</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Найдем идентификатор запущенного только что процесса с помощью
+	    команды <command>ps aux | grep find</command>, запущенной в другом терминале.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ps aux | grep find
+user    8178  9.7  0.1   2844  1020 pts/1    R+   23:45   0:00 find /
+user    8230  0.0  0.1   2708   736 pts/2    R+   23:45   0:00 grep find</screen>
+	    </informalexample>
+	    Первая строка содержит необходимый PID.
+	  </para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Отправим сигнал завершения этому процессу с помощью команды <command>kill
+	    8178</command>, указав в качестве параметара идентификатор процесса.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ kill 8178</screen>
+	    </informalexample>
+	    Можно убедиться, что на терминале с запущенной командой появились
+	    строка <command dontlog="1">Terminated</command> и приглашение.
+	  </para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Если попытаться завершить системный процесс, например командой <command>kill
+	    1</command>, появится сообщение об ошибке доступа:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ kill 1
+-bash: kill: (1) - Operation not permitted</screen>
+	    </informalexample>	    
+	    Отправление сигналов системным процессам может производить только
+	    суперпользователь. 
+	  </para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Альтернативным способом отправления сигналов процессам&nbsp;&mdash; по имени
+	    процесса, а не по PID&nbsp;&mdash; является
+	    команда <command dontlog="1">killall</command>. Выполнив команду <command>killall
+	    bash</command>, мы завершим все командные оболочки, а тем самым и сеансы
+	    пользователей.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ killall bash</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    До этого мы отправляли только сигнал завершения процесса. Он может
+	    перехватываться и игнорироваться программами. Неперехватываемым является
+	    сигнал <systemitem class="constant">SIGKILL</systemitem>, который может быть отправлен, например, следующей командой:
+	    <command>killall -SIGKILL find</command>
+	    <informalexample>
+	      <screen>[user@localhost ~]$ killall -SIGKILL find</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>	
+      </orderedlist>
+    </scenario>
+    <scenario id="shell-scenario-fgbg">
+      <title>Выполнение задач в фоновом режиме</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии изучается работа с заданиями командной оболочки, запуск
+	  заданий в фоновом режиме.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	  Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Запустим длительную команду, например <command>find / > files.txt</command> и
+	    приостановим её выполнение с помощью
+	    нажатия <keycombo><keycap>Ctrl</keycap> <keycap>Z</keycap></keycombo>. При
+	    этом процессу посылается сигнал <systemitem class="constant">SIGSTOP</systemitem>.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ find / > files.txt
+
+[1]+  Stopped                 find / > files.txt
+[user@localhost ~]$ </screen>
+	    </informalexample>
+	    Команда приостановлена и запомнена как задание 1 (номер в квадратных скобках).
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Текущий список запущенных заданий командной оболочки можно посмотреть
+	    командой <command>jobs</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ jobs
+[1]+  Stopped                 find / > files.txt
+</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Возобновить исполнение задания можно командой <command>fg 1</command>,
+	    параметром которой является номер задания. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ fg 1
+find / > files.txt
+</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Если еще раз приостановить процесс, можно запустить задание в фоновом
+	    режиме: <command>bg 1</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ bg 1
+[1]+ find / > files.txt &amp;
+[user@localhost ~]$</screen>
+	    </informalexample>	    
+	    Тогда можно будет продолжать работу в командной строке.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Команды можно запускать сразу в фоновом режиме. Для этого
+	    необходимо добавить в конец команды символ <literal>&amp;</literal> (амперсанд): 
+            <command>find / -name "*.xml" > xml-list &amp;</command>.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ find / -name "*.xml" > xml-list &amp;
+[1] 9413
+[user@localhost ~]$</screen>
+	    </informalexample>	    
+	    При этом командная оболочка выводит номер задания и PID созданного процесса.
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-4-6">
+	С помощью сигнала остановки процесса и команды <command dontlog="1">bg</command>
+	запустите три параллелльных процесса архивации
+	каталога <filename>/etc</filename>, <filename>/home</filename>
+	и <filename>/tmp</filename>.
+      </practice>
+    </scenario>
+    <scenario id="shell-scenario-daemons">
+      <title>Запуск демонов</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии рассматриваются демоны как процессы, не связанные ни с одним
+	  терминалом.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	 Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Если запустить команду в фоновом режиме и выйти из командной оболочки,
+	    например: <command>find / -name "*.html" -exec grep -Hn "linux loader" \{}
+	      \; &amp;</command> и <command>exit</command>, то запущенная команда завершится
+	    по сигналу <systemitem class="constant">SIGHUP</systemitem>.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ find / -name "*.html" -exec grep -Hn "linux loader"
+	    \{} \; &amp;
+[1] 9555
+[user@localhost ~]$ exit</screen>
+	    </informalexample>	    	    
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для того, чтобы программы не получали сигнал <systemitem class="constant">SIGHUP</systemitem>, используется
+	    команда <command dontlog="1">nohup</command>:
+	    <command>nohup find / -name "*.txt" -exec grep -Hn "linux loader" \{} \; &amp;</command>
+	    <informalexample>
+	      <screen>[user@localhost ~]$ nohup find / -name "*.html" -exec grep -Hn "linux loader" \{} &gt;&gt; result\; &amp;
+[1] 9783
+[user@localhost ~]$ exit</screen>
+	    </informalexample>
+	    Эта программа завершится корректно после окончания поиска.
+	  </para>
+	</listitem>
+      </orderedlist>
+    </scenario>
+    <scenario id="shell-scenario-renice">
+      <title>Изменение приоритетов выполняющихся программ</title>
+      <scenario-intro>
+	<para>
+	  В данном сценарии изучается механизм приоритетов UNIX и команды для изменения
+	  приоритетов запускаемых процессов.
+  	</para>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Каждый процесс в системе имеет свой уровень приоритета (в UNIX он
+	    называется <literal>nice</literal>), который можно увидеть с помощью
+	    команды <command>ps -l</command>&nbsp;&mdash; в столбце <quote>NI</quote>.
+	    <informalexample>
+	      <screen>[user@localhost ~]$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000 17223 17222  0  75   0 -   994 wait   pts/1    00:00:00 bash
+0 R  1000 17485 17223  0  75   0 -   612 -      pts/1    00:00:00 ps</screen>
+	    </informalexample>	
+	    По умолчанию приоритет процессов простого пользователя равен нулю.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для запуска процесса с заданным приоритетом воспользуемся
+	    командой <command dontlog="1">nice</command>. Например, запустим создание архива с
+	    пониженным приоритетом: <command>nice -n 10 tar -cjf libraries.tar.bz2
+	    /usr/lib/</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ nice -n 10 tar -cjf libraries.tar.bz2 /usr/lib/</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Чтобы изменить приоритет уже запущенной программы используется
+	    команда <command dontlog="1">renice</command>. Например, для понижения приоритета
+	    заранее запущенного процесса архивации <command>tar -cjf libraries.tar.bz2
+	    /usr/lib &amp;</command> воспользуемся командой <command>renice +10 -p
+	    3442</command>:
+	    <informalexample>
+	      <screen>[user@localhost ~]$ tar -cjf libraries.tar.bz2 /usr/lib &amp;
+[1] 3442
+[user@localhost ~]$ renice +10 -p 3442</screen>
+	    </informalexample>	    
+	    Простые пользователи не могут повышать приоритет процессов, только понижать.
+	  </para>
+	</listitem>
+      </orderedlist>
+    </scenario>
+    <list-of-practices/>
+  </sect1-scenario> 
+</chapter>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

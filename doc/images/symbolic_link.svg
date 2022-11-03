@@ -6,13 +6,13 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="744.09448819"
    height="1052.3622047"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.42.2"
+   inkscape:version="0.44"
    sodipodi:docbase="/home/dralex/bmstu/lug/doc-admin/images"
    sodipodi:docname="symbolic_link.svg">
   <defs
@@ -40,11 +40,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4409973"
-     inkscape:cx="303.15336"
+     inkscape:cx="379.68416"
      inkscape:cy="790.87482"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     inkscape:window-width="975"
+     inkscape:window-width="997"
      inkscape:window-height="713"
      inkscape:window-x="41"
      inkscape:window-y="25" />
@@ -64,124 +64,225 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.24673934pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000"
-       d="M 211.96474,277.82635 L 354.69630,277.82635 L 354.69630,174.44944 L 269.62451,174.44944 L 256.74165,160.55423 L 224.25288,160.55423 L 212.80879,173.28534 L 211.96474,277.82635 z "
+       style="fill:white;fill-opacity:1;fill-rule:evenodd;stroke:black;stroke-width:0.24673934pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 268.17581,277.82635 L 410.90737,277.82635 L 410.90737,174.44944 L 325.83558,174.44944 L 312.95272,160.55423 L 280.46395,160.55423 L 269.01986,173.28534 L 268.17581,277.82635 z "
        id="path1306"
        sodipodi:nodetypes="cccccccc" />
     <rect
-       style="fill:#dcdcdc;fill-opacity:1.0000000;fill-rule:nonzero;stroke:none;stroke-width:0.35433072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       style="fill:#dcdcdc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.35433072;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1334"
        width="129.05582"
        height="13.739782"
-       x="219.57651"
+       x="275.78757"
        y="226.26498" />
     <text
        xml:space="preserve"
-       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="224.48358"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="280.69464"
        y="192.89693"
        id="text1308"><tspan
          sodipodi:role="line"
          id="tspan1310"
-         x="224.48358"
+         x="280.69464"
          y="192.89693">10245    .</tspan><tspan
          sodipodi:role="line"
-         x="224.48358"
+         x="280.69464"
          y="207.89693"
          id="tspan1312">12432    ..</tspan><tspan
          sodipodi:role="line"
-         x="224.48358"
+         x="280.69464"
          y="222.89693"
          id="tspan1314">8672      file1.txt</tspan><tspan
          sodipodi:role="line"
-         x="224.48358"
+         x="280.69464"
          y="237.89693"
          id="tspan1316">12567    first-link</tspan><tspan
          sodipodi:role="line"
-         x="224.48358"
+         x="280.69464"
          y="252.89693"
          id="tspan1318">19678    report</tspan><tspan
          sodipodi:role="line"
-         x="224.48358"
+         x="280.69464"
          y="267.89693"
          id="tspan1400">19775    first.txt</tspan></text>
     <rect
-       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.35400000;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       style="opacity:1;fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.91829783;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2000"
+       width="245.74489"
+       height="77.805687"
+       x="117.23905"
+       y="306.31021" />
+    <rect
+       style="fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.354;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2064"
        width="54.959129"
        height="24.535326"
-       x="174.78171"
-       y="297.90814" />
+       x="124.12234"
+       y="314.56326" />
     <text
        xml:space="preserve"
-       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="240.76205"
-       y="313.5303"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="190.10269"
+       y="330.18542"
        id="text3518"><tspan
          sodipodi:role="line"
          id="tspan3520"
-         x="240.76205"
-         y="313.53030">i-node (метаданные файла)</tspan></text>
+         x="190.10269"
+         y="330.18542">i-node (метаданные)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="183.01614"
-       y="314.54398"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="132.35678"
+       y="331.1991"
        id="text3522"><tspan
          sodipodi:role="line"
          id="tspan3524"
-         x="183.01614"
-         y="314.54398">12567</tspan></text>
+         x="132.35678"
+         y="331.1991">12567</tspan></text>
     <rect
-       style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:nonzero;stroke:#000000;stroke-width:0.53896469;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-dashoffset:0.0000000;stroke-opacity:1.0000000"
+       style="fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.53896469;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3526"
        width="127.39547"
        height="24.535326"
-       x="174.99664"
-       y="334.22043" />
+       x="124.33728"
+       y="350.87555" />
     <text
        xml:space="preserve"
-       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="313.31259"
-       y="349.84259"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="262.65323"
+       y="366.49771"
        id="text3528"><tspan
          sodipodi:role="line"
          id="tspan3530"
-         x="313.31259"
-         y="349.84259">Данные файла</tspan></text>
+         x="262.65323"
+         y="366.49771">данные файла</tspan></text>
     <path
        style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0204724;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
-       d="M 218.22346,232.35672 L 201.21711,232.35672 L 201.27984,296.92672"
+       d="M 271.65867,232.35672 L 150.55775,232.35672 L 150.62048,312.88789"
        id="path3550"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.94890165;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"
-       d="M 201.59648,322.24319 L 201.59648,332.44379"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:0.94890165;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 150.93712,338.89832 L 150.93712,349.09892"
        id="path5149" />
     <text
        xml:space="preserve"
-       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="211.8056"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="268.01666"
        y="153.25241"
        id="text5885"><tspan
          sodipodi:role="line"
          id="tspan5887"
-         x="211.80560"
+         x="268.01666"
          y="153.25241">/home/alice</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:12.000000px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1.0000000;stroke:none;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;font-family:Bitstream Vera Sans"
-       x="179.83696"
-       y="350.49005"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="129.1776"
+       y="367.14517"
        id="text1402"><tspan
          sodipodi:role="line"
          id="tspan1404"
-         x="179.83696"
-         y="350.49005">/home/alice/first.txt</tspan></text>
+         x="129.1776"
+         y="367.14517">/home/alice/first.txt</tspan></text>
     <path
-       style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0204724;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;marker-end:url(#Arrow2Mend);stroke-miterlimit:4.0000000;stroke-dasharray:2.0409449,2.0409449;stroke-dashoffset:0.0000000"
-       d="M 174.87888,346.60097 L 159.61168,346.60097 L 159.61168,263.32531 L 218.59861,263.32531"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.02047241;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:2.0409449, 2.0409449;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 123.52556,361.86817 L 108.25836,361.86817 L 108.25836,263.32531 L 273.42176,263.32531"
        id="path1410"
        sodipodi:nodetypes="cccc" />
+    <rect
+       y="289.70337"
+       x="376.13583"
+       height="95.058266"
+       width="245.64838"
+       id="rect2891"
+       style="opacity:1;fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:1.01481652;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text2893"
+       y="285.53214"
+       x="531.57623"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="285.53214"
+         x="531.57623"
+         id="tspan2895"
+         sodipodi:role="line">целевой файл</tspan></text>
+    <rect
+       y="297.90814"
+       x="396.85013"
+       height="24.535326"
+       width="54.959129"
+       id="rect1970"
+       style="fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.354;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1972"
+       y="313.5303"
+       x="462.83047"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="313.5303"
+         x="462.83047"
+         id="tspan1974"
+         sodipodi:role="line">i-node (метаданные)</tspan></text>
+    <text
+       id="text1976"
+       y="314.54398"
+       x="405.08456"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="314.54398"
+         x="405.08456"
+         id="tspan1978"
+         sodipodi:role="line">19775</tspan></text>
+    <rect
+       y="334.25812"
+       x="397.10275"
+       height="43.196983"
+       width="94.009842"
+       id="rect1980"
+       style="fill:white;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.61432862;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1982"
+       y="359.16714"
+       x="499.29492"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="359.16714"
+         x="499.29492"
+         id="tspan1984"
+         sodipodi:role="line">данные файла</tspan></text>
+    <path
+       id="path1986"
+       d="M 423.6649,322.24319 L 423.6649,332.44379"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:0.94890165;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccc"
+       id="path1992"
+       d="M 384.62603,264.97302 L 423.83921,264.97302 L 423.77648,295.53879"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:1.02047241;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow2Mend);stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="403.19299"
+       y="352.84665"
+       id="text1994"><tspan
+         sodipodi:role="line"
+         id="tspan1996"
+         x="403.19299"
+         y="352.84665">Мама мыла\n</tspan><tspan
+         sodipodi:role="line"
+         x="403.19299"
+         y="367.84665"
+         id="tspan1998">раму!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:black;fill-opacity:1;stroke:none;stroke-width:1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="237.33563"
+       y="300.79935"
+       id="text2887"><tspan
+         sodipodi:role="line"
+         id="tspan2889"
+         x="237.33563"
+         y="300.79935">символьная ссылка</tspan></text>
   </g>
 </svg>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg1719"
+   sodipodi:version="0.32"
+   inkscape:version="0.43"
+   sodipodi:docbase="/home/dralex/Droggie/doc-admin/images"
+   sodipodi:docname="sockets.svg">
+  <defs
+     id="defs1721">
+    <marker
+       inkscape:stockid="Dot_l"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Dot_l"
+       style="overflow:visible">
+      <path
+         id="path2891"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;marker-end:none"
+         transform="scale(0.8) translate(7.125493, 1)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="306.12245"
+     inkscape:cy="773.85225"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1363"
+     inkscape:window-height="1028"
+     inkscape:window-x="37"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata1724">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.71941602;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 198.33439,211.06981 L 315.31889,231.23449 L 326.99429,243.78163 L 311.88708,251.14394 L 194.90259,230.97925 L 198.33439,211.06981 z "
+       id="rect1619"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.99999928;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1621"
+       width="12.142854"
+       height="12.142854"
+       x="235.0753"
+       y="178.34222"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100"
+       transform="matrix(0.985467,0.169866,-0.169866,0.985467,0,0)" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 213.07509,217.7002 L 237.98262,221.99352 L 235.91997,233.9599 L 211.01244,229.66658 L 213.07509,217.7002 z "
+       id="rect1623"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       id="path1642"
+       d="M 237.9619,221.98995 L 254.90565,224.91055 L 252.843,236.87693 L 235.89925,233.95633 L 237.9619,221.98995 z "
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <path
+       sodipodi:nodetypes="cccccc"
+       id="path1657"
+       d="M 325.32596,253.46041 L 208.34147,233.29572 L 193.13913,241.20992 L 204.90966,253.20517 L 321.89416,273.36985 L 325.32596,253.46041 z "
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.71941602;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <rect
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       y="198.54523"
+       x="-359.88223"
+       height="12.142854"
+       width="12.142854"
+       id="rect1659"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.99999928;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       transform="matrix(-0.985467,-0.169866,-0.169866,0.985467,0,0)" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       id="path1661"
+       d="M 309.21611,254.77306 L 284.30859,250.47974 L 282.24593,262.44612 L 307.15346,266.73945 L 309.21611,254.77306 z "
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 284.3293,250.48331 L 267.38555,247.56271 L 265.3229,259.52909 L 282.26665,262.44969 L 284.3293,250.48331 z "
+       id="path1663"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.27584004;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1307"
+       width="111.91978"
+       height="52.684681"
+       x="74.349785"
+       y="84.865845" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="100.41512"
+       y="114.3869"
+       id="text1309"><tspan
+         sodipodi:role="line"
+         id="tspan1311"
+         x="100.41512"
+         y="114.3869">Процесс A</tspan></text>
+    <rect
+       y="84.865845"
+       x="358.2027"
+       height="52.684681"
+       width="111.91978"
+       id="rect1313"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.27584004;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1315"
+       y="114.3869"
+       x="384.26804"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="114.3869"
+         x="384.26804"
+         id="tspan1317"
+         sodipodi:role="line">Процесс B</tspan></text>
+    <g
+       id="g1889"
+       transform="translate(0,0.192843)">
+      <path
+         inkscape:export-ydpi="100"
+         inkscape:export-xdpi="100"
+         inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+         sodipodi:nodetypes="cccccc"
+         id="path1875"
+         d="M 207.599,90.812294 L 326.30867,90.812294 L 339.94573,101.19383 L 326.30867,111.01534 L 207.599,111.01534 L 207.599,90.812294 z "
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.71941602;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="100"
+         inkscape:export-xdpi="100"
+         inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+         y="94.842384"
+         x="211.36884"
+         height="12.142858"
+         width="12.142858"
+         id="rect1877"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="100"
+         inkscape:export-xdpi="100"
+         inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.71941602;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 339.94573,111.01534 L 221.23606,111.01534 L 207.599,121.39688 L 221.23606,131.21839 L 339.94573,131.21839 L 339.94573,111.01534 z "
+         id="path1879"
+         sodipodi:nodetypes="cccccc" />
+      <rect
+         transform="scale(-1,1)"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1881"
+         width="12.142858"
+         height="12.142858"
+         x="-336.17581"
+         y="115.04537"
+         inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+         inkscape:export-xdpi="100"
+         inkscape:export-ydpi="100" />
+      <rect
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1883"
+         width="12.142858"
+         height="12.142858"
+         x="227.36884"
+         y="94.842384"
+         inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+         inkscape:export-xdpi="100"
+         inkscape:export-ydpi="100" />
+      <rect
+         inkscape:export-ydpi="100"
+         inkscape:export-xdpi="100"
+         inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+         y="94.842384"
+         x="243.36884"
+         height="12.142858"
+         width="12.142858"
+         id="rect1885"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="100"
+         inkscape:export-xdpi="100"
+         inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+         y="115.04537"
+         x="-320.17581"
+         height="12.142858"
+         width="12.142858"
+         id="rect1887"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         transform="scale(-1,1)" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="213.94229"
+       y="73.524368"
+       id="text1898"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan1900"
+         x="213.94229"
+         y="73.524368">Датаграммный сокет:</tspan></text>
+    <rect
+       y="185.46559"
+       x="74.349785"
+       height="60.081696"
+       width="111.91978"
+       id="rect1902"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.36246431;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1904"
+       y="218.76425"
+       x="100.99522"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="218.76425"
+         x="100.99522"
+         id="tspan1906"
+         sodipodi:role="line">Процесс S</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Dot_l);stroke-opacity:1"
+       d="M 185.86807,190.64047 L 250.01276,190.64047"
+       id="path1908"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="266.73465"
+       y="193.98325"
+       id="text2963"><tspan
+         sodipodi:role="line"
+         id="tspan2965"
+         x="266.73465"
+         y="193.98325">ждёт соединения</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text2967"
+       y="173.0244"
+       x="220.39639"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="173.0244"
+         x="220.39639"
+         id="tspan2969"
+         sodipodi:role="line">Потоковый сокет:</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.27584004;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2971"
+       width="111.91978"
+       height="52.684681"
+       x="333.95905"
+       y="226.2872" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="356.62012"
+       y="255.80827"
+       id="text2973"><tspan
+         sodipodi:role="line"
+         id="tspan2975"
+         x="356.62012"
+         y="255.80827">Процесс C1</tspan></text>
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       sodipodi:nodetypes="cccccc"
+       id="path2993"
+       d="M 188.85958,248.77217 L 289.00367,312.51498 L 294.93344,328.59552 L 278.15534,329.55839 L 178.01127,265.81555 L 188.85958,248.77217 z "
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.71941602;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       transform="matrix(0.843605,0.536965,-0.536965,0.843605,0,0)"
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       y="112.48459"
+       x="296.67374"
+       height="12.142831"
+       width="12.142831"
+       id="rect2995"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.99999547;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       sodipodi:nodetypes="ccccc"
+       id="path2997"
+       d="M 199.9003,260.57693 L 221.2223,274.14861 L 214.70202,284.39238 L 193.38004,270.8207 L 199.9003,260.57693 z "
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 221.20456,274.13732 L 235.70918,283.36968 L 229.18892,293.61345 L 214.68428,284.38108 L 221.20456,274.13732 z "
+       id="path2999"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.71941602;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 289.65965,336.88101 L 189.51557,273.13817 L 172.43675,274.57347 L 178.66725,290.18156 L 278.81133,353.9244 L 289.65965,336.88101 z "
+       id="path3001"
+       sodipodi:nodetypes="cccccc" />
+    <rect
+       transform="matrix(-0.843605,-0.536965,-0.536965,0.843605,0,0)"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.99999547;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3003"
+       width="12.142831"
+       height="12.142831"
+       x="-421.48044"
+       y="132.68756"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       inkscape:export-xdpi="100"
+       inkscape:export-ydpi="100" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 274.29089,331.87583 L 252.96891,318.30416 L 246.44863,328.54793 L 267.77062,342.11961 L 274.29089,331.87583 z "
+       id="path3005"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:export-ydpi="100"
+       inkscape:export-xdpi="100"
+       inkscape:export-filename="/home/dralex/Work/Samba/messaging-stream-socket.png"
+       sodipodi:nodetypes="ccccc"
+       id="path3007"
+       d="M 252.98664,318.31544 L 238.48201,309.08309 L 231.96174,319.32686 L 246.46636,328.55921 L 252.98664,318.31544 z "
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       y="313.66541"
+       x="299.1088"
+       height="52.684681"
+       width="111.91978"
+       id="rect3009"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.27584004;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text3011"
+       y="343.18646"
+       x="321.76987"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="343.18646"
+         x="321.76987"
+         id="tspan3013"
+         sodipodi:role="line">Процесс C2</tspan></text>
+  </g>
+</svg>

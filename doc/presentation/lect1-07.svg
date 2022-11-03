@@ -119,7 +119,7 @@
          sodipodi:role="line"
          x="69.612732"
          y="494.12954"
-         id="tspan1429">Применяемые алгоритмы засисят от <tspan
+         id="tspan1429">Применяемые алгоритмы зависят от <tspan
    style="font-size:24.000000px;font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125.00000%;writing-mode:lr-tb;text-anchor:start;font-family:Bitstream Vera Sans"
    id="tspan1431">назначения</tspan> операционной системы.</tspan><tspan
          sodipodi:role="line"
@@ -227,6 +227,6 @@
          sodipodi:role="line"
          id="tspan10269"
          x="525.52191"
-         y="50.379196">Введение в администрирование UNIX</tspan></text>
+         y="50.379196">UNIX: учебный курс</tspan></text>
   </g>
 </svg>

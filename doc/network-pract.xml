@@ -1,0 +1,1922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+	  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+	  <!ENTITY % CommonEntities PUBLIC
+		   "-//IU7 LUG//ENTITIES Common Documentation//RU"
+		   "common.ent">
+	  %CommonEntities;
+	  
+	  <!ENTITY BASEIMAGES "images/">
+
+]>
+
+<chapter id="chapter-network-pract">
+  <title>Практические занятия по сетям в UNIX</title>
+  <sect1 id="network-cmd">
+    <title>Методические указания по командам управления сетью в UNIX</title>
+    <sect2 id="network-cmd-config">
+      <title>Команды по конфигурированию сети</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-ifconfig">ifconfig</definition></term>
+	  <listitem>
+	   <para>
+	     Команда используется для настройки сетевых интерфейсов.
+     	   </para>
+	   <para>
+	     Команда <command>ifconfig</command> имеет следующий синтаксис:
+	     <synopsis>ifconfig [-L] [-m] interface [create] [address_family] [address [dest_address]] [parameters]
+ifconfig interface destroy
+ifconfig -a [-L] [-d] [-m] [-u] [address_family]
+ifconfig -l [-d] [-u] [address_family]
+ifconfig [-L] [-d] [-m] [-u] [-C]</synopsis>
+	   </para>
+	   <para>
+             Команда <command>ifconfig</command> используется для настройки сетевых
+	     интерфейсов. Команда должна использоваться при загрузке системы для настройки
+	     адресов каждого сетевого интерфейса, а также может использоваться после
+	     загрузки для изменения параметров сетевых интерфейсов. Если команда введена
+	     без параметров, <command>ifconfig</command> выдает информацию о состоянии
+	     активных интерфейсов. Если в качестве параметра указан какой-либо интерфейс,
+	     то выдается информация только о состоянии этого интерфейса; если используется ключ
+	     <command>-a</command>, выдается информация о состоянии всех интерфесов, даже
+	     отключенных. Пример:
+	     <informalexample>
+	       <screen>[user@localhost ~]$ /sbin/ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 00:11:22:33:44:55
+          inet addr:192.168.0.22  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8832853 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6012769 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:3171759614 (2.9 GiB)  TX bytes:3759607308 (3.5 GiB)
+          Interrupt:16 Base address:0x8f00</screen>
+	    </informalexample>
+	     При указании иных параметров команда конфигурирует указанный интерфейс. Изменить настройки какого-либо интерфейса может только суперпользователь.
+	   </para>
+	   <para>
+	    Параметры:
+	    <simplelist type='horiz' columns='2'>
+		    <member><command>интерфейс</command></member>
+		<member>&nbsp;&mdash;&nbsp;имя интерфейса (например, <command>rl0</command> в BSD или <command>eth0</command> в Linux).</member>
+		    <member><command>up</command></member>
+		    <member>&nbsp;&mdash;&nbsp;вызывает активизацию интерфейса. Задается неявно при присвоении адреса интерфейсу.</member>
+		    <member><command>down</command></member>
+		    <member>&nbsp;&mdash;&nbsp;вызывает остановку работы драйвера для интерфейса. </member>
+		    <member><command>[-]arp</command></member>
+		    <member>&nbsp;&mdash;&nbsp;включает или отключает
+		использование протокола ARP для интерфейса.</member>
+		    <member><command>[-]promisc</command></member>
+		    <member>&nbsp;&mdash;&nbsp;включает или отключает неразборчивый режим (promiscuous mode) работы интерфейса. 
+			    В этом режиме интерфейсом будут приниматься все проходящие по сети пакеты. </member>
+		    <member><command>[-]allmulti</command></member>
+		    <member>&nbsp;&mdash;&nbsp;включает или отключает
+		режим <emphasis>all-multicast</emphasis>. В этом
+		режиме интерфейсом будут приниматься все многоадресные 
+			    (multicast) пакеты в сети. </member>
+		    <member><command>metric N</command></member>
+		    <member>&nbsp;&mdash;&nbsp;устанавливает метрику интерфейса. </member>
+		    <member><command>mtu N</command></member>
+		    <member>&nbsp;&mdash;&nbsp;устанавливает максимальный размер пакета (Maximum Transfer Unit - MTU) для интерфейса. </member>
+		    <member><command>адрес</command></member>
+		    <member>&nbsp;&mdash;&nbsp;IP-адрес, присваиваемый интерфейсу. </member>
+		    <member><command>netmask адрес</command></member>
+		    <member>&nbsp;&mdash;&nbsp;устанавливает маску сети IP для этого интерфейса. По умолчанию используется обычная маска сети класса 
+			    A, B или C (что определяется по IP-адресу интерфейса), но можно усановить любое значение.</member>
+		    <member><command>add адрес/длина_префикса</command></member>
+		    <member>&nbsp;&mdash;&nbsp;добавляет адрес IPv6 для интерфейса.</member>
+		    <member><command>del адрес/длина_префикса</command></member>
+		    <member>&nbsp;&mdash;&nbsp;удаляет адрес IPv6 для интерфейса. </member>
+		    <member><command>irq адрес</command></member>
+		    <member>&nbsp;&mdash;&nbsp;устанавливает аппаратное прерывание, используемое устройством. Не для всех устройств можно динамически менять значение IRQ. </member>
+		    <member><command>media тип</command></member>
+		    <member>&nbsp;&mdash;&nbsp;устанавливает физический порт или тип носителя, используемый устройством. Не для всех устройств можно менять этот параметр, и 
+			    для разных устройств могут поддерживаться различные значения. Типичные значения типа - 10base2 (коаксиальный кабель Ethernet), 
+			    10baseT (витая пара Ethernet 10 Мбит/сек), AUI (внешний передатчик) и т.&nbsp;д. Специальный тип носителя auto можно использовать, 
+			    чтобы потребовать от драйвера автоматически обпределять тип носителя. Не все драйверы могут это делать. </member>
+		    <member><command>[-]broadcast [адрес]</command></member>
+		<member>&nbsp;&mdash;&nbsp;если указан параметр <command>адрес</command>, задает соответствующий протоколу широковещательный адрес для интерфейса. В противном случае устанавливает
+			    (или сбрасывает) для интерфейса флаг IFF_BROADCAST. </member>
+	    </simplelist>
+	    Пример. Изменение IP-адреса интерфейса eth0:
+	    <informalexample>
+		    <screen>[root@localhost ~]# /sbin/ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 00:11:22:33:44:55
+          inet addr:192.168.0.22  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8832853 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6012769 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:3171759614 (2.9 GiB)  TX bytes:3759607308 (3.5 GiB)
+          Interrupt:16 Base address:0x8f00
+[root@localhost ~]# /sbin/ifconfig eth0 192.168.0.1
+[root@localhost ~]# /sbin/ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 00:11:22:33:44:55
+          inet addr:192.168.0.1  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8832853 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:6012769 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:3171759614 (2.9 GiB)  TX bytes:3759607308 (3.5 GiB)
+          Interrupt:16 Base address:0x8f00</screen>
+	    </informalexample>
+	   </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-arp">arp</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>arp</command> отображает ARP-таблицу
+	      данного хоста. С помощью ключа <parameter class='command'>-i</parameter>
+	      можно получить информацию об интересующем сетевом интерфейсе.
+	    </para>
+	    <para>
+	      <informalexample>
+		<screen>[root@localhost ~]# arp -i eth0
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.0.2              ether   00:50:BF:12:8A:9E   C                     eth0</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Таблица с информацией о канальном уровне содержит связь IP- и MAC-адресов.
+	      При использовании ключа <parameter class='command'>-n</parameter>
+	      IP-адреса не будут заменяться символьными именами хостов.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-route">route</definition></term>
+	  <listitem>
+	    <para>
+	      Эта команда используется для просмотра и изменения таблицы маршрутизации
+	      хоста. Она также принимает
+	      ключ <parameter class='command'>-n</parameter>, при использовании которого
+	      IP-адреса не будут заменяться символьными именами хостов.
+	    </para>
+	    <para>
+	      Пример обычной таблицы маршрутизации для отдельного компьютера в сети:
+	      <informalexample>
+		<screen>[root@localhost ~]# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.5.0     0.0.0.0         255.255.255.0   U     0      0        0 eth1
+127.0.0.0       0.0.0.0         255.0.0.0       U     0      0        0 lo
+0.0.0.0         192.168.5.254   0.0.0.0         UG    0      0        0 eth1</screen>
+	      </informalexample>
+	      Особый интерес представляет адрес <systemitem class="ipaddress">0.0.0.0</systemitem>, который
+	      соответствует хосту назначения по умолчанию.
+	    </para>
+	    <para>
+	      Для добавление нового маршрута к определённому хосту используется параметр
+	      <parameter class='command'>add</parameter> с ключом
+	      <parameter class='command'>-host</parameter>:
+	      <informalexample>
+		<screen>[root@localhost ~]# route add -host 192.168.0.1 eth0</screen>
+	      </informalexample>
+	      Эта команда создаёт новую строку в таблице маршрутизации, согласно которой
+	      все пакеты к узлу <systemitem class="ipaddress">192.168.0.1</systemitem> должны отправляться в
+	      сетевой интерфейс <systemitem class="resource">eth0</systemitem>.
+	    </para>
+	    <para>
+	      Также можно добавлять шлюз для отправки пакетов в определённую сеть или к
+	      хосту: 
+	      <informalexample>
+		<screen>[root@localhost ~]# route add -net 192.168.1.0 gw 192.168.0.5</screen>
+	      </informalexample>
+	      Таким образом, все пакеты для сети <systemitem class="ipaddress">192.168.1.0</systemitem> будут
+	      направляться на узел
+	      <systemitem class="ipaddress">192.168.0.5</systemitem>. 
+	    </para>
+	    <para>
+	      Аналогично, маршруты удаляются
+	      параметром <parameter class='command'>del</parameter> с указанием всей
+	      информации о маршруте:
+	      <informalexample>
+		<screen>[root@localhost ~]# route del default gw 192.168.0.1</screen>
+	      </informalexample>
+	      Эта команда удаляет маршрут по умолчанию через
+	      хост <systemitem class="ipaddress">192.168.0.1</systemitem>.
+	    </para>	    
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="network-cmd-diagn">
+      <title>Команды по диагностике сети</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-ping">ping</definition></term>
+	  <listitem>
+	    <para>
+	      Команда используется для посылки пакетов ICMP ECHO_REQUEST
+	      сетевым хостам.
+	    </para>
+	    <para>
+	      Команда <command>ping</command> имеет следующий синтаксис:
+	      <synopsis>ping [-AaDdfnoQqRrv] [-c число_пакетов] [-i секунд] [-l preload] [-M mask | time]
+		[-m ttl] [-P policy] [-p pattern] [-S src_addr] [-s packetsize]
+		[-t timeout] [-z tos] host
+ping [-AaDdfLnoQqRrv] [-c число_пакетов] [-I iface] [-i секунд] [-l preload]
+		[-M mask | time] [-m ttl] [-P policy] [-p pattern] [-S src_addr]
+		[-s packetsize] [-T ttl] [-t timeout] [-z tos] mcast-group</synopsis>
+	    </para>
+	    <para>
+	      Команда <command>ping</command> использует датаграмму ECHO_REQUEST протокола
+	      ICMP, чтобы вызвать ответ ICMP ECHO_RESPONSE указанного хоста или сетевого
+	      шлюза. Если хост отвечает, <command>ping</command> выдает сообщение, что
+	      хост включен (is alive), в стандартный выходной поток.
+	    </para>
+	    <para>
+	      Для проверки наличия хоста в сети достаточно ввести
+	      команду <command>ping</command> с именем или адресом
+	      хоста в качестве параметра:
+	      <informalexample>
+		<screen>[user@localhost ~]$ ping yandex.ru
+64 bytes from 213.180.204.11: icmp_seq=0 ttl=48 time=5.659 ms
+64 bytes from 213.180.204.11: icmp_seq=1 ttl=48 time=5.404 ms
+64 bytes from 213.180.204.11: icmp_seq=2 ttl=48 time=4.889 ms
+^C
+--- yandex.ru ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 4.889/5.317/5.659/0.320 ms</screen>
+	      </informalexample>
+	      Для отправки определенного числа пакетов необходимо использовать
+	      параметр <parameter class='command'>-c число_пакетов</parameter>. Для установки
+	      интервала между отправкой пакетов используется
+	      параметр<parameter class='command'>-i секунд</parameter>.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-traceroute">traceroute</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>traceroute</command> служит для отладки сетевых соединений
+	      посредством построения маршрута следования пакетов к хосту назначения. 
+	      Эта команда также принимает
+	      ключ <parameter class='command'>-n</parameter>, при использовании которого
+	      IP-адреса не будут заменяться символьными именами хостов.
+	    </para>
+	    <para>
+	      Пример следования пакетов до хоста <command>ya.ru</command>:
+	      <informalexample>
+		<screen>[root@localhost ~]# traceroute ya.ru
+traceroute to ya.ru (213.180.204.8), 64 hops max, 40 byte packets
+ 1  195.91.230.65 (195.91.230.65)  0.890 ms  1.907 ms  0.809 ms
+ 2  cs7206.rinet.ru (195.54.192.28)  0.895 ms  0.769 ms  0.605 ms
+ 3  ix2-m9.yandex.net (193.232.244.93)  1.855 ms  1.519 ms  2.95 ms
+ 4  c3-vlan4.yandex.net (213.180.210.146)  3.412 ms  2.698 ms  2.654 ms
+ 5  ya.ru (213.180.204.8)  2.336 ms  2.612 ms  3.482 ms</screen>
+	      </informalexample>
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-netstat">netstat</definition></term>
+	  <listitem>
+	    <para>
+	      Команда используется для показа состояния сети.
+	    </para>
+	    <para>
+	      Команда <command>netstat</command> имеет следующий синтаксис:
+	      <synopsis>netstat [-AaLnSW] [-f protocol_family | -p protocol] [-M core] [-N system]</synopsis>
+	    </para>
+	    <para>
+	      Команда <command>netstat</command> показывает содержимое различных структур
+	      данных, связанных с сетью, в различных форматах в зависимости от указанных
+	      параметров. <emphasis>Первая форма</emphasis> команды показывает список активных
+	      сокетов (sockets) для каждого протокола. <emphasis>Вторая форма</emphasis>
+	      выбирает одну из нескольких других сетевых структур данных. <emphasis>Третья
+	      форма</emphasis> показывает динамическую статистику пересылки пакетов по
+	      сконфигурированным сетевым интерфейсам; параметр <command>интервал</command> задает, сколько
+	      секунд собирается информация между последовательными показами.
+	    </para>
+	    <para>
+	      Команда <command>netstat</command> принимает следующие ключи:
+	      <simplelist type='horiz' columns='2'>
+		<member><parameter class='command'>-a</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;показывать состояние всех сокетов; обычно сокеты, используемые серверными процессами, не показываются.</member>
+		<member><parameter class='command'>-A</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;показывать адреса любых управляющих блоков протокола, связанных с сокетами; используется для отладки.</member>
+		<member><parameter class='command'>-i</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;показывать состояние автоматически сконфигурированных (auto-configured) интерфейсов. Интерфейсы, 
+		  статически сконфигурированные в системе, но не найденные во время загрузки, не показываются.</member>
+		<member><parameter class='command'>-n</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;показывать сетевые адреса как числа. <command>netstat</command> обычно показывает адреса как символы. 
+		  Этот ключ можно использовать с любым форматом показа.</member>
+		<member><parameter class='command'>-r</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;показать таблицы маршрутизации. При использовании с ключом <parameter class='command'>-s</parameter>, 
+		  показывает статистику маршрутизации.</member>
+		<member><parameter class='command'>-s</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;показать статистическую информацию по протоколам. При использовании с ключом <parameter class='command'>-r</parameter>,
+		  показывает статистику маршрутизации.</member>
+		<member><parameter class='command'>-f семейство_адресов</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;ограничить показ статистики или адресов управляющих блоков только указанным <command>семейством_адресов</command>, в качестве которого можно указывать: 
+		  <simplelist type='horiz' columns='2'>
+		    <member><command>inet</command></member>
+		    <member>Для семейства адресов AF_INET</member>
+		    <member><command>unix</command></member>
+		    <member>Для семейства адресов AF_UNIX</member>
+		</simplelist></member>
+		<member><parameter class='command'>-I интерфейс</parameter></member>
+		<member>&nbsp;&mdash;&nbsp;выделить информацию об указанном интерфейсе в
+		  отдельный столбец; по умолчанию (для третьей формы команды) используется
+		  интерфейс с наибольшим объемом переданной информации с момента последней
+		  перезагрузки системы. В качестве интерфейса можно указать любой из
+		  интерфейсов, перечисленных в файле конфигурации системы, например, emd1
+		  или lo0.</member>
+		<member><parameter class='command'>-p имя_протокола</parameter></member>
+	      <member>&nbsp;&mdash;&nbsp;ограничить показ статистики или адресов управляющих блоков только протоколом с указанным <command>именем_протокола</command>, например, <command>tcp</command>.</member>
+	      </simplelist>
+	      Пример показа таблицы маршрутизации:
+	      <informalexample>
+		<screen>[root@localhost ~]# netstat -r
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+192.168.1.0     *               255.255.255.0   U         0 0          0 eth0
+default         192.168.1.1     0.0.0.0         UG        0 0          0 eth0</screen>
+			  </informalexample>
+		  </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-host">host</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>host</command> служит для получения доменной информации о
+	      хосте: IP-адрес, MX-записи и другой информации, связанной с данным
+	      символьным именем. Имя хоста указывается в качестве параметра команды.
+	    </para>
+	    <para>
+	      Пример работы команды:
+	      <informalexample>
+		<screen>[user@localhost ~]$ host yandex.ru
+yandex.ru has address 213.180.204.11
+yandex.ru mail is handled by 10 mx2.yandex.ru.
+yandex.ru mail is handled by 0 mx1.yandex.ru.</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Вторым параметром можно указать DNS-сервер, который будет использоваться при
+	      получении этой информации:
+	      <informalexample>
+		<screen>[user@localhost ~]$ host yandex.ru ns1.aiya.ru
+Using domain server:
+Name: ns1.aiya.ru
+Address: 85.142.20.152#53
+Aliases:
+
+yandex.ru has address 213.180.204.11
+Using domain server:
+Name: ns1.aiya.ru
+Address: 85.142.20.152#53
+Aliases:
+
+Using domain server:
+Name: ns1.aiya.ru
+Address: 85.142.20.152#53
+Aliases:
+
+yandex.ru mail is handled by 0 mx1.yandex.ru.
+yandex.ru mail is handled by 10 mx2.yandex.ru.</screen>
+	      </informalexample>
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-tcpdump">tcpdump</definition></term>
+	  <listitem>
+	    <para>
+	      Команда <command>tcpdump</command> используется для мониторинга сети на
+	      канальном и более высоких уровнях. Программа <quote>слушает</quote> на одним
+	      или нескольких сетевых интерфейсах и выводит дамп пакетов, проходящих через
+	      этот интерфейс.
+	    </para>
+	    <para>
+	      Ключ <parameter class='command'>-i</parameter> задаёт имя сетевого
+	      интерфейса, на котором запускается прослушивание. При просмотре
+	      захватываемых данных удобно использовать
+	      ключ <parameter class='command'>-l</parameter>, который буферизует вывод
+	      построчно. Эта команда также работает с ключом <parameter class='command'>-n</parameter>, при использовании
+	      которого IP-адреса не заменяются символьными именами хостов. Пример
+	      работы команды:
+	      <informalexample>
+		<screen>[root@localhost ~]# tcpdump -i eth0 -l -n
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 96 bytes
+12:51:07.486755 arp who-has 0.0.0.0 (00:30:48:2b:6d:6a) tell 0.0.0.0
+12:51:12.486606 arp who-has 0.0.0.0 (00:30:48:2b:6d:6a) tell 0.0.0.0
+12:51:14.457608 IP 192.168.5.23.56385 &gt; 194.91.250.11.443: P 3645922938:3645923156(218) ack 2092518729 win 10086
+12:51:14.491343 IP 194.91.250.11.443 &gt; 192.168.5.23.56385: . ack 218 win 10720</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Для вывода расширенной информации о пакетах исплюзуются
+	      ключи <parameter class='command'>-v</parameter>
+	      или <parameter class='command'>-vv</parameter>.
+	      <informalexample>
+		<screen>[root@localhost ~]# tcpdump -i eth1 -l -n -vv
+tcpdump: listening on eth1, link-type EN10MB (Ethernet), capture size 96 bytes
+12:57:53.043797 IP (tos 0x0, ttl  51, id 46031, offset 0, flags [DF], proto: TCP (6),
+  length: 286) 194.91.250.11.5190 &gt; 192.168.5.23.38993: P 2517343058:2517343292(234)
+  ack 2346573376 win 2202 &lt;nop,nop,timestamp 2713588760 497668&gt;
+12:57:53.043865 IP (tos 0x0, ttl  64, id 52382, offset 0, flags [DF], proto: TCP (6),
+  length: 52) 192.168.5.23.38993 &gt; 194.91.250.11.5190: ., cksum 0x1fd7 (correct),
+  1:1(0) ack 234 win 11945 &lt;nop,nop,timestamp 506366 2713588760&gt;
+12:57:53.401516 IP (tos 0x0, ttl  48, id 45237, offset 0, flags [DF], proto: TCP (6),
+  length: 210) 194.91.250.11.443 &gt; 192.168.5.23.56385: P 2092522043:2092522213(170)
+  ack 3645927446 win 10720
+...</screen>
+	      </informalexample>
+	    </para>
+	    <para>
+	      Команда <command>tcpdump</command> обладает очень богатым интерфейсом,
+	      включающим условные выражения, по которым должны выделяться интересующие
+	      пакеты. Например, можно использовать условия удалённого порта (равно 80):
+	      <informalexample>
+		<screen>[root@localhost ~]# tcpdump -i eth1 -l -n -vv dst port 80
+tcpdump: listening on eth1, link-type EN10MB (Ethernet), capture size 96 bytes
+13:55:36.563959 IP (tos 0x0, ttl  64, id 3936, offset 0, flags [DF], proto: TCP (6),
+  length: 60) 192.168.5.23.52348 &gt; 213.180.204.11.80: S, cksum 0x2766 (correct),
+  3855548287:3855548287(0) win 5840 &lt;mss 1460,sackOK,timestamp 1372191 0,nop,wscale 2&gt;
+13:55:36.592654 IP (tos 0x0, ttl  64, id 3937, offset 0, flags [DF], proto: TCP (6),
+  length: 40) 192.168.5.23.52348 &gt; 213.180.204.11.80: ., cksum 0xebc5 (correct),
+  3855548288:3855548288(0) ack 3869420799 win 5840
+13:55:36.592731 IP (tos 0x0, ttl  64, id 3938, offset 0, flags [DF], proto: TCP (6),
+  length: 627) 192.168.5.23.52348 &gt; 213.180.204.11.80: P 0:587(587) ack 1 win 5840
+...</screen>
+	      </informalexample>
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-nmap">nmap</definition></term>
+	  <listitem>
+	    <para>
+	      <!-- TODO! -->
+	      Команда <command>nmap</command>&nbsp;&mdash; сетевой сканер, с помощью
+	      которого можно определить уязвимость удалённых хостов. Основное назначение
+	      этой программы&nbsp;&mdash; определение состояния портов удалённого хоста
+	      (закрыты они, открыты или заблокированны). Также программа на
+	      основании собственной информационной базы может определить по поведению удалённого хоста,
+	      какая операционная система на нем запущена.
+	    </para>
+	    <para>
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="network-cmd-term">
+      <title>Команды удалённого терминала</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-telnet">telnet</definition></term>
+	  <listitem>
+	    <para>
+	      <!-- TODO! -->
+	      <application>telnet</application>&nbsp;&mdash; программа сетевого терминала.
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-ssh">ssh</definition></term>
+	  <listitem>
+	    <para>
+	      SSH (Secure SHell)&nbsp;&mdash; сетевой протокол, позволяющий
+	      производить удалённое управление компьютером и передачу файлов посредством шифрованного
+	      соединения. Одновременно это и программа для доступа к другим компьютерам,
+	      доступным по сети, для выполнения команд и передачи файлов с одного компьютера на
+	      другой. Рекомендуется вместо <quote>традиционных</quote> команд, к примеру
+	      <application>telnet</application> и <application>rlogin</application> использовать
+	      <application>ssh</application>&nbsp;&mdash; что значительно повысит
+	      безопасность системы.
+	    </para>
+	    <para>
+	      Клиенты и серверы, поддерживающие этот протокол, доступны для различных платформ и входят
+	      в стандартную поставку подавляющего большинства UNIX-подобных операционных систем.
+	      Существует множество реализаций серверов и клиентов ssh, однако в рамках курса
+	      рассматриватется его свободная реализация&nbsp;&mdash; <application>OpenSSH</application>
+	      (<ulink url="http://www.openssh.org">http://www.openssh.org</ulink>).
+	    </para>
+	    <sect4>
+	      <title>Подключение к удаленной машине ssh</title>
+	      <para>
+		Для подключения к удаленному хосту следует использовать команду
+
+		<synopsis>ssh user@remote_host</synopsis>
+		
+		где <command>remote_host</command> может быть или IP-адрес или имя удаленного
+		компьютера, <command>user</command>&nbsp;&mdash; имя пользователя на
+		удаленном хосте. В случае, если имя пользователя на локальной и удаленной
+		системе совпадает, параметр <command>user</command> можно опустить.
+	      </para>
+
+	      <para>
+		При первом подключении к удаленной системе ssh-клиент потребует
+		сгенерировать ключ:
+		<informalexample>
+		  <screen>[test@life]$ ssh mashckoff@linux.kiev.ua
+The authenticity of host 'linux.kiev.ua (212.40.43.58)' can't be established.
+RSA key fingerprint is 0a:0a:e3:45:8c:74:22:f0:2b:53:77:25:5c:53:54:05.
+Are you sure you want to continue connecting (yes/no)?</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Если вы уверены, что это отпечаток нужного вам сервера, то следует
+		ответить <quote>yes</quote>. В ответ на запрос
+
+		<informalexample>
+		  <screen>mashckoff@ftp.linux.kiev.ua's password:</screen>
+		</informalexample>
+
+		следует ввести пароль.
+	      </para>
+	    </sect4>
+	    <sect4>
+	      <title>Выполнение команд на удаленной машине</title>
+	      <para>
+		Существует возможность с помощью ssh исполнять на удаленном компьютере
+		команды: 
+		
+		<synopsis>ssh user@remote_host имя команды [параметры запуска]</synopsis>
+		
+		Собственно говоря, единственное отличие такого
+		использования <command>ssh</command>&nbsp;&mdash;
+		присутствие в строке имени выполняемой команды и её
+		параметров. Вывод команды будет отображен на локальном терминале.
+	      </para>
+	      <para>
+		В следующем примере определим объем свободного ПО на
+		сайте <filename>ftp.linux.kiev.ua</filename>:
+		
+		<informalexample>
+		  <screen>[test@life]$ ssh mashckoff@ftp.linux.kiev.ua du -sh /var/ftp/pub/Linux
+421G    /var/ftp/pub/Linux</screen>
+		</informalexample>
+	      </para>
+	    </sect4>
+	    <sect4>
+	      <title>Использование аутентификации по ключу</title>
+	      <para>
+		Использование <application>ssh</application> позволяет безопасно заходить
+		на удаленные хосты и выполнять на них команды. Однако требование
+		каждый раз вводить пароль не позволяет автоматизировать большинство задач
+		администрирования.
+	      </para>
+	      <para>
+		<application>ssh</application> позволяет решить эту проблему&nbsp;&mdash;
+		вместо использования аутентификации по паролю можно
+		использовать аутентификацию по ключу.
+	      </para>
+	      <para>
+		Для этого прежде всего необходимо сгенерировать пару
+		ключей: публичный и частный. Для этого можно
+		использовать утилиту <command>ssh-keygen</command>.
+		
+		<synopsis>ssh-keygen -b длина ключа -t тип шифрования</synopsis>
+
+		К примеру, команда <command>ssh-keygen -b 2048 -t rsa</command>
+		сгенерирует ключи длиной 2048 бита, тип ключа&nbsp;&mdash; RSA протокола 2.
+		
+		<informalexample>
+		  <screen>[test@life ~]$ ssh-keygen -b 2048 -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/test/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/test/.ssh/id_rsa.
+Your public key has been saved in /home/test/.ssh/id_rsa.pub.
+The key fingerprint is:
+2e:c5:50:2f:75:14:c1:75:da:e8:3a:1a:56:45:3e:cb test@life.nospam.kiev.ua</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Для создания беспарольных ключей на приглашение
+		
+		<informalexample>
+		  <screen>Enter passphrase (empty for no passphrase):</screen>
+		</informalexample>
+		
+		следует ответить нажатием <keycap>Enter</keycap>. <emphasis>Внимание!</emphasis>
+		Никогда никому не пересылайте секретный ключ, тем более не защищённый
+		паролем!
+	      </para>
+	      <para>
+		Настоятельно рекомендуется использование протокола SSH
+		в версии 2. Однако если есть старые серверы,
+		поддерживающие только протокол версии 1, при создании
+		пары ключей следует указать тип <command>-t
+		rsa1</command>. Указав <literal>-1</literal>
+		или <literal>-2</literal>, Вы можете выбрать использование протокола версии 1 или 2
+		соответственно. При выборе длины ключа следует помнить, что длинный ключ
+		считается более безопасным, однако на старых компьютерах может не хватать
+		вычислительных мощностей для его использования.
+	      </para>
+	      <para>
+		Сгенерированные ключи будут расположены
+		в <filename>$HOME/.ssh/</filename>. Публичный ключ (содержимое файла
+		<filename>$HOME/.ssh/id_rsa.pub</filename>) следует установить на
+		удаленный хост. Для этого содержимое файла публичного ключа должно быть
+		скопировано или добавлено в
+		файл <filename>$HOME/.ssh/authorized_keys2</filename> (для
+		протокола SSH версии 2).
+
+		<informalexample>
+		  <screen>[user@remote ~]$ cat ./id_rsa.pub >>~/.ssh/authorized_keys2
+[user@remote ~]$ chmod 600 ~/.ssh/authorized_keys2</screen>
+		</informalexample>
+	      </para>
+	      <para>
+		Не следует смешивать ключи для различных версий протокола. Для
+		протокола версии 1 используется файл <filename>authorized_keys</filename>, а
+		для протокола версии 2&nbsp;&mdash; <filename>authorized_keys2</filename>.
+	      </para>
+	      <para>
+		Если публичный ключ установлен правильно, то при подключении будет
+		запрошен Ваш пароль (passphrase); в случае пустого пароля пользователь
+		сможет регистрироваться в системе и выполнять команды без ввода пароля.
+	      </para>
+	    </sect4>
+	    <sect4>
+	      <title>Копирование файлов и каталогов с помощью scp</title>
+	      <para>
+		<application>scp</application> (Secure CoPy) применяется для надежного
+		копирования файлов по сети. Для передачи данных используется протокол SSH
+		версии 2, гарантирующий надежную аутентификацию и защищенную передачу данных.
+	      </para>
+	      <para>
+		Чтобы скопировать один файл из локального каталога на удаленный компьютер
+		можно воспользоваться командой:
+		
+		<synopsis>scp /path/to/the/file/file1 user@remote_host:/remotedir/</synopsis>
+
+		В этом примере файл <filename>file1</filename> копируется из локального
+		каталога на удаленный компьютер <filename>remote_host</filename> в
+		каталог <filename>/remotedir</filename>. На удаленной машине будет
+		произведена аутентификация под именем <command>user</command> после чего будет начат
+		процесс копирования. Естественно, возможна и обратная
+		операция&nbsp;&mdash; можно скопировать файл с удаленного компьютера в
+		локальный каталог: <command>scp user@remote_host:/remotedir/file
+		/path/to/local/folder/</command>.
+	      </para>
+	      <para>
+		Для рекурсивного копирования следует использовать
+		команду с ключом <parameter class='command'>-r</parameter>.
+		Так, к примеру, команда
+
+		<informalexample>
+		  <screen>[test@life]$ scp -r mashckoff@old.linux.kiev.ua:/home/adiel .</screen>
+		</informalexample>
+		
+		скопирует содержимое домашнего каталога на сайте <filename>old.linux.kiev.ua</filename> в
+		текущий каталог. Для ограничения скорости закачки
+		следует указать ее после ключа
+		<parameter class='command'>-l</parameter> (в Кбит/сек).
+	      </para>
+	    </sect4>
+	    <sect4>
+	      <title>sftp&nbsp;&mdash; безопасный FTP</title>
+	      <para>
+		Программа <command>sftp</command> использует протокол
+		SSH версии 2, что позволяет защитить от прослушивания передаваемые пароли и
+		файлы. Использование <command>sftp</command> не отличается от
+		использования традиционных FTP-клиентов. Так, для
+		соединения с хостом <command>remote_host</command> под именем
+		<command>user</command> следует использовать команду
+
+		<synopsis>sftp user@remote_host</synopsis>
+		
+		Когда <command>sftp</command> установит соедиение и будет готов к
+		выполнению команд, высветится приглашение <quote>sftp&gt;</quote>. В
+		справочном руководстве
+		(<command>sftp(1)</command>)доступен полный перечень
+		возможных команд, некоторые из них приведем здесь:
+	      </para>
+	      <para>
+		<variablelist>
+		  <varlistentry>
+		    <term><command>quit</command></term>
+		    <listitem>
+		      Выход из приложения.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>cd каталог</command></term>
+		    <listitem>
+		      Сменить текущий удаленний каталог.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>lcd каталог</command></term>
+		    <listitem>
+		      Сменить текущий локальный каталог.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>ls [ -R ] [ -l ] [имя файла ... ]</command></term>
+		    <listitem>
+		      Показать перечень файлов на удаленном сервере, для каталогов&nbsp;&mdash; их
+		      содержание. Когда используется ключ <parameter
+		      class='command'>-R</parameter>, дерево каталогов просматривается
+		      рекурсивно (по умолчанию подкаталоги запрошенного каталога не
+		      видны). С ключом <parameter class='command'>-l</parameter>
+		      отображается дополнительная информация о файлах
+		      и каталогах: права, владельцы, размер и дата модификации. В настоящее
+		      время ключи <parameter class='command'>-R</parameter> и <parameter
+		      class='command'>-l</parameter> несовместимы.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>lls [ -R ] [ -l ] [имя файла ... ]</command></term>
+		    <listitem>
+		      Аналог команды <command>ls</command> для локальных файлов.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>get имя файла ...</command></term>
+		    <listitem>
+		      Передает указанные файлы с удаленной точки на локальную. Каталоги
+		      рекурсивно копируются с их содержимым.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>put имя файла ...</command></term>
+		    <listitem>
+		      Передает указанные файлы с локальной точки на удаленную. Каталоги
+		      рекурсивно копируются с их содержимым.
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>mkdir имя каталога</command></term>
+		    <listitem>
+		      Создает каталог (при наличии прав у пользователя).
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><command>rmdir имя каталога</command></term>
+		    <listitem>
+		      Удаляет каталог (при наличии прав у пользователя). 
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+		
+		<command>sftp</command> поддерживает шаблоны (wildcards) в
+		командах <command>ls</command>, <command>lls</command>,
+		<command>get</command>, и <command>put</command>.
+	      </para>
+	    </sect4>
+	    
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="network-cmd-firewall">
+      <title>Команды по управлению сетевым экраном</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-iptables">iptables</definition></term>
+	  <listitem>
+	    <para>
+	      <!-- TODO! -->
+	      Команда <command>iptables</command> является интерфейсом к межсетевому
+	      экрану ядра Linux. Эта команда имеет очень большое число параметров, поэтому мы не
+	      будем рассматривать их подробно в рамках этих занятий. Подробную информацию
+	      можно узнать из руководства по адресу: <ulink
+	      url="http://www.opennet.ru/docs/RUS/iptables/">http://www.opennet.ru/docs/RUS/iptables/</ulink>.
+	    </para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="network-cmd-exchange">
+      <title>Программы сетевого обмена</title>
+      <variablelist>
+	<varlistentry>
+	  <term><definition id="def-cmd-sendmail">sendmail</definition></term>
+	  <listitem>
+	    <para>
+	      Программа <application>sendmail</application> является частью одноимённого
+	      SMTP-сервера и позволяет отправлять письма электронной почты. Однако многие
+	      другие распространённые почтовые серверы или программы (например,
+	      <application>Postfix</application> или <application>ssmtp</application>)
+	      предоставляют <emphasis>совместимый</emphasis> с
+	      <application>sendmail</application> интерфейс.
+	    </para>
+	    <para>
+	      По умолчанию <application>sendmail</application> принимает на стандартный ввод
+	      тело письма вплоть до получения EOF. Таким образом, при работе в командной строке
+	      для завершения ввода текста необходимо
+	      нажать <keycombo><keycap>Ctrl</keycap> <keycap>D</keycap></keycombo>.
+	    </para>
+	    <para>
+	      Для простейшего использования программы достаточно
+	      ключа <parameter class='command'>-t</parameter>. При этом
+	      программа <application>sendmail</application>
+	      проанализирует <emphasis>заголовок</emphasis> письма и выберет из него имена и
+	      адреса отправителя и получателя письма.
+	    </para>
+	    <para>
+	      Пример отправления простого письма:
+	      <example>
+		<title>Отправление письма с помощью sendmail</title>
+		<screen>user@desktop ~ $ sendmail -t
+From: Vasily Poopkin &lt;vas@pupkin.ru&gt;
+To: Aleksey Fedoseev &lt;aleksey@fedoseev.net&gt;
+Subject: Idea
+
+Hi there!
+
+I'm Vasily, and you're Aleksey.
+Super-puper email body.
+^D
+user@desktop ~ $</screen>
+	      </example>
+	      Заголовки отделаются от тела письма пустой строкой в соответствии
+	      с RFC протокола
+	      SMTP.
+	    </para>
+	    <sect4>
+	      <title>Параметры команды</title>
+	      <para>
+		Наиболее распространены следующие параметры <command>sendmail</command>:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-F строка</parameter></term>
+		    <listitem>
+		      задать полное имя отправителя; этот параметр игнорируется, если в письме
+		      был указан заголовок <command>From:</command>;
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-f адрес</parameter> или
+		      <parameter class='command'>-r адрес</parameter></term>
+		    <listitem>
+		      использовать параметр в качестве адреса отправителя, используемого в
+		      обмене с SMTP-сервером (иногда его
+		      называют <quote>envelope from</quote>);
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>
+		После этих ключей можно указать список адресов получателей, на которые будет
+		отправлено данное письмо, например, следующая команда отправит письмо сразу
+		нескольким получателям:
+		<informalexample>
+		  <screen>user@desktop ~ $ sendmail -f user@desktop.localnet alice@mails.org bob@mails.org test@fedoseev.net
+From: User &lt;user@desktop.localnet&gt;
+		    
+hello!
+
+This is broadcats message.
+^D</screen>
+		</informalexample>
+	      </para>
+	    </sect4>
+	    <para>
+	      Команду <command>sendmail</command> можно с успехом использовать для
+	      автоматической генерации почтовых сообщений администратору, если на стандартный
+	      ввод команды <command>sendmail</command> подать вывод
+	      команды <command>cat</command> или <command>echo</command>:
+	      <informalexample>
+		<screen>user@desktop ~ $ cat warning.txt | sendmail admin@localhost</screen>
+	      </informalexample>
+	    </para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><definition id="def-cmd-wget">wget</definition></term>
+	  <listitem>
+	    <para>
+	      <application>wget</application>&nbsp;&mdash; универсальная программа закачки
+	      файлов по протоколам HTTP, HTTPS и FTP. При работе с HTML/XML-файлами
+	      программа может находить ссылки и переходить по ним, получая полноценную
+	      локальную версию сайта.
+	    </para>
+	    <para>
+	      Команда имеет простой формат:
+	      <synopsis>wget [опции] URL</synopsis>
+	      Например, для загрузки файла достаточно выполнить команду:
+	      <informalexample>
+		<screen>user@desktop ~ $ wget ftp://mirror.aiya.ru/pub/ALTLinux/ISO/MD5SUM
+--12:27:19--  ftp://mirror.aiya.ru/pub/ALTLinux/ISO/MD5SUM
+           => `MD5SUM'
+Распознаётся mirror.aiya.ru... 85.142.20.147
+Устанавливается соединение с mirror.aiya.ru|85.142.20.147|:21... соединение установлено.
+Выполняется вход под именем anonymous ... Выполнен вход в систему!
+==> SYST ... готово.  ==> PWD ... готово.
+==> TYPE I ... готово.   ==> CWD /pub/ALTLinux/ISO ... готово.
+==> PASV ... готово.  ==> RETR MD5SUM ... готово.
+Длина: 393 (не достоверно)
+
+100%[=======================================================================>] 393 --.--K/s
+
+12:27:29 (429.29 KB/s) - `MD5SUM' сохранён [393]</screen>
+	      </informalexample>
+	      Загруженный файл сохраняется в локальном каталоге.
+	    </para>
+	    <sect4>
+	      <title>Параметры команды</title>
+	      <para>
+		Команда <command>wget</command> может использоваться
+		со следующими ключами:
+		<variablelist>
+		  <varlistentry>
+		    <term><parameter class='command'>-b</parameter></term>
+		    <listitem>
+		      запустить программу на заднем плане, вывод при этом перенаправляется в
+		      журнал <command>wget</command>;
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-q</parameter></term>
+		    <listitem>
+		      не выводить информацию на стандартный вывод, удобно для применения в
+		      сценариях; 
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-t число</parameter></term>
+		    <listitem>
+		      число попыток загрузки файла; 
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-c</parameter></term>
+		    <listitem>
+		      продолжить закачку для файлов, загруженных частично;
+		    </listitem>
+		  </varlistentry>
+		  <varlistentry>
+		    <term><parameter class='command'>-r</parameter></term>
+		    <listitem>
+		      загружать рекурсивно&nbsp;&mdash; удобно применять к каталогам или
+		      сайтам, которые необходимо загрузить целиком.
+		    </listitem>
+		  </varlistentry>
+		</variablelist>
+	      </para>
+	      <para>	
+		Команда обладает множеством параметров, связанных как с процессом закачки, так и
+		со спецификой протоколов. Все они подробно описаны в
+		руководстве <command>wget(1)</command>.
+	      </para>
+	    </sect4>
+	    <sect4>
+	      <title>Настройка</title>
+	      <para>
+		Команда <command>wget</command> имеет немало настроек, касающихся параметров
+		доступа к хостам, использования прокси-серверов и т.&nbsp;п. Все они хранятся в
+		файле <filename>/etc/wget/wgetrc</filename> или в
+		файле <filename>.wgetrc</filename> в домашнем каталоге пользователя.
+	      </para>
+	    </sect4>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </sect2>
+    <sect2 id="network-cmd-summary">
+      <title>Резюме</title>
+      <para>
+	В этом разделе описываются основные команды по управлению и диагностике сети в UNIX.
+      </para>
+      <list-of-definitions/>
+    </sect2>    
+    <sect2 id="network-cmd-additional">
+      <title>Дополнительные материалы</title>
+      <para>
+	<orderedlist>
+	  <listitem>
+	    Курячий Г.В. <emphasis>Операционная система UNIX</emphasis>.&nbsp;&mdash;
+	    М.:Интуит.Ру, 2004.&nbsp;&mdash; 292 с.: ил.
+	  </listitem>
+	  <listitem>
+	    Рейчардс К., Фостер-Джонсон Э. <emphasis>UNIX:
+	    справочник</emphasis>.&nbsp;&mdash; СПб.: Питер Ком, 1999.&nbsp;&mdash; 384 с.:
+	    ил.
+	  </listitem>
+	  <listitem><emphasis>Автоматизация системного администрирования с помощью ssh и
+	  scp</emphasis>&nbsp;&mdash; <ulink
+	  url="http://www.linuxfocus.org/Russian/January2003/article278.shtml">http://www.linuxfocus.org/Russian/January2003/article278.shtml</ulink></listitem>.
+	  <listitem><emphasis>Руководство по iptables</emphasis>&nbsp;&mdash;
+	  <ulink
+	    url="http://www.opennet.ru/docs/RUS/iptables/">http://www.opennet.ru/docs/RUS/iptables/</ulink>.</listitem>
+	</orderedlist>
+      </para>
+    </sect2>    
+  </sect1>
+  <!-- занятие №9 (практическое занятие) -->
+  <sect1-scenario id="network-base-examples">
+    <title>Управление сетью</title>
+    <para>
+      <emphasis>Цель занятия:</emphasis> изучение инструментов конфигурирования сети в
+      UNIX, включающего настройку параметров TCP/IP-сети.
+    </para>
+    <para>
+      <emphasis>Изучаемые команды:</emphasis> 
+      <xref linkend="def-cmd-arp"/>,
+      <xref linkend="def-cmd-ifconfig"/>,
+      <xref linkend="def-cmd-netstat"/>,
+      <xref linkend="def-cmd-ping"/>,
+      <xref linkend="def-cmd-route"/>,
+      <xref linkend="def-cmd-ssh"/>,
+      <xref linkend="def-cmd-telnet"/>,
+      <xref linkend="def-cmd-traceroute"/>
+    </para>
+    <scenario id="network-scenario-eth">
+      <title>Настройка сетевого интерфейса</title>
+      <scenario-intro>
+	Сценарий посвящен сетевым интерфейсам&nbsp;&mdash; <quote>прослойке</quote> между канальным и
+	сетевым уровнем в UNIX. В сценарии показано, как получать информацию о настроенных
+	в системе сетевых интерфейсах и как производить их диагностику и
+	конфигурирование.
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя после входа в систему.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Получить сведения обо всех настроенных сетевых интерфейсах с помощью
+	    команды <command>ifconfig -a</command>: 
+	    <informalexample>
+	      <screen>[root@localhost ~]# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 00:0D:60:8D:42:AA  
+          inet addr:192.168.1.5  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:204779 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:107606 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:302429520 (288.4 Mb)  TX bytes:9177476 (8.7 Mb)
+          Base address:0x8000 Memory:c0220000-c0240000 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:228 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:228 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:17724 (17.3 Kb)  TX bytes:17724 (17.3 Kb)</screen>
+	    </informalexample>		
+	  </para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Проверить возможность соединения с локальной машиной с помощью
+	    команды <command>ping 127.0.0.1</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# ping 127.0.0.1
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.052 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.051 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.055 ms</screen>
+	    </informalexample>
+	  </para>
+	</listitem>	
+	<listitem>
+	  <para>
+	    Перед конфигурированием интерфейса <systemitem class="resource">eth0</systemitem> необходимо
+	    убедиться, что он отключен. Отключение сетевого
+	    интерфейса <systemitem class="resource">eth0</systemitem> производится командой <command>ifconfig
+	    eth0 down</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# ifconfig eth0 down
+[root@localhost ~]# ifconfig -a
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:228 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:228 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:17724 (17.3 Kb)  TX bytes:17724 (17.3 Kb)</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для связи сетевого интерфейса <systemitem class="resource">eth0</systemitem> с 
+            IP-адресом <systemitem class="ipaddress">192.168.1.1</systemitem> выполним
+            команду <command>ifconfig eth0 192.168.1.1 up</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# ifconfig eth0 192.168.1.1 up
+[root@localhost ~]# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 00:0C:F1:2E:0E:F9
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+          Interrupt:11 Base address:0x2000 Memory:c0210000-c0210fff
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:228 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:228 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:17724 (17.3 Kb)  TX bytes:17724 (17.3 Kb)</screen>
+	    </informalexample>
+	  </para>
+	  <para>
+	    При этом по умолчанию используется сеть класса <literal>C</literal>,
+	    т.&nbsp;е. маска сети <systemitem class="ipaddress">255.255.255.0</systemitem>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для задания специфической маски подсети используется
+	    параметр <parameter class='command'>netmask</parameter>. Например, данная
+	    команда задаёт параметры сети класса <literal>A</literal>: <command>ifconfig
+	    eth0 10.10.1.1 netmask 255.0.0.0 up</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# ifconfig eth0 10.10.1.1 netmask 255.0.0.0 up
+[root@localhost ~]# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 00:0C:F1:2E:0E:F9
+          inet addr:10.10.1.1  Bcast:10.255.255.255  Mask:255.0.0.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+          Interrupt:11 Base address:0x2000 Memory:c0210000-c0210fff
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:228 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:228 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:17724 (17.3 Kb)  TX bytes:17724 (17.3 Kb)</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    С помощью команды <command>arp</command> можно узнать текущую ARP-таблицу
+	    операционной системы (соответствие MAC-адресов канального уровня
+	    IP-адресам). Таблица автоматически поддерживается операционной системой в
+	    процессе сетевого обмена.
+	    <informalexample>
+	      <screen>[root@localhost ~]# arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+gate.localnet            ether   00:02:44:8F:16:B7   C                     eth0</screen>
+	    </informalexample>	    
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-6-1">
+	Настройте сетевой интерфейс <systemitem class="resource">eth0</systemitem> на сеть с адресом 
+        <systemitem class="ipaddress">192.168.77.0</systemitem>, состоящую из 16
+	машин.
+      </practice>
+    </scenario>
+    <scenario id="network-scenario-route">
+      <title>Настройка таблицы маршрутизации</title>
+      <scenario-intro>
+	В сценарии производится изучение и настройка таблицы маршрутизации IP. С помощью
+	программы производится изучение маршрута следования пакетов.
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя, сетевой интерфейс настроен на статический
+	IP-адрес.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Для просмотра таблицы маршрутизации воспользуемся командой <command>route
+	      -n</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.0.0        0.0.0.0         255.0.0.0       U     0      0        0 eth0
+127.0.0.0       0.0.0.0         255.0.0.0       U     0      0        0 lo
+0.0.0.0         10.10.1.254     0.0.0.0         UG    0      0        0 eth0</screen>
+	    </informalexample>	    
+	  </para>		
+	</listitem>
+	<listitem>
+	  <para>
+	    Без использования ключа <parameter class='command'>-n</parameter> для всех
+	    имён будут использоваться символьные значения:
+	    <informalexample>
+	      <screen>[root@localhost ~]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+localnet        *               255.0.0.0       U     0      0        0 eth0
+loopback        *               255.0.0.0       U     0      0        0 lo
+default         gate.localnet   0.0.0.0         UG    0      0        0 eth0</screen>
+	    </informalexample>	    
+	  </para>		
+	</listitem>
+	<listitem>
+	  <para>
+	    Для добавления новой строки в таблицу нужно воспользоваться
+	    параметром <parameter class='command'>add</parameter>:
+	    <command>route add -host 10.10.2.1 dev eth0</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# route add -host 10.10.2.1 dev eth0
+[root@localhost ~]# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.10.2.1       0.0.0.0         255.255.255.255 UH    0      0        0 eth0
+10.0.0.0        0.0.0.0         255.0.0.0       U     0      0        0 eth0
+127.0.0.0       0.0.0.0         255.0.0.0       U     0      0        0 lo
+0.0.0.0         10.10.1.254     0.0.0.0         UG    0      0        0 eth0</screen>	    
+	    </informalexample>
+	    Эта команда добавляет явный маршрут до отдельного хоста с указанным IP-адресом
+	    через интерфейс <systemitem class="resource">eth0</systemitem>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Аналогичным образом для удаления маршрута используется
+	    параметр <parameter class='command'>del</parameter>: 
+	    <command>route del -host 10.10.2.1</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# route add -host 10.10.2.1 dev eth0
+[root@localhost ~]# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.0.0        0.0.0.0         255.0.0.0       U     0      0        0 eth0
+127.0.0.0       0.0.0.0         255.0.0.0       U     0      0        0 lo
+0.0.0.0         10.10.1.254     0.0.0.0         UG    0      0        0 eth0</screen>	    
+	    </informalexample>	    
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>    
+	    В качестве назначения маршрута можно указывать также целую
+	    сеть (парамеметр <parameter class='command'>-net</parameter>). Рассмотрим команду, которая
+	    задаёт маршрут в сеть <systemitem class="ipaddress">192.168.1.0</systemitem> через
+	    шлюз <systemitem class="ipaddress">10.10.1.253</systemitem>: 
+	    <command>route add -net 192.168.1.0 gw 10.10.1.253</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# route add -net 192.168.1.0 gw 10.10.1.253
+[root@localhost ~]# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.1.0     10.10.1.253     255.255.255.255 UG    0      0        0 eth0
+10.0.0.0        0.0.0.0         255.0.0.0       U     0      0        0 eth0
+127.0.0.0       0.0.0.0         255.0.0.0       U     0      0        0 lo
+0.0.0.0         10.10.1.254     0.0.0.0         UG    0      0        0 eth0</screen>	    
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Рассмотрим простой маршрут следования пакетов до хоста в Internet с помощью
+	    команды <command>traceroute ya.ru</command>: 
+	    <informalexample>
+	      <screen>[root@localhost ~]# traceroute ya.ru
+traceroute to ya.ru (213.180.204.8), 64 hops max, 40 byte packets
+ 1  10.10.1.254 (10.10.1.254)  3.418 ms  2.67 ms  0.719 ms
+ 2  cs7206.rinet.ru (195.54.192.28)  1.34 ms  1.378 ms  0.647 ms
+ 3  ix2-m9.yandex.net (193.232.244.93)  1.554 ms  1.457 ms  1.420 ms
+ 4  c3-vlan4.yandex.net (213.180.210.146)  2.137 ms  2.154 ms  1.842 ms
+ 5  ya.ru (213.180.204.8)  2.646 ms  2.183 ms 2.220 ms</screen>	    
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-6-2">
+	Получите маршрут следования пакетов до сайта <filename>kernel.org</filename>.
+      </practice>
+      <practice id="pract-6-3">
+	Добавьте маршрут следования пакетов до сети <systemitem class="ipaddress">10.11.0.0</systemitem> с
+	маской подсети <systemitem class="ipaddress">255.255.0.0</systemitem>
+	через хост с адресом <systemitem class="ipaddress">10.10.1.5</systemitem>.
+      </practice>
+    </scenario>
+    <scenario id="network-scenario-dns">
+      <title>Изучение службы доменных имён</title>
+      <scenario-intro>
+	Сценарий посвящен изучению службы доменных имён: её использованию и
+	конфигурированию. 
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя, сетевой интерфейс настроен на статический
+	IP-адрес.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Просмотрим содержимое файла <filename>/etc/hosts</filename>, содержащего имена
+	    локальных хостов: <command>cat /etc/hosts</command>
+	    <informalexample>
+	      <screen>[root@localhost ~]# cat /etc/hosts
+# Localhost
+127.0.0.1       localhost
+
+# Home LAN
+10.10.1.254    gate.localnet gate
+10.10.1.20     boss.localnet boss</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Проверим работоспособность DNS с помощью команды обращения к хосту в Internet
+	    по имени <command>ping ya.ru</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# ping ya.ru
+PING ya.ru (213.180.204.8) 56(84) bytes of data.
+64 bytes from ya.ru (213.180.204.8): icmp_seq=1 ttl=54 time=3.56 ms
+64 bytes from ya.ru (213.180.204.8): icmp_seq=2 ttl=54 time=2.22 ms</screen>	    
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для корректной работы службы доменных имен необходимо прописать используемые
+	    серверы DNS в файле <filename>/etc/resolv.conf</filename>. Просмотрим его
+	    содержимое <command>cat /etc/resolv.conf</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# cat /etc/resolv.conf
+domain localnet
+nameserver 10.10.1.17</screen>	    
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    С помощью команды <command>host ya.ru</command> узнаем информацию DNS о хосте
+	    в Internet:
+	    <informalexample>
+	      <screen>[root@localhost ~]# host ya.ru
+ya.ru has address 213.180.204.8
+ya.ru mail is handled by 10 cmail.yandex.ru.</screen>	    
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Вторым параметром команды <command>host ya.ru
+	    ns1.yandex.ru</command> укажем имя
+	    DNS-сервера, с которого необходимо получить информацию:
+	    <informalexample>
+	      <screen>[root@localhost ~]# host ya.ru ns1.yandex.ru
+ya.ru has address 213.180.204.8
+Using domain server:
+Name: ns1.yandex.ru
+Address: 213.180.193.1#53
+Aliases:
+
+Using domain server:
+Name: ns1.yandex.ru
+Address: 213.180.193.1#53
+Aliases:
+
+ya.ru mail is handled by 10 cmail.yandex.ru.</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-6-4">
+	Узнайте адреса серверов, обрабатывающих почту для
+	домена <filename>gmail.com</filename>, и выпишите их
+	в порядке используемого приоритета.
+      </practice>
+    </scenario>
+    <scenario id="network-scenario-diagn1">
+      <title>Простая диагностика работы сети</title>
+      <scenario-intro>
+	Сценарий рассматривает самые простые способы диагностики работы сети.
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя, сетевой интерфейс настроен на статический
+	IP-адрес.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Для проверки работоспособности сетевых служб воспользуемся командой удалённого
+	    терминала: <command>telnet ya.ru 80</command>. В данном случае будет
+	    установлено соединение с хостом в Internet по порту 80 (HTTP):
+	    <informalexample>
+	      <screen>[root@localhost ~]# telnet ya.ru 80
+Trying 213.180.204.8...
+Connected to ya.ru.
+Escape character is '^]'.
+GET / HTTP/1.0
+
+HTTP/1.0 200 OK
+Server: thttpd/2.25b 29dec2003
+Content-Type: text/html; charset=windows-1251
+Date: Wed, 23 Nov 2005 05:40:33 GMT
+Last-Modified: Mon, 07 Nov 2005 15:13:14 GMT
+Accept-Ranges: bytes
+Connection: close
+Content-Length: 2005
+
+&lt;html&gt;
+&lt;head&gt;
+...</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Если во время соединения с удалённым узлом ввести команду <command>netstat
+	      -t</command>, то можно увидеть, что состояние этого
+	      соединения&nbsp;&mdash; <systemitem class="constant">ESTABLISHED</systemitem>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# netstat -t
+Active Internet connections (servers and established)
+tcp        0      0 192.168.0.22:42639           ya.ru:http              ESTABLISHED</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Информацию обо всех соединениях в системе можно получить с помощью команды
+	    <command>netstat -a</command>. В этом случае будет выводиться информация
+	    обо всех TCP-, UDP- и локальных сокетах:
+	    <informalexample>
+	      <screen>[root@localhost ~]# netstat -a
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 *:32769                 *:*                     LISTEN
+tcp        0      0 *:32770                 *:*                     LISTEN
+tcp        0      0 *:sunrpc                *:*                     LISTEN
+tcp        0      0 *:ssh                   *:*                     LISTEN
+tcp        0      0 192.168.0.22:42639      ya.ru:http              ESTABLISHED
+udp        0      0 *:32768                 *:*
+udp        0      0 *:32769                 *:*
+udp        0      0 *:sunrpc                *:*
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  2      [ ACC ]     STREAM     LISTENING     8344   /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     8866   /var/run/sdp
+...</screen>
+	    </informalexample>    
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-6-5">
+	С помощью команды <application>netstat</application> определите, какие значения
+	принимают локальные порты в исходящих TCP-соединениях? В какой диапазон они
+	попадают?
+      </practice>
+    </scenario>
+    <scenario id="network-scenario-ssh">
+      <title>Работа с удалённым терминалом</title>
+      <scenario-intro>
+	В сценариий освещается работа с удалённым сетевым терминалом с использованием
+	программы <application>ssh</application>.
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя, сетевой интерфейс настроен на статический
+	IP-адрес.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    С помощью команды <command>ssh user@10.10.1.222</command>
+	    подключимся к удаленному хосту:
+	    <informalexample>
+	      <screen>[root@localhost ~]# ssh user@10.10.1.222
+Password:
+Last login: Sat Nov 21 15:56:20 2005 from 10.10.1.5
+[user@localhost ~]$
+[user@localhost ~]$ exit</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Выполним команду <command>who</command>, чтобы убедиться, что находимся на
+	    удалённой машине. Для всех пользователей, работающий удалённо, указывается
+	    IP-адрес. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ who
+user     vc/1         Nov 14 14:04
+user     pts/0        Nov 22 10:55 (10.10.1.5)</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Для завершение сеанса удалённого терминала нужно выйти из командной оболочки с
+	    помощью команды <command>exit</command>. 
+	    <informalexample>
+	      <screen>[user@localhost ~]$ exit
+logout
+Connection to 10.10.1.5 closed.
+[root@localhost ~]#</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-6-6">
+	С помощью программы удаленного терминала зайдите на несколько соседних компьютеров
+	в сети и сравните время загрузки операционной системы на них.
+      </practice>
+    </scenario>
+    <list-of-practices/>
+  </sect1-scenario>
+  <!-- занятие №10 (практическое занятие) -->
+  <sect1-scenario id="network-advanced-examples">
+    <title>Расширенная диагностика и настройка сети</title>
+    <para>
+      <emphasis>Цель занятия:</emphasis> знакомство с командами анализа сетевой активности
+      и хостов в TCP/IP-сети и интстументами управления межсетевым экраном в Linux.
+    </para>
+    <para>
+      <emphasis>Изучаемые команды:</emphasis> 
+      <xref linkend="def-cmd-iptables"/>,
+      <xref linkend="def-cmd-nmap"/>,
+      <xref linkend="def-cmd-tcpdump"/>
+    </para>
+    <scenario id="network-scenario-tcpdump">
+      <title>Сканирование локальной сети</title>
+      <scenario-intro>
+	Сценарий описывает возможности по просмотру сетевого трафика, проходящего через
+	присутствующие в системе сетевые интерфейсы.
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя после входа в систему, настроенные сетевой
+	интерфейс и таблица маршрутизации.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Выведем все пакеты, проходящие через интерфейс <systemitem class="resource">eth0</systemitem>, с помощью
+	    команды <command>tcpdump -i eth0 -l -n</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# tcpdump -i eth0 -l -n
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 96 bytes
+14:37:23.929208 IP 192.168.0.204.32791 &gt; 192.168.0.1.53:  40133+ A? ya.ru. (23)
+14:37:23.931050 IP 192.168.0.1.53 &gt; 192.168.0.204.32791:  40133- 1/0/0 A 213.180.204.8 (39)
+14:37:23.932778 IP 192.168.0.204 &gt; 213.180.204.8: ICMP echo request, id 12586, seq 1, length 64
+14:37:23.954412 IP 213.180.204.8 &gt; 192.168.0.204: ICMP echo reply, id 12586, seq 1, length 64
+14:37:23.954784 IP 192.168.0.204.32791 &gt; 192.168.0.1.53:  29723+ PTR? 8.204.180.213.in-addr.arpa. (44)
+14:37:23.956530 IP 192.168.0.1.53 &gt; 192.168.0.204.32791:  29723- 1/0/0 (63)
+...</screen>
+	    </informalexample>
+	    Прервать выполнение команды можно
+	    нажатием <keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Используем фильтр по удалённому порту для просмотра всего трафика в сети,
+	    генерируемого данной машиной:
+	    <command>tcpdump -i eth0 -l -n src host 192.168.0.204</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# tcpdump -i eth0 -l -n src host 192.168.0.204
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 96 bytes
+14:43:02.492487 IP 192.168.0.204.32791 &gt; 192.168.0.1.53:  13524+ AAAA? yandex.ru. (27)
+14:43:02.520278 IP 192.168.0.204.32791 &gt; 192.168.0.1.53:  12908+ AAAA? yandex.ru. (27)
+14:43:02.522799 IP 192.168.0.204.32791 &gt; 192.168.0.1.53:  48501+ A? yandex.ru. (27)
+14:43:02.525069 IP 192.168.0.204.57521 &gt; 1.0.0.0.80: S 1379873941:1379873941(0) win
+   5840 &lt;mss 1460,sackOK,timestamp 2563967 0,nop,wscale 2&gt;
+...</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Условия можно объёдинять, например, посмотрим все обращения по протоколу http
+	    на хост <filename>ya.ru</filename>: <command>tcpdump -i eth0 -l -n src host
+	    192.168.0.204 and dst port 80</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# tcpdump -i eth0 -l -n src host 192.168.0.204 and dst port 80
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 96 bytes
+14:49:39.015251 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: S 1789772982:1789772982(0)
+   win 5840 &lt;mss 1460,sackOK,timestamp 2663083 0,nop,wscale 2&gt;
+14:49:39.054551 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: . ack 851659167 win 5840
+14:49:39.056486 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: P 0:626(626) ack 1 win 5840
+14:49:39.598337 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: . ack 1411 win 8460
+14:49:39.604713 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: . ack 2821 win 11280
+14:49:39.659811 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: . ack 4231 win 14100
+14:49:39.784351 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: . ack 5641 win 16920
+14:49:39.848824 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: . ack 7051 win 19740
+14:49:39.966120 IP 192.168.0.204.38172 &gt; 213.180.204.11.80: F 626:626(0) ack 8118
+   win 22560</screen>
+	    </informalexample>
+	    В данном примере можно увидеть одно последовательное TCP-соединение.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    С помощью ключей <parameter class='command'>-X</parameter>
+	    и <parameter class='command'>-s</parameter> можно просмотреть содержимое
+	    пакетов: <command>tcpdump -i eth0 -l -n -X -s 2048 src host 192.168.0.204 and
+	    dst port 80</command>.  
+	    <informalexample>
+	      <screen>[root@localhost ~]# tcpdump -i eth0 -l -n -X -s 2048 src host 192.168.0.204 and dst port 80
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 2048 bytes
+15:00:20.150901 IP 192.168.0.204.58273 &gt; 213.180.204.11.80: S 2473175603:2473175603(0)
+   win 5840 &lt;mss 1460,sackOK,timestamp 2823357 0,nop,wscale 2&gt;
+        0x0000:  4500 003c be8e 4000 4006 18f9 c0a8 00cc  E..&lt;..@.@.......
+        0x0010:  d5b4 cc0b e3a1 0050 9369 aa33 0000 0000  .......P.i.3....
+        0x0020:  a002 16d0 9789 0000 0204 05b4 0402 080a  ................
+        0x0030:  002b 14bd 0000 0000 0103 0302            .+..........
+15:00:20.172752 IP 192.168.0.204.58273 &gt; 213.180.204.11.80: . ack 2349139833 win 5840
+        0x0000:  4500 0028 be8f 4000 4006 190c c0a8 00cc  E..(..@.@.......
+        0x0010:  d5b4 cc0b e3a1 0050 9369 aa34 8c05 0779  .......P.i.4...y
+        0x0020:  5010 16d0 80c1 0000                      P.......
+15:00:20.172815 IP 192.168.0.204.58273 &gt; 213.180.204.11.80: P 0:624(624) ack 1 win 5840
+        0x0000:  4500 0298 be90 4000 4006 169b c0a8 00cc  E.....@.@.......
+        0x0010:  d5b4 cc0b e3a1 0050 9369 aa34 8c05 0779  .......P.i.4...y
+        0x0020:  5018 16d0 023e 0000 4745 5420 2f79 616e  P....&gt;..GET./yan
+        0x0030:  6473 6561 7263 683f 7465 7874 3d74 6573  dsearch?text=tes
+        0x0040:  7426 7374 7970 653d 7777 7720 4854 5450  t&amp;stype=www.HTTP
+        0x0050:  2f31 2e31 0d0a 486f 7374 3a20 7777 772e  /1.1..Host:.www.
+        0x0060:  7961 6e64 6578 2e72 750d 0a55 7365 722d  yandex.ru..User-
+        0x0070:  4167 656e 743a 204d 6f7a 696c 6c61 2f35  Agent:.Mozilla/5
+        0x0080:  2e30 2028 5831 313b 2055 3b20 4c69 6e75  .0.(X11;.U;.Linu
+        0x0090:  7820 6936 3836 3b20 656e 2d55 533b 2072  x.i686;.en-US;.r
+        0x00a0:  763a 312e 372e 3132 2920 4765 636b 6f2f  v:1.7.12).Gecko/
+...</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-7-1">
+	Подсчитайте число устанавливаемых tcp-соеднинений в сети за одну минуту.
+      </practice>
+      <practice id="pract-7-2">
+	Проследите сожержимое tcp-сессии telnet- и ssh-соединения. Сравните результаты.
+      </practice>
+    </scenario>
+    <scenario id="network-scenario-nmap">
+      <title>Сканирование удалённых хостов</title>
+      <scenario-intro>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя после входа в систему, настроенные сетевой
+	интерфейс и таблица маршрутизации.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Простое сканирование хоста можно произвести, если указать его IP-адрес в
+	    параметре команды <command dontlog="1">nmap</command>&nbsp;&mdash; <command>nmap
+	    192.168.0.120</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# nmap 192.168.0.120
+Starting nmap 3.75 ( http://www.insecure.org/nmap/ ) at 2006-02-06 23:21 MSK
+Interesting ports on gate.localnet (192.168.0.120):
+(The 1658 ports scanned but not shown below are in state: closed)
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+873/tcp open  rsync
+
+Nmap run completed -- 1 IP address (1 host up) scanned in 0.555 seconds</screen>
+	    </informalexample>
+	    При этом <command dontlog="1">nmap</command> производит попытки соединения с
+	    портами, что может быть обнаружено на стороне хоста.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Более <quote>тихим</quote> способом сканирования является SYN-сканирование,
+	    когда вместо настоящего соединения посылается только SYN-пакет. Этот способ
+	    сканировани доступен только суперпользователю: <command>nmap -sS
+	    192.168.0.120</command>
+	    <informalexample>
+	      <screen>[root@localhost ~]# nmap -sS 192.168.0.120
+Starting nmap 3.75 ( http://www.insecure.org/nmap/ ) at 2006-02-06 23:28 MSK
+Interesting ports on gate.localnet (192.168.0.120):
+(The 1658 ports scanned but not shown below are in state: closed)
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+873/tcp open  rsync
+MAC Address: 00:11:2F:F4:4B:55 (Asustek Computer)
+
+Nmap run completed -- 1 IP address (1 host up) scanned in 0.405 seconds</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Самую полную информацию о тестируемом хосте можно узнать, если использовать
+	    ключи <parameter class='command'>-v</parameter> (дважды)
+	    и <parameter class='command'>-O</parameter>, <command>nmap -sS -v -v -O
+	    192.168.0.120</command>: 
+	    <informalexample>
+	      <screen>[root@localhost ~]# nmap -sS -v -v -O 192.168.0.120
+Starting nmap 3.75 ( http://www.insecure.org/nmap/ ) at 2006-02-06 23:31 MSK
+Initiating SYN Stealth Scan against gate.localnet (192.168.0.120) [1663 ports] at 23:31
+Discovered open port 80/tcp on 192.168.0.120
+Discovered open port 21/tcp on 192.168.0.120
+Discovered open port 443/tcp on 192.168.0.120
+Discovered open port 22/tcp on 192.168.0.120
+Discovered open port 873/tcp on 192.168.0.120
+The SYN Stealth Scan took 0.08s to scan 1663 total ports.
+For OSScan assuming port 21 is open, 1 is closed, and neither are firewalled
+Host gate.localnet (192.168.0.120) appears to be up ... good.
+Interesting ports on gate.localnet (192.168.0.120):
+(The 1658 ports scanned but not shown below are in state: closed)
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+873/tcp open  rsync
+MAC Address: 00:11:2F:F4:4B:55 (Asustek Computer)
+Device type: general purpose
+Running: Linux 2.4.X|2.5.X|2.6.X
+OS details: Linux 2.4.18 - 2.6.7
+OS Fingerprint:
+TSeq(Class=RI%gcd=1%SI=2E7845%IPID=Z%TS=1000HZ)
+T1(Resp=Y%DF=Y%W=16A0%ACK=S++%Flags=AS%Ops=MNNTNW)
+T2(Resp=N)
+T3(Resp=Y%DF=Y%W=16A0%ACK=S++%Flags=AS%Ops=MNNTNW)
+T4(Resp=Y%DF=Y%W=0%ACK=O%Flags=R%Ops=)
+T5(Resp=Y%DF=Y%W=0%ACK=S++%Flags=AR%Ops=)
+T6(Resp=Y%DF=Y%W=0%ACK=O%Flags=R%Ops=)
+T7(Resp=Y%DF=Y%W=0%ACK=S++%Flags=AR%Ops=)
+PU(Resp=Y%DF=N%TOS=C0%IPLEN=164%RIPTL=148%RID=E%RIPCK=E%UCK=E%ULEN=134%DAT=E)
+
+Uptime 24.662 days (since Fri Jan 13 07:38:30 2006)
+TCP Sequence Prediction: Class=random positive increments
+                         Difficulty=3045445 (Good luck!)
+TCP ISN Seq. Numbers: FC47E005 FC966A63 FC61563D FBC11ADD FC5E53A5 FBBE2AA2
+IPID Sequence Generation: All zeros
+
+Nmap run completed -- 1 IP address (1 host up) scanned in 2.340 seconds</screen>
+	    </informalexample>
+	    На основании анализа поведения системы программа делает предположение о типе
+	    операционной системы, запущенной на хосте.
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-7-3">
+	Просканируйте открытые порты на локальной машине (localhost). Проанализируйте
+	тип используемой операционной системы.
+      </practice>
+    </scenario>
+    <scenario id="network-scenario-iptables">
+      <title>Настройка сетевого экрана</title>
+      <scenario-intro>
+      </scenario-intro>
+      <scenario-start>
+	Командная строка суперпользователя после входа в систему, настроенные сетевой
+	интерфейс и таблица маршрутизации.
+      </scenario-start>
+      <orderedlist>
+	<listitem>
+	  <para>
+	    Для просмотра текущей таблицы правил сетевого экрана воспользуемся командой
+	    <command>iptables -L</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination</screen>
+	    </informalexample>
+	    Все три цепочки не содержат правил и имеют политику разрешения всех пакетов по
+	    умолчанию.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Запретим весь сетевой трафик как на вход, так и на выход
+	    командами <command>iptables -P INPUT DROP</command>, <command>iptables -P
+	    OUTPUT DROP</command>:
+	    <!-- FIXME: Проверить примеры -->
+	    <informalexample>
+	      <screen>[root@localhost ~]# iptables -P INPUT DROP
+[root@localhost ~]# iptables -P OUTPUT DROP
+[root@localhost ~]# iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Любой сетевой обмен (даже команда <command>ping 127.0.0.1</command>) будет
+	    запрещён:
+	    <informalexample>
+	      <screen>[root@localhost ~]# ping 127.0.0.1
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+ping: sendmsg: Operation not permitted
+ping: sendmsg: Operation not permitted</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Разрешим вход и выход всем пакетам, связанным с локальным интерфейсом
+	    (<systemitem class="resource">lo</systemitem>) с помощью команд:
+	    <command>iptables -A INPUT -i lo -j ACCEPT</command> и <command>iptables -A
+	      OUTPUT -o lo -j ACCEPT</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# iptables -A INPUT -i lo -j ACCEPT
+[root@localhost ~]# iptables -A OUTPUT -o lo -j ACCEPT
+[root@localhost ~]# ping 127.0.0.1
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.056 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.043 ms</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Разрешим вход и выход всем пакетам, относящимся к
+	    протоколу ICMP: 
+	    <command>iptables -A INPUT -p icmp -j ACCEPT</command> и <command>iptables -A
+	      OUTPUT -p icmp -j ACCEPT</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# iptables -A INPUT -p icmp -j ACCEPT
+[root@localhost ~]# iptables -A OUTPUT -p icmp -j ACCEPT</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Чтобы пропускать пакеты, относящиеся ко
+	    всем <emphasis>установленным</emphasis> соединениям, добавим два правила:
+	    <command>iptables -A INPUT -m state --state ESTABLISHED -j ACCEPT</command> и
+	    <command>iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT</command>
+	    <informalexample>
+	      <screen>[root@localhost ~]# iptables -A INPUT -m state --state ESTABLISHED -j ACCEPT
+[root@localhost ~]# iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Теперь осталось только разрешить входящие и исходящие соединения на
+	    определённые порты. Например, для исходящего доступа по
+	    протоколу HTTP выполним <command>iptables -A OUTPUT -m
+	    state --state NEW -p tcp --dport 80 -j ACCEPT</command>:
+	    <informalexample>
+	      <screen>[root@localhost ~]# iptables -A OUTPUT -m state --state NEW -p tcp --dport 80 -j ACCEPT</screen>
+	    </informalexample>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    В завершение можно очистить все заданные правила с помощью <command>iptables
+	      -F</command>, после чего посмотреть список правил командой <command>iptables -L</command>.
+	    <informalexample>
+	      <screen>[root@localhost ~]# iptables -F
+[root@localhost ~]# iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination</screen>
+	    </informalexample>
+	    Обратите внимание, что это не изменило политики по умолчанию.
+	  </para>
+	</listitem>
+      </orderedlist>
+      <practice id="pract-7-4">
+	Настройте локальный сетевой экран таким образом, чтобы из входящих соединений
+	пропускались только соединения по порту ssh (22).
+      </practice>
+    </scenario>
+    <list-of-practices/>
+  </sect1-scenario>
+</chapter>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

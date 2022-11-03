@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+	  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+
+	  <!ENTITY % CommonEntities PUBLIC
+		   "-//IU7 LUG//ENTITIES Common Documentation//RU"
+		   "common.ent">
+	  %CommonEntities;
+	  
+	  <!ENTITY BASEIMAGES "images/">
+
+]>
+<!--
+    Copyright (c) 2005-2006  Aleksey Fedoseev <aleksey@fedoseev.net>.
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.2
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in the section entitled "GNU
+    Free Documentation License"
+-->
+<book lang="ru">
+  <bookinfo>
+    <title>UNIX: учебный курс</title>
+    <author id="aleksey_fedoseev">
+      <firstname>Алексей</firstname>
+      <surname>Федосеев</surname>
+      <affiliation>
+	<address><email>aleksey@fedoseev.net</email></address>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2005</year>
+      <year>2006</year>
+      <holder><xref linkend="aleksey_fedoseev"/></holder>
+    </copyright>
+    <legalnotice>
+      Обращаю внимание читателей на то, что этот текст распространяется под свободной
+      лицензией GNU Free Documentation License (FDL).
+    </legalnotice>
+  </bookinfo>
+  <list-of-scenarios/>
+  <para>
+    В создании лекций принимали участие 
+    <author>
+      <firstname>Сергей</firstname>
+      <surname>Виноградов</surname>
+    </author> <email>work.serge@gmail.com</email>,
+    <author>
+      <firstname>Андрей</firstname>
+      <surname>Егерев</surname>
+    </author> <email>premudrij-peskar@yandex.ru</email> и 
+    <author>
+      <firstname>Кирилл</firstname>
+      <surname>Маслинский</surname>
+    </author> <email>kirill@altlinux.ru</email>
+  </para>
+  <para>
+    Эти лекции находятся в ещё достаточно сыром состоянии. Автор будет очень признателен
+    за все высказанные поправки и замечания. Пишите: <email>aleksey@fedoseev.net</email>.
+  </para>
+
+  <xi:include
+    href="about.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <xi:include
+    href="method.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <part id="part-lectures">
+    <title>Лекции</title>
+
+  <xi:include
+    href="intro.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <xi:include
+    href="using.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <xi:include
+    href="base-admin.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  </part>
+
+  <part id="part-practice">
+    <title>Практические занятия</title>
+
+  <xi:include
+    href="shell-pract.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <xi:include
+    href="security-pract.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  <xi:include
+    href="network-pract.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+<!--  <xi:include
+    href="applications.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/> -->
+
+  <xi:include
+    href="base-admin-pract.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  </part>
+
+  <part id="part-extras">
+    <title>Дополнительные материалы</title>
+
+  <xi:include
+    href="x-windows.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+  </part>
+
+  <part id="part-test">
+    <title>Материалы к зачёту</title>
+
+  <xi:include
+    href="final.xml"  
+    parse="xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
+<appendix>
+  <title>Список вопросов</title>
+  <list-of-all-questions/>
+</appendix>
+<appendix>
+  <title>Список заданий для самоподготовки</title>
+  <list-of-all-practices/>
+</appendix>
+<!-- TODO
+<appendix>
+  <title>Среда для практических занятий и самоподготовки</title>
+  <para>
+  </para>
+</appendix> -->
+
+
+  </part>
+
+</book>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
